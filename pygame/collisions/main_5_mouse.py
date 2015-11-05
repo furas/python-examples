@@ -17,7 +17,7 @@ GREY  = (128,128,128)
  
 class Player():
  
-    def __init__(self, name="A", x=0, y=0, width=150, height=150, keyboard=None, mouse=False):
+    def __init__(self, name="A", x=0, y=0, width=150, height=150, keyboard=None, mouse_button=False):
 
         self.name = name
         
@@ -54,7 +54,7 @@ class Player():
         self.text = "";
 
         self.keyboard = keyboard
-        self.mouse = mouse
+        self.mouse_button = mouse_button
         self.mouse_move = False
 
         
@@ -84,20 +84,19 @@ class Player():
                 elif event.key == self.keyboard['down']:
                     self.move_y -= self.speed_y
 
-        if self.mouse:
+        if self.mouse_button:
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if event.button == 1:
+                if event.button == self.mouse_button:
                     self.mouse_move = True
                     self.rect.center = event.pos
             elif event.type == pygame.MOUSEBUTTONUP:
-                if event.button == 1:
+                if event.button == self.mouse_button:
                     self.mouse_move = False
             elif event.type == pygame.MOUSEMOTION:
                 if self.mouse_move:
                     self.rect.center = event.pos
-                #~ self.rect.center = event.pos
                 
-        print event
+        #print event
 
                 
     def update(self):
@@ -178,7 +177,7 @@ class Player():
  
     def render_collision_info(self):
  
-        text = self.name + " corners: "
+        text = self.name + ": sides and corners: "
         #print "collision:",
  
         if self.collision[0] or self.collision[2] or self.collision[4]:
@@ -217,7 +216,7 @@ class Game():
         pygame.init()
  
         self.screen = pygame.display.set_mode( (800,600) )
-        pygame.display.set_caption("Collisions")
+        pygame.display.set_caption("PyGame Collisions")
         
         self.player = Player(
             name = "A",
@@ -227,7 +226,7 @@ class Game():
                 'up': pygame.K_UP,
                 'down': pygame.K_DOWN,
             },
-            mouse=True
+            mouse_button=1, # left button
         )
         
         self.enemy  = Player(
@@ -237,7 +236,8 @@ class Game():
                 'right': pygame.K_d,
                 'up': pygame.K_w,
                 'down': pygame.K_s,
-            }
+            },
+            mouse_button=3, # right button
         )
         
         self.enemy.set_center(self.screen)
@@ -252,16 +252,16 @@ class Game():
         text = 'figures: '
  
         if pygame.sprite.collide_rect(self.player, self.enemy):
-            text += 'rect'
+            text += 'white rect'
  
         if pygame.sprite.collide_rect_ratio(0.75)(self.player, self.enemy):
-            text += ', rect_ratio(0.75)'
+            text += ', blue rect (ratio:0.75)'
  
         if pygame.sprite.collide_rect_ratio(0.5)(self.player, self.enemy):
-            text += ', rect_ratio(0.50)'
+            text += ', green rect (ratio:0.50)'
  
         if pygame.sprite.collide_circle(self.player, self.enemy):
-            text += ', circle'
+            text += ', red circle'
  
         self.text = self.font.render(text, 1, WHITE)
  
