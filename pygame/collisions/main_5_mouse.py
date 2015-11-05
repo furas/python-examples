@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
 
+# First version for stackoverflow.com
 # http://stackoverflow.com/questions/20180594/pygame-collision-by-sides-of-sprite
 # https://pl.python.org/forum/index.php?topic=5727.msg24549#msg24549
 
@@ -55,9 +56,11 @@ class Player():
         self.keyboard = keyboard
         self.mouse = mouse
         self.mouse_move = False
+
         
     def set_center(self, screen):
         self.rect.center = screen.get_rect().center
+
  
     def event_handler(self, event):
         if self.keyboard:
@@ -95,6 +98,7 @@ class Player():
                 #~ self.rect.center = event.pos
                 
         print event
+
                 
     def update(self):
         # przesuwanie wszystkich kwadratow
@@ -102,6 +106,7 @@ class Player():
         self.rect.y += self.move_y
         self.rect_75.center = self.rect.center
         self.rect_50.center = self.rect.center
+
  
     def draw(self, screen):
  
@@ -130,6 +135,7 @@ class Player():
             pygame.draw.circle(screen, GREEN, pos, 5)
         else:
             pygame.draw.circle(screen, RED, pos, 5)
+
  
     def check_collision(self, sprite):
         # sprawdzanie kolizji punktow w pelnym kwadracie
