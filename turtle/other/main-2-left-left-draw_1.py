@@ -55,9 +55,10 @@ turtle.reset()
 turtle.speed(0)
 
 
-turn_right(300, 3, draw_1)
+
+turn_left(300, 3, draw_1)
 turtle.left(90)
-turn_right(300, 3, draw_1)
+turn_left(300, 3, draw_1)
 
 
 
