@@ -18,9 +18,11 @@ turtle.reset()
 turtle.speed(0) 
 
 
-draw_rectangle(100)
-draw_rectangle(200)
-draw_rectangle(300)
+draw_rectangle(10)
+draw_rectangle(20)
+draw_rectangle(40)
+draw_rectangle(80)
+draw_rectangle(160)
 
 
 # keep open window

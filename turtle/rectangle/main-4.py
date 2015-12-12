@@ -20,6 +20,7 @@ turtle.speed(0)
 
 for size in range(10, 300, 10):
     draw_rectangle(size)
+    turtle.right(15)
 
 
 # keep open window
