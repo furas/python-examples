@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
+# http://zetcode.com/gui/pyqt4/drawing/
 # https://pl.python.org/forum/index.php?topic=6010.msg25683#msg25683
+
 import sys
 from PyQt4 import QtGui, QtCore
 
