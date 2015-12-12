@@ -9,4 +9,4 @@
 
 # main-2-steps-10.py
 
-![#3](imgs/main-3-steps-10.png?raw=true)   
+![#3](imgs/main-2-steps-10.png?raw=true)   
