@@ -15,4 +15,10 @@
 
 ![#4](imgs/main-4.png?raw=true)   
 
+# main-5.py
 
+![#5](imgs/main-5.png?raw=true)   
+
+# main-6.py
+
+![#6](imgs/main-6.png?raw=true)   
