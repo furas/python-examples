@@ -1,4 +1,4 @@
-# mainclass.py
+# main_class.py
 
 Click on color rectangle to change color - cycle 3 colors.
 
