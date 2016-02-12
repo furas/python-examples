@@ -38,15 +38,17 @@ class Player(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
 
-        self.image = pygame.Surface((50,50))
+        self.image = pygame.Surface((BLOCK_SIZE, BLOCK_SIZE))
         self.image.fill(GREEN)
 
-        self.rect = img.get_rect()
+        self.rect = self.image.get_rect()
         self.rect.center = screen_rect.center
-        
+
         self.move_x = 0
         self.move_y = 0
         self.gravity = 1
+
+        self.jump = 0
 
     def draw(self, surface):
         surface.blit(self.image, self.rect)
@@ -56,7 +58,7 @@ class Player(pygame.sprite.Sprite):
         self.rect.y += self.move_y
         self.jump -= self.gravity
 
-    def handle_event(event):
+    def handle_event(self, event):
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
@@ -67,7 +69,7 @@ class Player(pygame.sprite.Sprite):
                 self.move_y -= 10
             elif event.key == pygame.K_DOWN:
                 self.move_y += 10
-            
+
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT:
                self.move_x += 10
@@ -78,15 +80,15 @@ class Player(pygame.sprite.Sprite):
             elif event.key == pygame.K_DOWN:
                 self.move_y -= 10
 '''
-    
+
 # === FUNCTIONS === (lower_case names)
 
     # empty
-    
+
 # === MAIN === (lower_case names)
 
 class App():
-    
+
     # --- (global) variables ---
 
         # empty
@@ -104,15 +106,15 @@ class App():
         self.is_running = False
 
         self.widgets = []
-        
+
         self.create_objects()
 
     def quit(self):
-        
+
         pygame.quit()
-        
+
     # --- objects ---
-    
+
     def create_objects(self):
 
         '''
@@ -123,9 +125,9 @@ class App():
         btn = Button(...)
         self.widgets.append(btn)
         '''
-        
+
     # --- functions ---
-    
+
     def handle_event(self, event)
 
         '''
@@ -136,7 +138,7 @@ class App():
         for widget in self.widgets:
             widget.handle_event(event)
         '''
-        
+
     def update(self, )
 
         '''
@@ -149,9 +151,9 @@ class App():
         '''
 
     def draw(self, surface)
-        
+
         #surface.fill(BLACK)
-        
+
         '''
         self.player.draw(surface)
         '''
@@ -160,9 +162,9 @@ class App():
         for widget in self.widgets:
             widget.draw(surface)
         '''
-        
-        #pygame.display.update()    
-    
+
+        #pygame.display.update()
+
     # --- mainloop --- (don't change it)
 
     def mainloop(self):
@@ -172,11 +174,11 @@ class App():
         while self.is_running:
 
             # --- events ---
-            
+
             for event in pygame.event.get():
 
                 # --- global events ---
-                
+
                 if event.type == pygame.QUIT:
                     self.is_running = False
                 elif event.type == pygame.KEYDOWN:
@@ -186,17 +188,17 @@ class App():
                 # --- objects events ---
 
                 self.handle_event(event)
-                
+
             # --- updates ---
 
             self.update()
-            
+
             # --- draws ---
-            
+
             self.screen.fill(BLACK)
 
             self.draw(self.screen)
-            
+
             pygame.display.update()
 
             # --- FPS ---

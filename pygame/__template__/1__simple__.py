@@ -40,12 +40,14 @@ class Player(pygame.sprite.Sprite):
         self.image = pygame.Surface((BLOCK_SIZE, BLOCK_SIZE))
         self.image.fill(GREEN)
 
-        self.rect = img.get_rect()
+        self.rect = self.image.get_rect()
         self.rect.center = screen_rect.center
-        
+
         self.move_x = 0
         self.move_y = 0
         self.gravity = 1
+
+        self.jump = 0
 
     def draw(self, surface):
         surface.blit(self.image, self.rect)
@@ -55,7 +57,7 @@ class Player(pygame.sprite.Sprite):
         self.rect.y += self.move_y
         self.jump -= self.gravity
 
-    def handle_event(event):
+    def handle_event(self, event):
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
@@ -66,7 +68,7 @@ class Player(pygame.sprite.Sprite):
                 self.move_y -= 10
             elif event.key == pygame.K_DOWN:
                 self.move_y += 10
-            
+
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT:
                self.move_x += 10
@@ -77,14 +79,14 @@ class Player(pygame.sprite.Sprite):
             elif event.key == pygame.K_DOWN:
                 self.move_y -= 10
 '''
-    
+
 # === FUNCTIONS === (lower_case names)
 
     # empty
-    
+
 # === MAIN === (lower_case names)
 
-# --- (global) variables --- 
+# --- (global) variables ---
 
 # --- init ---
 
@@ -107,11 +109,11 @@ is_running = True
 while is_running:
 
     # --- events ---
-    
+
     for event in pygame.event.get():
 
         # --- global events ---
-        
+
         if event.type == pygame.QUIT:
             is_running = False
         elif event.type == pygame.KEYDOWN:
@@ -123,21 +125,21 @@ while is_running:
         '''
         player.handle_event(event)
         '''
-        
+
     # --- updates ---
 
     '''
     player.update()
     '''
-    
+
     # --- draws ---
-    
+
     screen.fill(BLACK)
 
     '''
     player.draw(screen)
     '''
-    
+
     pygame.display.update()
 
     # --- FPS ---
@@ -145,5 +147,5 @@ while is_running:
     clock.tick(25)
 
 # --- the end ---
-    
+
 pygame.quit()
