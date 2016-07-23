@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<playlist version="1" xmlns="http://xspf.org/ns/0/">
+  <title>open.fm</title>
+  <trackList>
+
+    <track>
+      <album>#popularne</album>
+      <location>http://gr-relay-16.gaduradio.pl/10</location>
+    </track>
+    <track>
+      <album>00s Hits</album>
+      <location>http://gr-relay-16.gaduradio.pl/72</location>
+    </track>
+    <track>
+      <album>100% Dżem</album>
+      <location>http://gr-relay-16.gaduradio.pl/15</location>
+    </track>
+    <track>
+      <album>100% Grabaż</album>
+      <location>http://gr-relay-16.gaduradio.pl/73</location>
+    </track>
+    <track>
+      <album>100% Hits</album>
+      <location>http://gr-relay-16.gaduradio.pl/64</location>
+    </track>
+    <track>
+      <album>100% Justin Bieber</album>
+      <location>http://gr-relay-16.gaduradio.pl/63</location>
+    </track>
+    <track>
+      <album>100% Kazik</album>
+      <location>http://gr-relay-16.gaduradio.pl/35</location>
+    </track>
+    <track>
+      <album>100% Linkin Park</album>
+      <location>http://gr-relay-16.gaduradio.pl/42</location>
+    </track>
+    <track>
+      <album>100% Metallica</album>
+      <location>http://gr-relay-16.gaduradio.pl/62</location>
+    </track>
+    <track>
+      <album>100% O.S.T.R.</album>
+      <location>http://gr-relay-16.gaduradio.pl/47</location>
+    </track>
+    <track>
+      <album>100% One Direction</album>
+      <location>http://gr-relay-16.gaduradio.pl/80</location>
+    </track>
+    <track>
+      <album>500 Alternative Hits</album>
+      <location>http://gr-relay-16.gaduradio.pl/55</location>
+    </track>
+    <track>
+      <album>500 Electronic Hits</album>
+      <location>http://gr-relay-16.gaduradio.pl/94</location>
+    </track>
+    <track>
+      <album>500 Heavy Hits</album>
+      <location>http://gr-relay-16.gaduradio.pl/54</location>
+    </track>
+    <track>
+      <album>500 Hip-Hop Hits</album>
+      <location>http://gr-relay-16.gaduradio.pl/84</location>
+    </track>
+    <track>
+      <album>500 Największych Hitów</album>
+      <location>http://gr-relay-16.gaduradio.pl/11</location>
+    </track>
+    <track>
+      <album>500 Party Hits</album>
+      <location>http://gr-relay-16.gaduradio.pl/81</location>
+    </track>
+    <track>
+      <album>500 R'n'B Hits</album>
+      <location>http://gr-relay-16.gaduradio.pl/26</location>
+    </track>
+    <track>
+      <album>500 Reggae Hits</album>
+      <location>http://gr-relay-16.gaduradio.pl/30</location>
+    </track>
+    <track>
+      <album>500 Rock Hits</album>
+      <location>http://gr-relay-16.gaduradio.pl/82</location>
+    </track>
+    <track>
+      <album>80s Hits</album>
+      <location>http://gr-relay-16.gaduradio.pl/3</location>
+    </track>
+    <track>
+      <album>90s Hits</album>
+      <location>http://gr-relay-16.gaduradio.pl/14</location>
+    </track>
+    <track>
+      <album>ALT Cafe</album>
+      <location>http://gr-relay-16.gaduradio.pl/34</location>
+    </track>
+    <track>
+      <album>ALT Classic</album>
+      <location>http://gr-relay-16.gaduradio.pl/43</location>
+    </track>
+    <track>
+      <album>ALT Club</album>
+      <location>http://gr-relay-16.gaduradio.pl/9</location>
+    </track>
+    <track>
+      <album>ALT Freszzz</album>
+      <location>http://gr-relay-16.gaduradio.pl/6</location>
+    </track>
+    <track>
+      <album>ALT PL</album>
+      <location>http://gr-relay-16.gaduradio.pl/36</location>
+    </track>
+    <track>
+      <album>American Rock</album>
+      <location>http://gr-relay-16.gaduradio.pl/40</location>
+    </track>
+    <track>
+      <album>Ballady Wszech Czasów</album>
+      <location>http://gr-relay-16.gaduradio.pl/20</location>
+    </track>
+    <track>
+      <album>Bieganie</album>
+      <location>http://gr-relay-16.gaduradio.pl/116</location>
+    </track>
+    <track>
+      <album>Biesiada</album>
+      <location>http://gr-relay-16.gaduradio.pl/59</location>
+    </track>
+    <track>
+      <album>Biesiada Śląska</album>
+      <location>http://gr-relay-16.gaduradio.pl/66</location>
+    </track>
+    <track>
+      <album>Chillout</album>
+      <location>http://gr-relay-16.gaduradio.pl/33</location>
+    </track>
+    <track>
+      <album>Ciężkie Brzmienia</album>
+      <location>http://gr-relay-16.gaduradio.pl/13</location>
+    </track>
+    <track>
+      <album>Classic Hits</album>
+      <location>http://gr-relay-16.gaduradio.pl/46</location>
+    </track>
+    <track>
+      <album>Classic Metal</album>
+      <location>http://gr-relay-16.gaduradio.pl/108</location>
+    </track>
+    <track>
+      <album>Classic Party</album>
+      <location>http://gr-relay-16.gaduradio.pl/50</location>
+    </track>
+    <track>
+      <album>Classic Rock</album>
+      <location>http://gr-relay-16.gaduradio.pl/32</location>
+    </track>
+    <track>
+      <album>Cool</album>
+      <location>http://gr-relay-16.gaduradio.pl/123</location>
+    </track>
+    <track>
+      <album>Crema Cafe</album>
+      <location>http://gr-relay-16.gaduradio.pl/76</location>
+    </track>
+    <track>
+      <album>Dance</album>
+      <location>http://gr-relay-16.gaduradio.pl/31</location>
+    </track>
+    <track>
+      <album>Disco Polo</album>
+      <location>http://gr-relay-16.gaduradio.pl/21</location>
+    </track>
+    <track>
+      <album>Disco Polo Classic</album>
+      <location>http://gr-relay-16.gaduradio.pl/49</location>
+    </track>
+    <track>
+      <album>Disco Polo Freszzz</album>
+      <location>http://gr-relay-16.gaduradio.pl/57</location>
+    </track>
+    <track>
+      <album>Do Auta Club</album>
+      <location>http://gr-relay-16.gaduradio.pl/114</location>
+    </track>
+    <track>
+      <album>Do Auta Rock</album>
+      <location>http://gr-relay-16.gaduradio.pl/113</location>
+    </track>
+    <track>
+      <album>Dobranoc</album>
+      <location>http://gr-relay-16.gaduradio.pl/74</location>
+    </track>
+    <track>
+      <album>Drum'n'Bass</album>
+      <location>http://gr-relay-16.gaduradio.pl/41</location>
+    </track>
+    <track>
+      <album>Dubstep</album>
+      <location>http://gr-relay-16.gaduradio.pl/68</location>
+    </track>
+    <track>
+      <album>Dzień Dobry!</album>
+      <location>http://gr-relay-16.gaduradio.pl/69</location>
+    </track>
+    <track>
+      <album>Fitness</album>
+      <location>http://gr-relay-16.gaduradio.pl/65</location>
+    </track>
+    <track>
+      <album>Freszzz</album>
+      <location>http://gr-relay-16.gaduradio.pl/39</location>
+    </track>
+    <track>
+      <album>Fun!</album>
+      <location>http://gr-relay-16.gaduradio.pl/51</location>
+    </track>
+    <track>
+      <album>Giganci Rocka</album>
+      <location>http://gr-relay-16.gaduradio.pl/118</location>
+    </track>
+    <track>
+      <album>Gwiazdy</album>
+      <location>http://gr-relay-16.gaduradio.pl/58</location>
+    </track>
+    <track>
+      <album>Happy</album>
+      <location>http://gr-relay-16.gaduradio.pl/120</location>
+    </track>
+    <track>
+      <album>Hip-Hop Freszzz</album>
+      <location>http://gr-relay-16.gaduradio.pl/93</location>
+    </track>
+    <track>
+      <album>Hip-Hop Klasyk</album>
+      <location>http://gr-relay-16.gaduradio.pl/107</location>
+    </track>
+    <track>
+      <album>Hip-Hop PL</album>
+      <location>http://gr-relay-16.gaduradio.pl/24</location>
+    </track>
+    <track>
+      <album>Hip-Hop Stacja</album>
+      <location>http://gr-relay-16.gaduradio.pl/23</location>
+    </track>
+    <track>
+      <album>Hip-Hop Ulica</album>
+      <location>http://gr-relay-16.gaduradio.pl/92</location>
+    </track>
+    <track>
+      <album>Hot 20 - Najnowsze hity</album>
+      <location>http://gr-relay-16.gaduradio.pl/115</location>
+    </track>
+    <track>
+      <album>House</album>
+      <location>http://gr-relay-16.gaduradio.pl/5</location>
+    </track>
+    <track>
+      <album>Impreza</album>
+      <location>http://gr-relay-16.gaduradio.pl/2</location>
+    </track>
+    <track>
+      <album>Impreza PL</album>
+      <location>http://gr-relay-16.gaduradio.pl/12</location>
+    </track>
+    <track>
+      <album>Italo Disco</album>
+      <location>http://gr-relay-16.gaduradio.pl/27</location>
+    </track>
+    <track>
+      <album>Kids</album>
+      <location>http://gr-relay-16.gaduradio.pl/16</location>
+    </track>
+    <track>
+      <album>Klub 90</album>
+      <location>http://gr-relay-16.gaduradio.pl/8</location>
+    </track>
+    <track>
+      <album>Kraina Łagodności</album>
+      <location>http://gr-relay-16.gaduradio.pl/37</location>
+    </track>
+    <track>
+      <album>Latino</album>
+      <location>http://gr-relay-16.gaduradio.pl/19</location>
+    </track>
+    <track>
+      <album>Lejdis Cafe</album>
+      <location>http://gr-relay-16.gaduradio.pl/48</location>
+    </track>
+    <track>
+      <album>Lejdis Party</album>
+      <location>http://gr-relay-16.gaduradio.pl/102</location>
+    </track>
+    <track>
+      <album>Love</album>
+      <location>http://gr-relay-16.gaduradio.pl/121</location>
+    </track>
+    <track>
+      <album>Miejska Stacja</album>
+      <location>http://gr-relay-16.gaduradio.pl/106</location>
+    </track>
+    <track>
+      <album>Muzyka Filmowa</album>
+      <location>http://gr-relay-16.gaduradio.pl/38</location>
+    </track>
+    <track>
+      <album>Muzyka Klasyczna</album>
+      <location>http://gr-relay-16.gaduradio.pl/67</location>
+    </track>
+    <track>
+      <album>Nauka</album>
+      <location>http://gr-relay-16.gaduradio.pl/117</location>
+    </track>
+    <track>
+      <album>Odgłosy Natury</album>
+      <location>http://gr-relay-16.gaduradio.pl/52</location>
+    </track>
+    <track>
+      <album>Po Polsku</album>
+      <location>http://gr-relay-16.gaduradio.pl/1</location>
+    </track>
+    <track>
+      <album>Po Polsku Classic</album>
+      <location>http://gr-relay-16.gaduradio.pl/79</location>
+    </track>
+    <track>
+      <album>Po Polsku Classic 2</album>
+      <location>http://gr-relay-16.gaduradio.pl/17</location>
+    </track>
+    <track>
+      <album>Polish Reggae Stylee</album>
+      <location>http://gr-relay-16.gaduradio.pl/22</location>
+    </track>
+    <track>
+      <album>Polski Rock</album>
+      <location>http://gr-relay-16.gaduradio.pl/29</location>
+    </track>
+    <track>
+      <album>Polski Rock Classic</album>
+      <location>http://gr-relay-16.gaduradio.pl/45</location>
+    </track>
+    <track>
+      <album>Polskie Hity</album>
+      <location>http://gr-relay-16.gaduradio.pl/111</location>
+    </track>
+    <track>
+      <album>Praca</album>
+      <location>http://gr-relay-16.gaduradio.pl/109</location>
+    </track>
+    <track>
+      <album>Praca Rock</album>
+      <location>http://gr-relay-16.gaduradio.pl/104</location>
+    </track>
+    <track>
+      <album>Punk Rock</album>
+      <location>http://gr-relay-16.gaduradio.pl/78</location>
+    </track>
+    <track>
+      <album>Relaks</album>
+      <location>http://gr-relay-16.gaduradio.pl/112</location>
+    </track>
+    <track>
+      <album>Retro Cafe</album>
+      <location>http://gr-relay-16.gaduradio.pl/25</location>
+    </track>
+    <track>
+      <album>Rock Ballady</album>
+      <location>http://gr-relay-16.gaduradio.pl/61</location>
+    </track>
+    <track>
+      <album>Rocks</album>
+      <location>http://gr-relay-16.gaduradio.pl/77</location>
+    </track>
+    <track>
+      <album>Sad</album>
+      <location>http://gr-relay-16.gaduradio.pl/103</location>
+    </track>
+    <track>
+      <album>Sexy</album>
+      <location>http://gr-relay-16.gaduradio.pl/18</location>
+    </track>
+    <track>
+      <album>Smooth Jazz</album>
+      <location>http://gr-relay-16.gaduradio.pl/60</location>
+    </track>
+    <track>
+      <album>Szanty</album>
+      <location>http://gr-relay-16.gaduradio.pl/28</location>
+    </track>
+    <track>
+      <album>Top 20 Alt</album>
+      <location>http://gr-relay-16.gaduradio.pl/83</location>
+    </track>
+    <track>
+      <album>Top 20 Disco Polo</album>
+      <location>http://gr-relay-16.gaduradio.pl/53</location>
+    </track>
+    <track>
+      <album>Top 20 Hip-Hop</album>
+      <location>http://gr-relay-16.gaduradio.pl/98</location>
+    </track>
+    <track>
+      <album>Top 20 Impreza</album>
+      <location>http://gr-relay-16.gaduradio.pl/95</location>
+    </track>
+    <track>
+      <album>Top 20 PL</album>
+      <location>http://gr-relay-16.gaduradio.pl/97</location>
+    </track>
+    <track>
+      <album>Top 20 Pop</album>
+      <location>http://gr-relay-16.gaduradio.pl/96</location>
+    </track>
+    <track>
+      <album>Top 20 Prince</album>
+      <location>http://gr-relay-16.gaduradio.pl/122</location>
+    </track>
+    <track>
+      <album>Top 20 Rock</album>
+      <location>http://gr-relay-16.gaduradio.pl/99</location>
+    </track>
+    <track>
+      <album>Top 2015 Hits</album>
+      <location>http://gr-relay-16.gaduradio.pl/44</location>
+    </track>
+    <track>
+      <album>Top 40 UK</album>
+      <location>http://gr-relay-16.gaduradio.pl/70</location>
+    </track>
+    <track>
+      <album>Top 40 USA</album>
+      <location>http://gr-relay-16.gaduradio.pl/105</location>
+    </track>
+    <track>
+      <album>Trance</album>
+      <location>http://gr-relay-16.gaduradio.pl/7</location>
+    </track>
+    <track>
+      <album>Trening</album>
+      <location>http://gr-relay-16.gaduradio.pl/101</location>
+    </track>
+    <track>
+      <album>We Dwoje</album>
+      <location>http://gr-relay-16.gaduradio.pl/4</location>
+    </track>
+    <track>
+      <album>Wesele</album>
+      <location>http://gr-relay-16.gaduradio.pl/110</location>
+    </track>
+    <track>
+      <album>Wiosna</album>
+      <location>http://gr-relay-16.gaduradio.pl/85</location>
+    </track>
+  </trackList>
+</playlist>
