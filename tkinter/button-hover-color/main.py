@@ -17,7 +17,10 @@ button1.pack()
 
 # none hover color
 button2 = tk.Button(root, text='None hover color')
-button2.config(activebackground=button2.cget('background'))
+
+system_bg = button2.cget('background')
+button2.config(activebackground=system_bg)
+
 button2.pack()
 
 # activebackground='SystemButtonFace' doesn't work on Linux
