@@ -1,6 +1,0 @@
-#Plik konfiguracyjny
-#Akwizycja danych z kamery IP 
-#Podaj date poczatku nagrywania w formacie RRRR.MM.DD GG.MM
-2015.02.07 02.18.00
-#Podaj date konca nagrywania
-2015.02.07 02.19.00

@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from __future__ import print_function
 import cv2
 import time
@@ -5,37 +7,32 @@ import os
 
 # ---------------------------------------------------------------------
 
-# read config data 
-with open("config.txt") as conf:
-    lines = [line.rstrip() for line in conf]
-    time_start_recording = lines[3]
-    time_stop_recording = lines[5]
- 
-# ---------------------------------------------------------------------
-
-# window name
-windowname = time.strftime("%Y.%m.%d  %H.%M.%S", time.localtime())
-
 # keys 
 KEY_R = ord('r') # start recording
 KEY_S = ord('s') # stop recording
 KEY_Q = ord('q') # quit
+KEY_ESC = 27     # quit 
 
-font = cv2.FONT_HERSHEY_PLAIN
+# font
+FONT = cv2.FONT_HERSHEY_PLAIN
+
+# video file size
+VIDEO_FILE_SIZE = 10 * 1024 * 1024 # split to 10 MB files
+
+# ---------------------------------------------------------------------
 
 # states
 running = True 
 recording = False
-init_recording = False
+create_new_file = True
 
-# other 
-video_file_size_end = 1048576 * 200 # split to 50 MB files
-fout = 0
+# window name
+window_name = time.strftime("%Y.%m.%d  %H.%M.%S", time.localtime())
 
 # ---------------------------------------------------------------------
 
-# VideoCapture constructor
-vcap = cv2.VideoCapture(0) # camera
+# create VideoCapture
+vcap = cv2.VideoCapture(0) # 0=camera
  
 # check if video capturing has been initialized already
 if not vcap.isOpened(): 
@@ -49,6 +46,7 @@ else:
     height = int(vcap.get(cv2.cv.CV_CAP_PROP_FRAME_HEIGHT))
     #fps = float(vcap.get(cv2.cv.CV_CAP_PROP_FPS))
     fps = 15.0 # use different value to get slowmotion or fastmotion effect
+    
     print('VCAP width :', width)
     print('VCAP height:', height)
     print('VCAP fps   :', fps)
@@ -59,12 +57,12 @@ while running:
  
     # write the next video frame
     if recording:
-        if init_recording:
+        if create_new_file:
             # VideoWriter constructors
             filename = time.strftime("%Y.%m.%d  %H.%M.%S", time.localtime()) + ".avi"
             fourcc =  cv2.cv.CV_FOURCC('I','4','2','0')
             fout = cv2.VideoWriter(filename, fourcc, fps, (width, height))
-            init_recording = False
+            create_new_file = False
  
             # check if video writer has been successfully initialized
             if not fout.isOpened():
@@ -78,37 +76,42 @@ while running:
             fout.write(frame)
  
         # check file size
-        if os.path.getsize(filename) >= video_file_size_end:
+        if os.path.getsize(filename) >= VIDEO_FILE_SIZE:
             fout.release() # close current file
-            init_recording = True # init recording new file
+            create_new_file = True # time to create new file in next loop
  
         # add REC to frame
-        cv2.putText(frame, "REC", (40,40), font, 3 , (0,0,255), 2)
+        cv2.putText(frame, "REC", (40,40), FONT, 3 , (0,0,255), 2)
         cv2.circle(frame, (20,20), 10 , (0,0,255), -1)
+
+    # displays an image in the specified window (without menu)
+    #cv2.imshow(window_name, frame)         
  
     # add instruction to frame
-    cv2.putText(frame,"R - START RECORDING",(width - 200,20), font, 1 ,(255,255,255))
-    cv2.putText(frame,"S - STOP RECORDING",(width - 200,40), font, 1 ,(255,255,255))
-    cv2.putText(frame,"Q - QUIT",(width - 200,60), font, 1 ,(255,255,255))
+    cv2.putText(frame,"R - START RECORDING",(width - 200,20), FONT, 1 ,(255,255,255))
+    cv2.putText(frame,"S - STOP RECORDING",(width - 200,40), FONT, 1 ,(255,255,255))
+    cv2.putText(frame,"Q - QUIT",(width - 200,60), FONT, 1 ,(255,255,255))
+    cv2.putText(frame,"ESC - QUIT",(width - 200,80), FONT, 1 ,(255,255,255))
  
-    # displays an image in the specified window
-    cv2.namedWindow(windowname)
-    cv2.imshow(windowname, frame)         
+    # displays an image in the specified window (with menu)
+    #cv2.namedWindow(window_name)
+    cv2.imshow(window_name+' (with menu)', frame)         
  
     # get key (get only lower 8-bits to work with chars)
     key = cv2.waitKey(1) & 0xFF
-    
+
     # check what to do
     if key == KEY_R and not recording:
         print("START RECORDING")
         recording = True
-        init_recording = True
+        create_new_file = True
     elif key == KEY_S and recording:
         print("STOP RECORDING")
         recording = False
-        init_recording = False
+        create_new_file = False
         fout.release()
-    elif key == KEY_Q:
+    #elif key in (KEY_Q, KEY_ESC):
+    elif key == KEY_Q or key == KEY_ESC:
         print("EXIT")
         running = False
  
