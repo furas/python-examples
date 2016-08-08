@@ -7,7 +7,7 @@ import cv2
 
 class WebcamPanel(wx.Window): # wx.Panel, wx.Control
     
-    def __init__(self, parent, camera, fps=10, flip=False):
+    def __init__(self, parent, camera, fps=15, flip=False):
         wx.Window.__init__(self, parent)
 
         # remember arguments
@@ -24,7 +24,7 @@ class WebcamPanel(wx.Window): # wx.Panel, wx.Control
         #self.SetMinSize( (width, height) )
         
         # resize main window
-        #self.GetParent().GetParent().SetSize( (width, height+37) ) # wymaga poprawki aby nie trzeba bylo dawac +37
+        self.GetParent().GetParent().SetSize( (width, height+37) ) # wymaga poprawki aby nie trzeba bylo dawac +37
         #self.GetGrandParent().SetSize( (width, height+25) )
         #self.GetTopLevelParent().SetSize( (width, height+25) ) # wrong parent
         
@@ -90,7 +90,6 @@ class MainWindow(wx.Frame):
         
     def OnButton(self, event):
         print("TODO: save image in file")
-
         
 #----------------------------------------------------------------------
 
