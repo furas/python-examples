@@ -11,6 +11,7 @@ from datetime import datetime
 
 def timer():
     txt.set(datetime.now().strftime('%Y.%m.%d  %H:%M:%S'))
+
     # run timer again after 1000ms (1s)
     root.after(1000, timer)
 
@@ -22,9 +23,11 @@ root.title('Time')
 txt = tk.StringVar()
 tk.Label(root, textvariable=txt).pack()
 
+
 # run timer first time
 timer()
-# or timer first time after 1000ms (1s)
+# or run timer first time after 1000ms (1s)
 # root.after(1000, timer)
+
 
 root.mainloop()
