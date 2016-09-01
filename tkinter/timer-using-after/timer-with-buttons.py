@@ -7,7 +7,24 @@ except:
     
 from datetime import datetime
 
+# --- constants ---
+
+    # empty
+
+# --- classes ---
+
+    # empty
+    
 # --- function ---
+
+def run():
+    current_time = datetime.now()
+    diff = current_time - start_time
+    txt_var.set('%d.%02d' % (diff.seconds, diff.microseconds//10000))
+    
+    # run timer again after 100ms (0.1s) if not stoped
+    if running:
+        root.after(20, run)
 
 def start():
     global running
@@ -24,22 +41,14 @@ def stop():
 
     running = False
     
-def run():
-    current_time = datetime.now()
-    diff = current_time - start_time
-    txt.set('%d.%02d' % (diff.seconds, diff.microseconds//10000))
-    
-    # run timer after 100ms (0.1s)
-    if running:
-        root.after(20, run)
-
 def reset():
     global start_time
 
-    if running:
-        start_time = datetime.now()
+    start_time = datetime.now()
+    if not running:
+        txt_var.set('0.00')
 
-# --- vars ---
+# --- (global) vars ---
 
 running = False
 start_time = None
@@ -49,11 +58,13 @@ start_time = None
 root = tk.Tk()
 root.title('Timer')
 
-txt = tk.StringVar()
-tk.Label(root, textvariable=txt).pack()
+txt_var = tk.StringVar()
+txt_var.set('0.00')
+tk.Label(root, textvariable=txt_var).pack()
 
 tk.Button(root, text='Start', command=start).pack(fill='x')
-tk.Button(root, text='Stop', command=stop).pack(fill='x')
+tk.Button(root, text='Stop',  command=stop ).pack(fill='x')
 tk.Button(root, text='Reset', command=reset).pack(fill='x')
-    
+
+# start the engine :)    
 root.mainloop()

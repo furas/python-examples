@@ -10,6 +10,10 @@ import tkinter as tk
 from tkinter import filedialog
 from tkinter import messagebox
 
+# --- constants ---
+
+    # empty
+    
 # --- classes ---
 
 class Notepad(tk.Tk):
@@ -78,7 +82,10 @@ class Notepad(tk.Tk):
     def about_command(self):
         messagebox.showinfo("About", "Text Editor Version 1.0.0 \nCopyright 2016 \nCreator : Abhishek Singh")
 
+# --- functions ---
+
+    # empty
+    
 # --- main ---
 
-Notepad().run()
-# Notepad().mainloop()
+Notepad().run() # or Notepad().mainloop()
