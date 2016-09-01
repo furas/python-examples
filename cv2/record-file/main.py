@@ -1,5 +1,11 @@
 #!/usr/bin/env python
 
+# http://docs.opencv.org/3.0-beta/doc/py_tutorials/py_gui/py_video_display/py_video_display.html#saving-a-video
+# FFMPEG FOURCC tags: http://ffmpeg.org/doxygen/trunk/isom_8c-source.html
+# FOURCC codecs: http://www.fourcc.org/codecs.php
+# $ ffmpeg --codecs
+# http://www.ftyps.com/
+
 from __future__ import print_function
 import cv2
 import time
@@ -46,6 +52,7 @@ else:
     height = int(vcap.get(cv2.cv.CV_CAP_PROP_FRAME_HEIGHT))
     #fps = float(vcap.get(cv2.cv.CV_CAP_PROP_FPS))
     fps = 15.0 # use different value to get slowmotion or fastmotion effect
+    fps = 30.0 # use different value to get slowmotion or fastmotion effect
     
     print('VCAP width :', width)
     print('VCAP height:', height)
@@ -59,8 +66,20 @@ while running:
     if recording:
         if create_new_file:
             # VideoWriter constructors
+            #.mp4 = codec id 2
             filename = time.strftime("%Y.%m.%d  %H.%M.%S", time.localtime()) + ".avi"
-            fourcc =  cv2.cv.CV_FOURCC('I','4','2','0')
+
+            #fourcc = cv2.cv.CV_FOURCC(*'I420') # .avi
+            #fourcc = cv2.cv.CV_FOURCC(*'MP4V') # .avi
+            fourcc = cv2.cv.CV_FOURCC(*'MP42') # .avi
+            #fourcc = cv2.cv.CV_FOURCC(*'AVC1') # error libx264
+            #fourcc = cv2.cv.CV_FOURCC(*'H264') # error libx264
+            #fourcc = cv2.cv.CV_FOURCC(*'WRAW') # error --- no information ---
+            #fourcc = cv2.cv.CV_FOURCC(*'MPEG') # .avi 30fps
+            #fourcc = cv2.cv.CV_FOURCC(*'MJPG') # .avi
+            #fourcc = cv2.cv.CV_FOURCC(*'XVID') # .avi
+            #fourcc = cv2.cv.CV_FOURCC(*'H265') # error 
+            
             fout = cv2.VideoWriter(filename, fourcc, fps, (width, height))
             create_new_file = False
  
