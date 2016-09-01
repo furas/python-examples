@@ -37,19 +37,19 @@ class Clock(tk.Tk):
 
         tk.Label(self, textvariable=self.txt_var).pack()
 
-    def update_time(self):
+    def update(self):
         # update displayed time
         current_time = datetime.now()
         current_time_str = current_time.strftime('%Y.%m.%d  %H:%M:%S')
         # current_time_str = datetime.now().strftime('%Y.%m.%d  %H:%M:%S')
         self.txt_var.set(current_time_str)
         
-        # run update_time again after 1000ms (1s)
-        self.after(1000, self.update_time)
+        # rupdate again after 1000ms (1s)
+        self.after(1000, self.update)
 
     def run(self):
-        # run update_time first time
-        self.update_time()
+        # update first time
+        self.update()
         
         # start the engine :)
         self.mainloop()

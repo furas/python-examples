@@ -37,7 +37,7 @@ class Clock(tk.Frame):
 
         tk.Label(self, textvariable=self.txt_var).pack()
 
-    def update_time(self):
+    def update(self):
         # update displayed time
         current_time = datetime.now()
         current_time += self.offset_minutes
@@ -45,8 +45,10 @@ class Clock(tk.Frame):
         # current_time_str = datetime.now().strftime('%Y.%m.%d  %H:%M:%S')
         self.txt_var.set(current_time_str)
         
-        # run update_time again after 1000ms (1s)
-        self.after(1000, self.update_time)
+        # update again after 1000ms (1s)
+        self.after(1000, self.update)
+
+# ---
 
 class App(tk.Tk):
 
@@ -54,23 +56,27 @@ class App(tk.Tk):
         tk.Tk.__init__(self)
         self.title('World Times')
         
-        tk.Label(self, text="Local:").grid(row=0, column=0, sticky=tk.E)
-        tk.Label(self, text="+120min.:").grid(row=1, column=0, sticky=tk.E)
+        tk.Label(self, text="-120min.:").grid(row=0, column=0, sticky=tk.E)
+        tk.Label(self, text="Local:").grid(row=1, column=0, sticky=tk.E)
+        tk.Label(self, text="+120min.:").grid(row=2, column=0, sticky=tk.E)
         
-        self.clock_1 = Clock(self)
+        self.clock_1 = Clock(self, -120)
         self.clock_1.grid(row=0, column=1)
         
-        self.clock_2 = Clock(self, 120)
+        self.clock_2 = Clock(self)
         self.clock_2.grid(row=1, column=1)
 
+        self.clock_3 = Clock(self, 120)
+        self.clock_3.grid(row=2, column=1)
+
     def run(self):
-        # run update_time first time
-        self.clock_1.update_time()
-        self.clock_2.update_time()
+        # update first time
+        self.clock_1.update()
+        self.clock_2.update()
+        self.clock_3.update()
         
         # start the engine :)
         self.mainloop()
-
         
 # --- functions ---
 
