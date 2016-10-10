@@ -1,10 +1,12 @@
 Examples use different streams.
 
+- local file, 
+- local (build-in) camera, 
+- remote stream (http, rstp).
+
 ## example-main.py
 
-Base example. 
-
-Display different streams - local file, local camera, remote stream (http, rstp).
+Base example. Display different streams.
 
 ## example-grey.py
 
