@@ -41,7 +41,6 @@ class Button():
         self.image_hovered.fill(RED)
 
         self.image = self.image_normal
-        
         self.rect = self.image.get_rect()
 
         font = pygame.font.Font('freesansbold.ttf', 15)
@@ -61,9 +60,9 @@ class Button():
     def update(self):
 
         if self.hovered:
-            self.image = self.image_normal
-        else:
             self.image = self.image_hovered
+        else:
+            self.image = self.image_normal
         
     def draw(self, surface):
 
