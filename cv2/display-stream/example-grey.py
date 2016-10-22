@@ -1,9 +1,3 @@
-    #!/usr/bin/env python
-    
-    #
-    # rtsp streams: http://wiki.multimedia.cx/index.php?title=RTSP
-    #
-    
 #!/usr/bin/env python
 
 #
