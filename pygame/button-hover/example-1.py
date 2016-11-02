@@ -30,10 +30,11 @@ SCREEN_HEIGHT = 400
 
 class Button():
 
-    def __init__(self, text, x=0, y=0, width=100, height=50):
+    def __init__(self, text, x=0, y=0, width=100, height=50, command=None):
 
         self.text = text
-
+        self.command = command
+        
         self.image_normal = pygame.Surface((width, height))
         self.image_normal.fill(GREEN)
 
@@ -75,6 +76,8 @@ class Button():
         elif event.type == pygame.MOUSEBUTTONDOWN:
             if self.hovered:
                 print('Clicked:', self.text)
+                if self.command:
+                    self.command()
                 
 
 # === FUNCTIONS === (lower_case names)
