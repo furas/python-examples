@@ -12,7 +12,7 @@ Content-Type: text/html; charset=utf-8
 
 <head>
     <meta charset="utf-8"/>
-    <title>PHP 2</title>
+    <title>PHP #2</title>
     <style>
         body {background-color:#ddd; text-align: center}
     </style>      
@@ -20,7 +20,7 @@ Content-Type: text/html; charset=utf-8
 
 <body>
     
-    <h1>PHP 2</h1>
+    <h1>PHP #2</h1>
 
     <h2>1 + 2 = <?php echo $result; ?></h2>
     

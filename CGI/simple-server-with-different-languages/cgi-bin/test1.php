@@ -12,7 +12,7 @@ $result = 1 + 2;
 
 <head>
     <meta charset="utf-8"/>
-    <title>PHP</title>
+    <title>PHP #1</title>
     <style>
         body {background-color:#ddd; text-align: center}
     </style>    
@@ -20,7 +20,7 @@ $result = 1 + 2;
 
 <body>
     
-    <h1>PHP 1</h1>
+    <h1>PHP #1</h1>
 
     <h2>1 + 2 = <?php echo $result; ?></h2>
     

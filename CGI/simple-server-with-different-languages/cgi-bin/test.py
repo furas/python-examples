@@ -13,7 +13,7 @@ print('''<!DOCTYPE html>
 
 <head>
     <meta charset="utf-8"/>
-    <title>Python</title>
+    <title>Python 3</title>
     <style>
         body {{background-color:#ddd; text-align: center}}
     </style>
@@ -21,7 +21,7 @@ print('''<!DOCTYPE html>
 
 <body>
 
-    <h1>PYTHON</h1>
+    <h1>PYTHON 3</h1>
 
     <h2>1 + 2 = {}</h2>
     
