@@ -7,10 +7,13 @@
     <title>Index</title>
     <style>
         body {background-color:#ddd; text-align: center}
+        table {margin: auto}
+        td {background: white; padding: 7px 15px; text-align: left}
     </style>
 </head>
 
 <body>
+    
     <h2>Normal images</h2>
 
     <img src="/images/normal.png"></br>
@@ -32,22 +35,42 @@
 
     <h2>Different languages</h2>
 
-    <a href="/cgi-bin/test.sh">Bash (/cgi-bin/test.sh)</a><br/>
-    <br/>
-    <a href="/cgi-bin/test">C (/cgi-bin/test)</a><br/>
-    (/src/test.c, /src/makefile)<br/>
-    <br/>
-    <a href="/cgi-bin/test.pl">Perl (/cgi-bin/test.pl)</a><br/>
-    <br/>
-    <a href="/cgi-bin/test1.php">PHP #1(/cgi-bin/test1.php)</a><br/>
-    <br/>
-    <a href="/cgi-bin/test2.php">PHP #2(/cgi-bin/test2.php)</a><br/>
-    <br/>
-    <a href="/cgi-bin/test.py">Python 3 (/cgi-bin/test.py)</a><br/>
-    <br/>
-    <a href="/cgi-bin/test.rb">Ruby (/cgi-bin/test.rb)</a><br/>
-    <br/>
-
+    <table>
+        <tr>
+            <td>Bash / Sh</td>
+            <td><a href="/cgi-bin/tests/test.sh">/cgi-bin/tests/test.sh</a></td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>C</td>
+            <td><a href="/cgi-bin/tests/test">/cgi-bin/tests/test</a></td>
+            <td>(/src/test.c, /src/makefile)</td>
+        </tr>
+        <tr>
+            <td>Perl</td>
+            <td><a href="/cgi-bin/tests/test.pl">/cgi-bin/tests/test.pl</a></td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>PHP #1<br/>PHP #2</td>
+            <td>
+                <a href="/cgi-bin/tests/test1.php">/cgi-bin/tests/test1.php</a><br/>
+                <a href="/cgi-bin/tests/test2.php">/cgi-bin/tests/test2.php</a>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>Python 3</td>
+            <td><a href="/cgi-bin/tests/test.py">/cgi-bin/tests/test.py</a></td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>Ruby</td>
+            <td><a href="/cgi-bin/tests/test.rb">/cgi-bin/tests/test.rb</a></td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+    
 </body>
 
 </html>
