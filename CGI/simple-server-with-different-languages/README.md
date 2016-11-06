@@ -1,4 +1,4 @@
-# Simple CGI Server
+# Simple CGI Server - with CGI scripts in different languages.
 
 
 Structure:
