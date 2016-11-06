@@ -30,7 +30,7 @@ Normally you can start simple HTML server using
 
     python3 -m http.server 8000
 
-and connect to them on address `http://localhost:8000`.
+and connect on address `http://localhost:8000`.
 
 It will serve all files in current folder and subolfers but it will not execute scripts - it will send source code for scripts.
 
@@ -38,7 +38,18 @@ To start CGI Server you can add `--cgi`
 
     python3 -m http.server --cgi 8000
 
-Now it will execute scripts in `cgi-bin` folder. On Linux you have to set `execution attribute` for this scripts (ie. `chmod +x script.py`) and you have to use `shebang` in first line of script (ie. `#!/usr/bin/env python3`) because Linux doesn't care of file extension (ie, `.py`) and it uses path in `shebang` to run this script. It can even run script without extension (ie. `script`) or with incorrect extension (ie. `script.png`).
+Now it will execute scripts in `cgi-bin` folder.
+
+On Linux you have to
+
+- set `execution attribute` for this scripts (ie. `chmod +x script.py`)
+- use `shebang` in first line of script (ie. `#!/usr/bin/env python3`)
+
+because Linux doesn't care of file extension (ie, `.py`) and it uses path in `shebang` to run this script. It can even run script without extension (ie. `script`) or with incorrect extension (ie. `script.png`).
+
+In example is Python script with extension `.png` - see `/cgi-bin/image.png`
+
+CGI server can run scripts in different languages
 
     +-----------+--------------------------+----------------------------+------------------------+
     | LANG      | FILE                     | OTHER                      | SHEBANG                |

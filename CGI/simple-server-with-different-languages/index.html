@@ -6,36 +6,62 @@
     <meta charset="utf-8"/>
     <title>Index</title>
     <style>
-        body {background-color:#ddd; text-align: center}
+        html, body {background-color: #ddd; text-align: center; margin: 0; padding: 0}
+        h2 {background-color: #fff; border-bottom: solid 1px red; padding: 7px;}
+        h2#first {margin-top: 0}
         table {margin: auto}
-        td {background: white; padding: 7px 15px; text-align: left}
+        td {padding: 0 20px}
+        table#lang td {background: white; padding: 7px 15px; text-align: left}
     </style>
 </head>
 
 <body>
     
-    <h2>Normal images</h2>
+    <h2 id="first">Normal images</h2>
 
-    <img src="/images/normal.png"></br>
-    <a href="/images/normal.png">/images/normal.png</a><br/>
-    <br>
-    <img src="/images/transparent.png"><br/>
-    <a href="/images/transparent.png">/images/transparent.png</a><br/>
-    <br/>
+    <table>
+        <tr>
+            <td>
+                <a href="/images/normal.png">
+                    <img src="/images/normal.png"><br/>
+                    /images/normal.png
+                </a>
+            </td>
+            <td>
+                <a href="/images/transparent.png">
+                    <img src="/images/transparent.png"><br/>
+                    /images/transparent.png
+                </a>
+            </td>
+        </tr>
+    </table>
     
     <h2>Script images</h2>
 
-    <img src="/cgi-bin/image.py"><br/>
-    <a href="/cgi-bin/image.py">/cgi-bin/image.py</a><br/>
-    <br/>
-    <img src="/cgi-bin/image.png"><br/>
-    <a href="/cgi-bin/image.png">/cgi-bin/image.png</a><br/>
-    (python script with extension .png)<br/>
-    <br/>
+    <table>
+        <tr>
+            <td>
+                <a href="/cgi-bin/image.py">
+                    <img src="/cgi-bin/image.py"><br/>
+                    /cgi-bin/image.py
+                </a>
+            </td>
+            <td>
+                <a href="/cgi-bin/image.png">
+                    <img src="/cgi-bin/image.png"><br/>
+                    /cgi-bin/image.png<br/>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><br/>python script<br/>with extension .png</td>
+        </tr>
+    </table>
 
     <h2>Different languages</h2>
 
-    <table>
+    <table id="lang">
         <tr>
             <td>Bash / Sh</td>
             <td><a href="/cgi-bin/tests/test.sh">/cgi-bin/tests/test.sh</a></td>
@@ -44,7 +70,7 @@
         <tr>
             <td>C</td>
             <td><a href="/cgi-bin/tests/test">/cgi-bin/tests/test</a></td>
-            <td>(/src/test.c, /src/makefile)</td>
+            <td>/src/test.c, /src/makefile</td>
         </tr>
         <tr>
             <td>Perl</td>
