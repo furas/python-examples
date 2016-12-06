@@ -36,10 +36,15 @@ FONT = cv2.FONT_HERSHEY_PLAIN
 
 # ---------------------------------------------------------------------
 
-button = Button('QUIT', 0, 0, 100, 30)
 # states
 running = True 
 
+# ---------------------------------------------------------------------
+
+# create button instance
+button = Button('QUIT', 0, 0, 100, 30)
+
+# assign mouse click to method in button instance
 cv2.setMouseCallback("x", button.handle_event)
 
 # ---------------------------------------------------------------------
@@ -78,6 +83,7 @@ while running:
         # add instruction to frame
         cv2.putText(frame,"ESC - QUIT",(width - 200,20), FONT, 1 ,(255,255,255))
 
+        # add button to frame
         button.draw(frame)
         
         # displays frame
