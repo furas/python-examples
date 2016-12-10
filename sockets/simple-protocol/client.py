@@ -4,30 +4,47 @@ import struct
 import socket
 import sys
 
-address = ('localhost', 8000)
+# - constants -
 
+HOST = ''   # (external/local) address IP of remote server
+PORT = 8000 # (external/local) port of remote server
+ 
 try:
+    # - create socket -
+    
     #s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s = socket.socket() # default: socket.AF_INET, socket.SOCK_STREAM
-    s.connect(address)
 
+    # - connect to server -
+    
+    s.connect((HOST, PORT)) # one tuple (HOST, PORT), not two arguments
+
+    # - send data -
+    
     text = 'Hello World'
     print('[DEBUG] text:', text)
 
-    # convert unicode to bytes
+    # convert text to bytes
+    
     data = text.encode('utf-8')
     print('[DEBUG] data:', data)
 
-    # send length as 4 bytes
-    x = len(data)
-    print('[DEBUG] x:', x)
+    # get data length
     
-    length = struct.pack('!i', x)
-    print('[DEBUG] length:', length)
+    lengt = len(data)
+    print('[DEBUG] lengt:', lengt)
+
+    # convert `length` int to 4 bytes
+    
+    length = struct.pack('!i', lengt)
+    print('[DEBUG] length as 4 bytes:', length)
+
+    # send `length` as 4 bytes
 
     s.send(length)
 
-    # send data
+    # send data as bytes
+    
     s.send(data)
     
 except Exception as ex:
