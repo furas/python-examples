@@ -1,10 +1,8 @@
+#!/usr/bin/env python3
+
 #
 # https://docs.python.org/3.5/library/socket.html
 #
- 
-# --- SERVER ---
- 
-#!/usr/bin/env python3
  
 import socket
 import time
@@ -18,6 +16,8 @@ HOST = ''   # local address IP (not external address IP)
             # 'local_IP' - connection only on one NIC which has this IP
             
 PORT = 8000 # local port (not external port)
+
+SIZE = 10
 
 # - create socket -
 
@@ -55,17 +55,33 @@ try:
     conn, addr = s.accept()
     print('[DEBUG] addr:', addr)
 
-    # - recevier/send data -
+    # - receive/send data -
 
     # if client first `send()` and next `recv()`
     # then server have to first `recv`() and next `send()`
     #
     # if both will `recv()` at the same time then all will hang
     # because both will wait for data and nobody will `send()`
-   
-    print(conn.recv(1024).encode('utf-8')) # decode bytes to string
 
-    conn.send('World'.decode('utf-8'))     # encode string to bytes
+
+    # receiving longer data using small buffer
+
+    data = b'' # empty byte 
+
+    while True:
+        part = conn.recv(SIZE)
+        print('[TEST] part:', part)
+        data += part
+
+        if len(part) < SIZE:
+            break
+           
+    print(data.decode('utf-8')) # decode bytes to string
+
+    # sending data
+    
+    data = 'Goodbye World of Sockets in Python'
+    conn.send(data.encode('utf-8'))     # encode string to bytes
 
 except Exception as e:
     print(e)
