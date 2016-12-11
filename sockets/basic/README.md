@@ -6,10 +6,26 @@ Basic version which sends and receives short message.
 
 It uses `while True` to receive long message using small buffer.
 
+    SIZE = 10
+    
+    data = b'' # empty byte 
+
+    while True:
+        chain = s.recv(SIZE)
+        print('[TEST] chain:', chain)
+        data += chain
+
+        if len(chain) < SIZE:
+            break
+
+    text = data.decode('utf-8') # decode bytes to string
+
+    print(text)
+
 # Version #3
 
 See: ../simple-protocol
 
 It first sends message's length as `int` converted to `4-bytes`. 
 
-     length_bytes = struct.pack('!i', length_int)
+    length_bytes = struct.pack('!i', length_int)

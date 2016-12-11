@@ -3,10 +3,10 @@
 #
 # https://docs.python.org/3.5/library/socket.html
 #
- 
+
 import socket
- 
-# - constants -
+
+# --- constants ---
 
 HOST = ''    # (local or external) address IP of remote server
 PORT = 8000  # (local or external) port of remote server
@@ -15,41 +15,60 @@ PORT = 8000  # (local or external) port of remote server
 # or external address IP - used in internet on external router
 # (and router redirects data to internal address IP)
 
-SIZE = 10    # size of received parts of message
+SIZE = 10    # buffer size
 
-# - create socket -
- 
+# --- create socket ---
+
+print('[DEBUG] create socket')
+
 #s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s = socket.socket() # default value is (socket.AF_INET, socket.SOCK_STREAM) so you don't have to use it
+s = socket.socket() # default value is (socket.AF_INET, socket.SOCK_STREAM)
+                    # so you don't have to use it
 
-# - connect to server - 
+# --- connect to server ---
+
+print('[DEBUG] connect:', (HOST, PORT))
 
 s.connect((HOST, PORT)) # one tuple (HOST, PORT), not two arguments
 
-# - send/receive data -
+# --- send data ---
 
-# sending data
-   
+# if you don't use native characters
+# then you can use 'ascii' instead of 'utf-8'
+
+print('[DEBUG] send')
+
 text = "Hello World of Sockets in Python"
 data = text.encode('utf-8') # encode string to bytes
 s.send(data)
 
-# receiving longer data using small buffer
+print(text)
 
-data = b'' # empty byte 
+# --- receive data ---
+
+# if you don't use native characters
+# then you can use 'ascii' instead of 'utf-8'
+
+# receiving long data using small buffer
+
+print('[DEBUG] receive (buffer size: %i)' % SIZE)
+
+data = b'' # empty byte
 
 while True:
-    part = s.recv(SIZE)
-    print('[TEST] part:', part)
-    data += part
+    chain = s.recv(SIZE)
+    print('[TEST] chain:', chain)
+    data += chain
 
-    if len(part) < SIZE:
+    if len(chain) < SIZE:
         break
 
 text = data.decode('utf-8') # decode bytes to string
 
 print(text)
 
-# - close socket -
- 
+# --- close socket ---
+
+print('[DEBUG] close socket')
+
 s.close()
