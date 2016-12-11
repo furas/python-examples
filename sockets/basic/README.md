@@ -24,7 +24,7 @@ It uses `while True` to receive long message using small buffer.
 
 # Version #3
 
-See: ../simple-protocol
+See: [Simple Protocol](../simple-protocol)
 
 It first sends message's length as `int` converted to `4-bytes`. 
 
