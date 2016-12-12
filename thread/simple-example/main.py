@@ -1,31 +1,53 @@
 #!/usr/bin/env python3
 
-from threading import Thread
+#
+# https://docs.python.org/3/library/threading.html
+#
+
+import threading
 import time
 
-# -----
+# --- classes ---
 
-def my_function(name, counter):
+class ExampleThread(threading.Thread):
+
+    def __init__(self, name, counter=10, sleep=0.5):
+        threading.Thread.__init__(self)
+        self.name = name
+        self.counter = counter
+        self.sleep = sleep
+        
+    def run(self):
+        for x in range(self.counter):
+            print(self.name, x)
+            time.sleep(self.sleep)
+
+# --- functions ---
+
+def example_function(name, counter=10, sleep=0.5):
     for x in range(counter):
         print(name, x)
-        time.sleep(0.5)
+        time.sleep(sleep)
 
-# -----
 
-class MyThread(Thread):
-    
-    def run(self):
-        my_function("Hello", 10)
-        
-# -----
+# --- example 1 ---
 
-thread = MyThread()
-thread.start()
+# `args` have to be tuple.
+# for one argument you need `args=("function:",)`
 
-# -----
+t1 = threading.Thread(target=example_function, args=("function:", 15))
+t1.start()
 
-# args have to be tuple so for one argument `args=(10,)`
+# --- example 2 ---
 
-thread = Thread( target=my_function, args=("World", 10) )
-thread.start()
+t2 = ExampleThread("class:", 10, 1.0)
+t2.start()
+
+# --- example 2 ---
+
+# start thread after 3 seconds
+
+t3 = threading.Timer(3, example_function, args=("** timer **:", 2, 3.0))
+t3.start()
+
 
