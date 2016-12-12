@@ -29,3 +29,12 @@ See: [Simple Protocol](../simple-protocol)
 It first sends message's length as `int` converted to `4-bytes`. 
 
     length_bytes = struct.pack('!i', length_int)
+
+# Version #3
+
+Using threads to handle many clients at the same time
+
+Python: [threading](https://docs.python.org/3/library/threading.html)
+
+Other examples: [Thread][../thread]
+
