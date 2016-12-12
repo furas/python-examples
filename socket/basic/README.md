@@ -36,5 +36,5 @@ It uses threads to handle many clients at the same time.
 
 Python doc: [threading](https://docs.python.org/3/library/threading.html)
 
-Other examples: [Thread](../thread)
+Other examples: [Thread](../../thread)
 
