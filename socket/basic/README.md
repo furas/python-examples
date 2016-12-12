@@ -1,6 +1,6 @@
 # Version #1
 
-Basic version which sends and receives short message.
+It is basic version which sends and receives one short message.
 
 # Version #2 
 
@@ -30,11 +30,11 @@ It first sends message's length as `int` converted to `4-bytes`.
 
     length_bytes = struct.pack('!i', length_int)
 
-# Version #3
+# Version #4
 
-Using threads to handle many clients at the same time
+It uses threads to handle many clients at the same time.
 
-Python: [threading](https://docs.python.org/3/library/threading.html)
+Python doc: [threading](https://docs.python.org/3/library/threading.html)
 
-Other examples: [Thread][../thread]
+Other examples: [Thread](../thread)
 
