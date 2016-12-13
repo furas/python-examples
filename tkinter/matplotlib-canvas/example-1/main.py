@@ -41,9 +41,10 @@ bottom.pack()
 # create figure
 fig = matplotlib.pyplot.Figure()
 
-# create matplotlib canvas using `fig` and assign to window `top`
+# create matplotlib canvas using `fig` and assign to widget `top`
 canvas = FigureCanvasTkAgg(fig, top)
-# get canvas as tkinter widget and put in window
+
+# get canvas as tkinter widget and put in widget `top`
 canvas.get_tk_widget().pack()
                
 # create toolbar               
