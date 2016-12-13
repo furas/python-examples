@@ -2,41 +2,42 @@
 
 import pygame
 
-# ---------------------------------------------------------------------
+# --- constants ---
 
-BLACK = (  0,  0,  0)
-WHITE = (255,255,255)
+BLACK = (  0,   0,   0)
+WHITE = (255, 255, 255)
 
-WIDTH = 300
+WIDTH  = 300
 HEIGHT = 200
 
-# ---------------------------------------------------------------------
+# --- main ---
 
-# --- init ---
+# - init -
 
 pygame.init()
+
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 screen_rect = screen.get_rect()
 
-# --- images/frames ---
+# - frames/frames -
 
 spritesheet = pygame.image.load('spritesheet008.jpg')
 
-images = []
-images.append( spritesheet.subsurface(pygame.Rect(  0,75,127,56)) )
-images.append( spritesheet.subsurface(pygame.Rect(127,75,127,56)) )
-images.append( spritesheet.subsurface(pygame.Rect(254,75,127,56)) )
-images.append( spritesheet.subsurface(pygame.Rect(381,75,127,56)) )
-images.append( spritesheet.subsurface(pygame.Rect(  0,206,127,56)) )
-images.append( spritesheet.subsurface(pygame.Rect(127,206,127,56)) )
+frames = []
+frames.append(spritesheet.subsurface(pygame.Rect(  0,  75, 127, 56)))
+frames.append(spritesheet.subsurface(pygame.Rect(127,  75, 127, 56)))
+frames.append(spritesheet.subsurface(pygame.Rect(254,  75, 127, 56)))
+frames.append(spritesheet.subsurface(pygame.Rect(381,  75, 127, 56)))
+frames.append(spritesheet.subsurface(pygame.Rect(  0, 206, 127, 56)))
+frames.append(spritesheet.subsurface(pygame.Rect(127, 206, 127, 56)))
 
-frames_number = len(images)
+frames_number = len(frames)
 current_frame = 0
 
-frame_rect = images[0].get_rect(center=screen_rect.center)
+frame_rect = frames[0].get_rect(center=screen_rect.center)
 move = 0
 
-# --- mainloop ---
+# - mainloop -
 
 fps = pygame.time.Clock()
 
@@ -44,11 +45,11 @@ running = True
 
 while running:
 
-    # --- events ---
+    # - events -
     
     for event in pygame.event.get():
 
-        # --- global events ---
+        # - global events -
         
         if event.type == pygame.QUIT:
             running = False
@@ -56,7 +57,7 @@ while running:
             if event.key == pygame.K_ESCAPE:
                 running = False
 
-        # --- player events ---
+        # - player events -
         
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_RIGHT:
@@ -69,22 +70,22 @@ while running:
             elif event.key == pygame.K_LEFT:
                 move += 1
                 
-    # --- updates ---
+    # - updates -
 
     current_frame = (current_frame + move) % frames_number
     frame_rect.x = (frame_rect.x + move*5) % WIDTH
     
-    # --- draws ---
+    # - draws -
 
     screen.fill(WHITE)
     
-    screen.blit(images[current_frame], frame_rect)
+    screen.blit(frames[current_frame], frame_rect)
 
     pygame.display.flip()
 
     fps.tick(10)
     
-# --- the end ---
+# - the end -
 
 pygame.quit()   
 
