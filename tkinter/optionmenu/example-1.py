@@ -2,7 +2,7 @@ import tkinter as tk
 
 # --- functions ---
 
-def on_change_selection(value):
+def on_select(value):
     print('   value:', value)
     print('selected:', selected.get())
 
@@ -19,7 +19,7 @@ selected = tk.StringVar(value=options[0])
 #selected = tk.StringVar()
 #selected.set(options[0])
 
-op = tk.OptionMenu(root, selected, *options, command=on_change_selection)
+op = tk.OptionMenu(root, selected, *options, command=on_select)
 op.pack()
 
 # ---
