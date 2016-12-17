@@ -22,4 +22,6 @@ print(t.get('2.0', '3.0-1c'))
 print(t.get('2.0', '2.0 lineend'))
 print(t.get('2.0', '2.end'))
 
+print('end:', int(t.index('end-1c').split('.')[0]))
+
 root.mainloop()
