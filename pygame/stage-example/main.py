@@ -206,25 +206,40 @@ class StartScreen(Stage):
 
     def __init__(self, screen, config):
         Stage.__init__(self, screen, config)
+        
+        self.font = pygame.font.Font(None, 40)
+        self.text = self.font.render("START SCREEN: Press ESC", True, BLACK)
+        self.text_rect = self.text.get_rect(center=self.screen_rect.center)
 
     def draw(self, surface):
         surface.fill(RED)
+        surface.blit(self.text, self.text_rect)
         
 class EndScreen(Stage):
 
     def __init__(self, screen, config):
         Stage.__init__(self, screen, config)
+        
+        self.font = pygame.font.Font(None, 40)
+        self.text = self.font.render("END SCREEN: Press ESC", True, BLACK)
+        self.text_rect = self.text.get_rect(center=self.screen_rect.center)
 
     def draw(self, surface):
         surface.fill(GREEN)
+        surface.blit(self.text, self.text_rect)
         
 class Game(Stage):
 
     def __init__(self, screen, config):
         Stage.__init__(self, screen, config)
+        
+        self.font = pygame.font.Font(None, 40)
+        self.text = self.font.render("GAME: Press ESC", True, BLACK)
+        self.text_rect = self.text.get_rect(center=self.screen_rect.center)
 
     def draw(self, surface):
         surface.fill(BLUE)
+        surface.blit(self.text, self.text_rect)
         
 # === MAIN === (lower_case names)
 
@@ -252,4 +267,4 @@ class App():
 
 if __name__ == '__main__':
 
-    App()#.run()
+    App() #.run()
