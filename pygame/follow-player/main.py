@@ -158,7 +158,7 @@ while is_running:
 
     # --- FPS ---
 
-    clock.tick(PFS)
+    clock.tick(FPS)
 
 # --- the end ---
     
