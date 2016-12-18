@@ -150,9 +150,10 @@ while is_running:
     
     screen.fill(BLACK)
 
-    player.draw(screen)
     monster1.draw(screen)
     monster2.draw(screen)
+
+    player.draw(screen)
     
     pygame.display.update()
 
