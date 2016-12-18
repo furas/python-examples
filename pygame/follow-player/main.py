@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
 
-#
-# pygame (functions) template - by furas
-#
-
 # ---------------------------------------------------------------------
 
 __author__  = 'Bartlomiej "furas" Burek'
@@ -26,7 +22,7 @@ BLUE  = (  0,   0, 255)
 SCREEN_WIDTH  = 600
 SCREEN_HEIGHT = 400
 
-BLOCK_SIZE = 50
+FPS = 30
 
 # === CLASSES === (CamelCase names)
 
@@ -43,37 +39,37 @@ class Player(pygame.sprite.Sprite):
         
         self.move_x = 0
         self.move_y = 0
-        self.gravity = 1
 
+        self.speed = 10
+        
     def draw(self, surface):
         surface.blit(self.image, self.rect)
 
     def update(self):
         self.rect.x += self.move_x
         self.rect.y += self.move_y
-        #self.jump -= self.gravity
 
     def handle_event(self, event):
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
-                self.move_x -= 10
+                self.move_x -= self.speed
             elif event.key == pygame.K_RIGHT:
-                self.move_x += 10
+                self.move_x += self.speed
             elif event.key == pygame.K_UP:
-                self.move_y -= 10
+                self.move_y -= self.speed
             elif event.key == pygame.K_DOWN:
-                self.move_y += 10
+                self.move_y += self.speed
             
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT:
-               self.move_x += 10
+                self.move_x += self.speed
             elif event.key == pygame.K_RIGHT:
-                self.move_x -= 10
+                self.move_x -= self.speed
             elif event.key == pygame.K_UP:
-                self.move_y += 10
+                self.move_y += self.speed
             elif event.key == pygame.K_DOWN:
-                self.move_y -= 10
+                self.move_y -= self.speed
     
 class Moster(pygame.sprite.Sprite):
 
@@ -86,10 +82,6 @@ class Moster(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.center = screen_rect.center
         
-        self.move_x = 0
-        self.move_y = 0
-        self.gravity = 1
-
         self.speed = speed
         
     def draw(self, surface):
@@ -166,7 +158,7 @@ while is_running:
 
     # --- FPS ---
 
-    clock.tick(25)
+    clock.tick(PFS)
 
 # --- the end ---
     
