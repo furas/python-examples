@@ -2,6 +2,8 @@
 
 import tkinter as tk
 
+# --- functions ---
+
 def on_change(event=None):
     if event:
         print('--- bind ---')
@@ -15,6 +17,7 @@ def on_change(event=None):
         print('widget:', sb)
         print(' value:', sb.get())
         
+# --- main ---
 
 root =tk.Tk()
 
@@ -23,6 +26,5 @@ sb.pack()
 sb.bind('<Return>', on_change)
 sb.bind('<Key>', on_change)
 #sb.bind('<<Change>>', on_change) # doesn't work
-
 
 root.mainloop()

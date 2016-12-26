@@ -3,6 +3,8 @@
 
    [mpi4py documentation](https://pythonhosted.org/mpi4py/usrman/tutorial.html)
 
+    http://pythonhosted.org/mpi4py/
+
 # Running (on Linux)
 
     $ mpiexec -n 5 python script.py
@@ -21,3 +23,13 @@ There is also older version 1.3.1 in Linux repository which doesn't need compila
 
     apt install python-mpi4py
     apt install python3-mpi4py
+
+
+---
+
+Other packages with `mpi.h`: [Ubuntu packages]([http://packages.ubuntu.com/search?searchon=contents&keywords=mpi.h&mode=exactfilename&suite=lucid&arch=any)
+
+---
+
+- [MPICH](http://www.mpich.org/)
+- [MPI tutorial](http://mpitutorial.com/)
