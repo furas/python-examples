@@ -1,20 +1,18 @@
 
-![#1](screenshots/image-1.png?raw=true)
+## Key names
 
-# Key names
+- [54.5. Key names](http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/key-names.html) (NMT)
+- [keysyms - keysyms recognized by Tk](http://www.tcl.tk/man/tcl8.6/TkCmd/keysyms.htm) (tcl/tk)
 
-http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/key-names.html
-
-http://www.tcl.tk/man/tcl8.4/TkCmd/keysyms.htm
-
-# Events
+## Events
 
 - [54.6. Writing your handler: The Event class](http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/event-handlers.html) (NMT)
-- [54.3. Event types](http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/event-types.html)
-
+- [54.3. Event types](http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/event-types.html) (NMT)
 - [How to bind Ctrl+/ in python tkinter?](http://stackoverflow.com/a/16082411/1832058) (SO)
 
 ---
 
-- NMT = [New Mexico Tech](http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/index.html)
-- Effbot - [An Introduction to Tkinter](http://effbot.org/tkinterbook/tkinter-index.htm)
+- NMT = [New Mexico Tech - Tkinter 8.5 reference: a GUI for Python](http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/index.html)
+- Effbot = [effbot.org - An Introduction to Tkinter](http://effbot.org/tkinterbook/tkinter-index.htm)
+- SO = [StackOverflow](http://StackOverflow.com)
+- tcl/tk = [www.tcl.tk - Tcl8.6.6/Tk8.6.6 Documentation](http://www.tcl.tk/man/tcl8.6/contents.htm)
