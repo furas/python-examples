@@ -29,6 +29,15 @@ import tkinter as tk
 # --- common ---
 #from PIL import Image, ImageTk
 
+'''
+--- ttk ---
+old: Button, Checkbutton, Entry, Frame, Label, LabelFrame, Menubutton,
+     PanedWindow, Radiobutton, Scale, Scrollbar
+
+new: Combobox, Notebook, Progressbar, Separator, Sizegrip, Treeview
+     All of these classes are subclasses of Widget
+'''
+
 # --- functions ---
 
 def callback():
@@ -47,3 +56,5 @@ b = tk.Button(root, text="Exit", command=root.destroy)
 b.pack()
 
 root.mainloop()
+
+
