@@ -4,34 +4,43 @@ import tkinter as tk
 
 # --- functions ---
 
+def on_press(event, text):
+    print('  press:', text)
+    #print('  event:', event)
+    #print(' widget:', event.widget)
+    print('   char:', event.char)
+    print('   char:', event.code)
+
+def on_release(event, text):
+    print('release:', text)
+    #print('  event:', event)
+    #print(' widget:', event.widget)
+    print('   char:', event.char)
+    print('   char:', event.code)
+
 def on_return(event):
-    print('press  : return', event.widget.get())
-    #print('e.get():', e.get())
+    on_press(event, 'return')
 
 def on_return_release(event):
-    print('release: return', event.widget.get())
-    #print('e.get():', e.get())
+    on_release(event, 'return')
 
 def on_key(event):
-    print('press  : any key', event.widget.get())
+    on_press(event, 'any key')
 
 def on_key_release(event):
-    print('release: any key', event.widget.get())
+    on_release(event, 'any key')
 
 def on_ctrl_a(event):
-    print('on Ctrl+a (press)  :', event.widget.get())
+    on_press(event, 'Ctrl+a')
 
 def on_ctrl_a_release(event):
-    print('on Ctrl+a (release):', event.widget.get())
+    on_release(event, 'Ctrl+a')
 
 def on_combo_1(event):
-    print('on Combo 1:', event.widget.get())
+    on_press(event, 'Combo 1')
 
-def on_press(event, text)
-    print('press :', text) #, event.widget.get())
-
-def on_release(event, text)
-    print('releas:', text) #, event.widget.get())
+def on_combo_2(event):
+    on_press(event, 'Combo 2')
 
 # --- main ---
 
@@ -64,7 +73,7 @@ e.bind('<Control-KeyRelease-a>', on_ctrl_a_release)
 e.bind('<Control-Key>a', on_combo_1)
 
 # keys combination - you can press one after another
-e.bind('<space>a', on_combo_1)
+e.bind('<space>a', on_combo_2)
 
 root.mainloop()
 
