@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 # --- Python 3 ---
+# https://docs.python.org/3/library/tkinter.html#tkinter-modules
 import tkinter as tk
 #from tkinter import ttk
 
@@ -13,6 +14,7 @@ import tkinter as tk
 #import tkinter.simpledialog as tksimpledialog
 
 # --- Python 2 ---
+# https://docs.python.org/2/library/tkinter.html#tkinter-modules
 #import Tkinter as tk
 #import ttk
 
