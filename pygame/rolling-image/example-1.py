@@ -74,7 +74,7 @@ while is_running:
 
     offset += 1
 
-    if offset > w:
+    if offset >= w:
         offset = 0
 
     # --- draws ---
