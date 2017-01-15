@@ -61,7 +61,7 @@ cb_vars = []
 for option in OPTIONS:
     var = tk.BooleanVar(value=False)
     cb_vars.append(var)
-    tk.Checkbutton(root, text=option, variable=var).pack()
+    tk.Checkbutton(root, text=option, variable=var, command=on_button).pack()
 
 # - Button -
 
