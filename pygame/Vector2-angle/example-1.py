@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 '''
-angle between line from A to B and horizontal line
+angle between "line from A to B" and "horizontal line"
 '''
 
 import math
