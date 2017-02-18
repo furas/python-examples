@@ -8,9 +8,9 @@
 
 # Other
 
-- [TkDocs - Tutorial](http://www.tkdocs.com/tutorial/)
-- [TutorialsPoint - Python GUI Programming (Tkinter)](http://www.tutorialspoint.com/python/python_gui_programming.htm)
-- [Zetcode -Tkinter tutorial](http://zetcode.com/gui/tkinter/)
+- [TkDocs --- Tutorial](http://www.tkdocs.com/tutorial/)
+- [TutorialsPoint --- Python GUI Programming (Tkinter)](http://www.tutorialspoint.com/python/python_gui_programming.htm)
+- [Zetcode ---Tkinter tutorial](http://zetcode.com/gui/tkinter/)
 
 ---
 
