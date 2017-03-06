@@ -19,20 +19,21 @@ def find(screenshot):
                 found[y] = dict()
             found[y][x] = digit
 
-    # create numbers 
+    # recreate values 
 
     result = []
     
     for row in sorted(found):
         cols = sorted(found[row])
-        number = ''.join(str(found[row][col]) for col in cols)
-        result.append(number)
+        value = ''.join(str(found[row][col]) for col in cols)
+        result.append(value)
         
     return result
 
 if __name__ == '__main__':
+    
     #img = pyautogui.screenshot(region=(0, 0, 300, 400))
-    img = 'screenshot.png'
+    img = 'screenshot-example.png'
 
     result = find(img)
     
