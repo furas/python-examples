@@ -6,7 +6,7 @@ And then it groups digits by "y" coordinate and later group by "x" coordinate to
 
 Example screenshot for test:
 
-![#2](screenshot.png?raw=true)   
+![#2](screenshot-example.png?raw=true)   
 
 ---
 
