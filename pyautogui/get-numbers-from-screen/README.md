@@ -2,9 +2,9 @@ It finds digits on screenshot (or screen) using images of digits (Monospace Regu
 
 ![#1](digits/digits.png?raw=true)   
 
-And then it group digits by "y" coordinate and later group by "x" coordinate to (re)create numbers.
+And then it groups digits by "y" coordinate and later group by "x" coordinate to (re)create numbers.
 
-Example for test:
+Example screenshot for test:
 
 ![#2](screenshot.png?raw=true)   
 
