@@ -21,7 +21,7 @@ It finds "Power"
 
 # Example 2
 
-It finds "Power", "Lofts", and "Name"
+It finds "Power", "Loots", and "Name"
 
 ![#1](images/example-2.png?raw=true)
 
