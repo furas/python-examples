@@ -30,3 +30,7 @@ It finds "Name", "Power" and "Loots" on screenshots from game but it could be us
     Loot #1: 642
     Loot #2: 2686
     Loot #3: 737
+
+---
+
+You can download any subfolder using [DownGit](https://minhaskamal.github.io/DownGit/)
