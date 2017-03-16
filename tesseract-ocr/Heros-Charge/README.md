@@ -21,7 +21,7 @@ It finds "Power"
 
 # Example 2
 
-It finds "Power", "Loots", and "Name"
+It finds "Name", "Power" and "Loots" on screenshots from game but it could be used with PyAutoGUI `screenshot()`.
 
 ![#1](images/example-2.png?raw=true)
 
