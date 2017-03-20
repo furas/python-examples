@@ -17,11 +17,11 @@ Links:
 
 # Example 1
 
-It finds "Power"
+It finds "Power" 
 
 # Example 2
 
-It finds "Name", "Power" and "Loots" on screenshots from game but it could be used with PyAutoGUI `screenshot()`.
+It finds "Name", "Power" and "Loots" on screenshots from game but it can be used with PyAutoGUI `screenshot()`.
 
 ![#1](images/example-2.png?raw=true)
 
@@ -31,6 +31,16 @@ It finds "Name", "Power" and "Loots" on screenshots from game but it could be us
     Loot #2: 2686
     Loot #3: 737
 
+# Example 3
+
+Sometimes tesseract has problem with single digit or some text. But you can try to use option `-psm` to resolve problem.
+
+    $ tesseract -psm 6 image.jpg result.txt
+    
+Example shows how to use this option in Python with images which can't recognize without `-psm`.
+
+    result = pytesseract.image_to_string(img, config='-psm 6')
+    
 ---
 
 You can download any subfolder using [DownGit](https://minhaskamal.github.io/DownGit/)
