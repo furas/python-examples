@@ -1,7 +1,7 @@
 
-Code uses API without `{YOUR_CLIENT_ID}:{YOUR_CLIENT_SECRET}`. Request requires `'Referer'` header.
+Code uses API without `{YOUR_CLIENT_ID}:{YOUR_CLIENT_SECRET}`. Request requires `'Referer'` header to work correctly.
 
-Default query: `python`
+Script asks for query. If you press Enter then it uses default query `python`.
 
 Example: `bot`
 
