@@ -24,6 +24,8 @@ while True:
     
     for course in data['courses']:
         '''
+        print(course.keys())
+        
         dict_keys(['id', 'price', 'image_240x135', 'num_reviews', 
         'instructional_level', 'content_info', 'bestseller_badge_content', 
         '_class', 'image_304x171', 'discount_price', 'relevancy_score', 
