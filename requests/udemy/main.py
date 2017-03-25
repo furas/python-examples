@@ -7,6 +7,14 @@ query = input('Query [python]: ').strip()
 if not query:
     query = 'python' 
 
+only_free = input('Only free [Y/n]: ').strip()
+
+only_free = (only_free.lower() != 'n')
+
+if not only_free:
+    max_price = input('Max price [100]: ').strip()
+    max_price = int(max_price)
+    
 headers = {
     #'User-Agent': 'Mozilla/5.0', 
     'Referer': 'https://www.udemy.com/courses/search/?src=sac&q=' + query.replace(' ', '%20')
@@ -34,7 +42,13 @@ while True:
         'num_published_lectures', 'url', 'title', 'predictive_score', 
         'avg_rating', 'image_480x270'])
         '''
-        print('({:>5s})'.format(course['price']), course['title'])
+        if only_free:
+            if course['price'] == 'Free':
+                print('({:>5s})'.format(course['price']), course['title'])
+        else:
+            if course['price'] == 'Free' or int(course['price'][:-1]) <= max_price:
+                print('({:>5s})'.format(course['price']), course['title'])
+                
 
     if 'next' not in data['pagination']:
         break
