@@ -12,7 +12,7 @@ def on_change():
 root = tk.Tk()
 
 #var = tk.BooleanVar(value=False)
-var = tk.BooleanVar()
+var = tk.BooleanVar() # give True/False, StringVar/IntVar will give 1/0
 
 #tk.Checkbutton(root, text='OK', variable=var, command=on_change).pack()
 cb = tk.Checkbutton(root, text='Check it', variable=var, command=on_change)
