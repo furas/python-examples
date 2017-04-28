@@ -6,9 +6,11 @@ It displays all versions of module
 
 __author__ = 'Bartłomiej "furas" Burek'
 
+
 import sys
 from pip.basecommand import Command
 from pip.index import PackageFinder
+
 
 class AllVersionsCommand(Command):
 
@@ -23,7 +25,7 @@ class AllVersionsCommand(Command):
         
         finder = PackageFinder(
             find_links=[],
-            index_urls=["https://pypi.python.org/simple/"],
+            index_urls=['https://pypi.python.org/simple/'],
             session=session,
         )
        
@@ -33,6 +35,11 @@ class AllVersionsCommand(Command):
         versions = sorted(set(c.version for c in candidates))
         
         print('\n'.join(map(str, versions)))
+
  
 if __name__ == '__main__': 
-    AllVersionsCommand().run(sys.argv[1])
+
+    if len(sys.argv) > 1:
+        AllVersionsCommand().run(sys.argv[1])
+    else:
+        print('package name required')
