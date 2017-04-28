@@ -5,7 +5,7 @@ import tkinter as tk
 # --- functions ---
 
 def on_button():
-    print('OK:', var.get())
+    print('Check it:', var.get())
 
 # --- main ---
 
@@ -15,7 +15,7 @@ root = tk.Tk()
 var = tk.BooleanVar()
 
 #tk.Checkbutton(root, text='OK', variable=var, command=on_button).pack()
-cb = tk.Checkbutton(root, text='OK', variable=var, command=on_button)
+cb = tk.Checkbutton(root, text='Check it', variable=var, command=on_button)
 cb.pack()
 
 root.mainloop()
