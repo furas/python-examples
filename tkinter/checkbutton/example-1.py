@@ -17,7 +17,7 @@ root = tk.Tk()
 #var = tk.BooleanVar(value=False) # set value at start
 var = tk.BooleanVar() # default value False
 
-#tk.Checkbutton(root, text='OK', variable=var, command=on_change).pack()
+#tk.Checkbutton(root, text='Check it', variable=var, command=on_change).pack()
 cb = tk.Checkbutton(root, text='Check it', variable=var, command=on_change)
 cb.pack()
 
