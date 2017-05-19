@@ -23,6 +23,7 @@ points_y = np.sin(points_x)
 line,   = plt.plot(line_x,   line_y,  'red')
 points, = plt.plot(points_x, points_y, 'go') # 'g' = green, 'o' = circles
 
+# function which change data in plots 
 def animate(i):
     #print(i, line_x+i)
 
@@ -32,6 +33,7 @@ def animate(i):
 
     return line, points
  
+# define animation matplot engine
 # interval=50 gives fps=20 (50ms*20 = 1000ms = 1second) 
 ani = animation.FuncAnimation(fig, animate, line_x, interval=50)#, blit=True)
 
