@@ -12,7 +12,7 @@ def example1():
     print(result)
     result = 5
     
-def example2():
+def example2a():
     result += 5
         
 def example2b():
@@ -42,16 +42,16 @@ def example4():
 
 #----------------------------------------------------------------------
 
-examples = [example1, example2, example2b, example3, example4]
+examples = [example1, example2a, example2b, example3, example4]
 
 
 for function in examples:
-    print('\n--- Example:', function.__name__, '---')
+    print('\n===== Example:', function.__name__, '=====')
     try:
         function()
     #except:
     #except Exception as ex:
     except UnboundLocalError as ex:
-        print('Exception:', ex)
-        print()
+        print('\nException:', ex)
+        print('\n---\n')
         traceback.print_exc()
