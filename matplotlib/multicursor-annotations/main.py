@@ -4,7 +4,7 @@ from matplotlib.widgets import MultiCursor
 class MyCursor(MultiCursor):
     
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        super(MyCursor, self).__init__(*args, **kwargs)
 
         # create annotations
         self.annotations = []
