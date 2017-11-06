@@ -4,6 +4,7 @@
 - [full-surface transparency](#full-surface-transparency)
     - [with `colorkey([0,0,0])`](#with-colorkey000)
     - [without `colorkey([0,0,0])`](#without-colorkey000)
+- [PyGame doc](#pygame-doc)    
     
 # per-pixel transparency
 
@@ -37,3 +38,11 @@ important is only alpha=0
 ### without `colorkey([0,0,0]) with `colorkey([0,0,0]) ``
 
 ![#1](screenshots/full-surface-without-colorkey.gif?raw=true)
+
+---
+
+# PyGame doc
+
+- [pygame.Surface.convert_alpha](http://pygame.org/docs/ref/surface.html#pygame.Surface.convert_alpha), 
+- [pygame.Surface.set_colorkey](http://pygame.org/docs/ref/surface.html#pygame.Surface.set_colorkey)
+- [pygame.Surface.set_alpha](http://pygame.org/docs/ref/surface.html#pygame.Surface.set_alpha)
