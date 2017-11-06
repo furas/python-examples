@@ -1,4 +1,10 @@
-
+- [per-pixel transparency](#per-pixel-transparency)
+    - [with `fill([0,0,0,0])`](#with-fill0000)
+    - [without `fill([0,0,0,0])`](#without-fill0000)
+- [full-surface transparency](#full-surface-transparency)
+    - [with `colorkey([0,0,0])`](#with-colorkey000)
+    - [without `colorkey([0,0,0])`](#without-colorkey000)
+    
 # per-pixel transparency
 
 - image can have pixels with different transparences (alpha)
@@ -24,10 +30,10 @@ important is only alpha=0
 - `surface.set_colorkey([0,0,0])` gives transparent background   
 (it can be any color but [0,0,0] is default background color for new surface)
 
-###  with `colorkey([0,0,0]) `
+###  with `colorkey([0,0,0])`
 
 ![#1](screenshots/full-surface.gif?raw=true)
 
-### without `colorkey([0,0,0]) `
+### without `colorkey([0,0,0]) with `colorkey([0,0,0]) ``
 
 ![#1](screenshots/full-surface-without-colorkey.gif?raw=true)
