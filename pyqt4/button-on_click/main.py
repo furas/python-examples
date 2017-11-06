@@ -1,6 +1,6 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
-from PyQt4 import QtGui
+from PyQt5 import QtGui
 import sys
 
 class MyWindow(QtGui.QWidget):
