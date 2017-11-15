@@ -1,5 +1,5 @@
 
-#Tkinter - grid() - rowconfigure() / columnconfigure()
+# Tkinter - grid() - rowconfigure() / columnconfigure()
 
 ```python
 import tkinter as tk
