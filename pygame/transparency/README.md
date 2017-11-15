@@ -35,7 +35,7 @@ important is only alpha=0
 
 ![#1](screenshots/full-surface.gif?raw=true)
 
-### without `colorkey([0,0,0]) with `colorkey([0,0,0]) ``
+### without `colorkey([0,0,0])`
 
 ![#1](screenshots/full-surface-without-colorkey.gif?raw=true)
 
