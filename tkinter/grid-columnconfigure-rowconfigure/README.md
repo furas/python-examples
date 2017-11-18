@@ -211,3 +211,37 @@ root.mainloop()
 ![#1](images/main-10.png?raw=true)
 
 
+---
+
+```python
+import tkinter as tk
+
+root = tk.Tk()
+
+root.rowconfigure(1, weight=1)
+root.rowconfigure(2, weight=4)
+root.rowconfigure(3, weight=8)
+
+b0 = tk.Button(root, text="weight=0")
+b0.grid(column=0, row=0, stick='ns')
+
+b1 = tk.Button(root, text="weight=1")
+b1.grid(column=0, row=1, stick='ns')
+
+b2 = tk.Button(root, text="weight=4")
+b2.grid(column=0, row=2, stick='ns')
+
+b3 = tk.Button(root, text="weight=8")
+b3.grid(column=0, row=3, stick='ns')
+
+root.mainloop()
+```
+
+| at start |
+| --- |
+| ![#1](images/main-11.png?raw=true) |
+
+| resized (using mouse) |
+| --- |
+| ![#1](images/main-12.png?raw=true) |
+
