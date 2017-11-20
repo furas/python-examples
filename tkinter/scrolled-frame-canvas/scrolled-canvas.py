@@ -1,8 +1,7 @@
 import tkinter as tk
 
-# --- classes ---
 
-class ScrolledFrame(tk.Frame):
+class ScrolledCanvas(tk.Frame):
 
     def __init__(self, parent, vertical=True, horizontal=False):
         super().__init__(parent)
@@ -22,11 +21,22 @@ class ScrolledFrame(tk.Frame):
 
         self.inner = tk.Frame(self._canvas)
         self._canvas.create_window((0, 0), window=self.inner, anchor="nw")
-
+        print('ScrolledCanvas:', self.inner.master)
+        
         self.inner.bind("<Configure>", self.resize)
 
     def resize(self, event=None): 
         self._canvas.configure(scrollregion=self._canvas.bbox("all"))
+
+    def add(self, widget):
+        self.inner = widget
+        print('ScrolledCanvas:', widget.master)
+        widget.master = self._canvas
+        print('ScrolledCanvas:', widget.master)
+        self._window = self._canvas.create_window((0, 0), window=self.inner, anchor="nw")
+
+        self.inner.bind("<Configure>", self.resize)
+
 
 # --- functions ---
 
@@ -39,22 +49,28 @@ def test_checkbuttons():
 
 root = tk.Tk()              
 
-# create scrolled frame
-sf = ScrolledFrame(root)
-#sf._canvas['background'] = 'red'
-sf.pack()
+# create scroller
+s = ScrolledCanvas(root)
+s.pack()
 
 # ---
 
 data = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't']
 variables = []
 
-# add widgets to scrolled frame - as parent you have to use `sf.inner` instead of `sf`
+f = tk.Frame(s)
+
+# add widgets to frame - as parent you uses `f`
 for txt in data:
     var = tk.IntVar()
     variables.append(var)
-    l = tk.Checkbutton(sf.inner, text=txt, variable=var)
+    l = tk.Checkbutton(f, text=txt, variable=var)
     l.grid(sticky="w")
+
+# add frame to scrolledcanvas - as parent you uses `f`
+print('f:', f.master)
+s.add(f)
+print('f:', f.master)
 
 # ---
 
@@ -64,5 +80,4 @@ b.pack()
 # ---
 
 root.mainloop()
-
 

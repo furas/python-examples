@@ -1,6 +1,8 @@
 import tkinter as tk
 
-class ScrolledCanvas(tk.Frame):
+# --- classes ---
+
+class ScrolledFrame(tk.Frame):
 
     def __init__(self, parent, vertical=True, horizontal=False):
         super().__init__(parent)
@@ -18,24 +20,13 @@ class ScrolledCanvas(tk.Frame):
             self._horizontal_bar.grid(row=1, column=0, sticky="we")
         self._canvas.configure(xscrollcommand=self._horizontal_bar.set)
 
-        self.inner = tk.Frame(self._canvas)
-        self._canvas.create_window((0, 0), window=self.inner, anchor="nw")
-        print('ScrolledCanvas:', self.inner.master)
-        
-        self.inner.bind("<Configure>", self.resize)
+        self.frame = tk.Frame(self._canvas)
+        self._canvas.create_window((0, 0), window=self.frame, anchor="nw")
+
+        self.frame.bind("<Configure>", self.resize)
 
     def resize(self, event=None): 
         self._canvas.configure(scrollregion=self._canvas.bbox("all"))
-
-    def add(self, widget):
-        self.inner = widget
-        print('ScrolledCanvas:', widget.master)
-        widget.master = self._canvas
-        print('ScrolledCanvas:', widget.master)
-        self._window = self._canvas.create_window((0, 0), window=self.inner, anchor="nw")
-
-        self.inner.bind("<Configure>", self.resize)
-
 
 # --- functions ---
 
@@ -48,28 +39,24 @@ def test_checkbuttons():
 
 root = tk.Tk()              
 
-# create scroller
-s = ScrolledCanvas(root)
-s.pack()
+# create scrolled frame
+sf = ScrolledFrame(root)
+#sf._canvas['background'] = 'red'
+#sf.frame['background'] = 'green'
+#sf.frame['padx'] = 10
+sf.pack()
 
 # ---
 
 data = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't']
 variables = []
 
-f = tk.Frame(s)
-
-# add widgets to frame - as parent you uses `f`
+# add widgets to scrolled frame - as parent you have to use `sf.frame` instead of `sf`
 for txt in data:
     var = tk.IntVar()
     variables.append(var)
-    l = tk.Checkbutton(f, text=txt, variable=var)
+    l = tk.Checkbutton(sf.frame, text=txt, variable=var)
     l.grid(sticky="w")
-
-# add frame to scrolledcanvas - as parent you uses `f`
-print('f:', f.master)
-s.add(f)
-print('f:', f.master)
 
 # ---
 
@@ -79,4 +66,5 @@ b.pack()
 # ---
 
 root.mainloop()
+
 
