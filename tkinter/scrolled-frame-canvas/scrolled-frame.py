@@ -39,14 +39,20 @@ def test_checkbuttons():
 
 root = tk.Tk()              
 
+# ---
+
 # create scrolled frame
 sf = ScrolledFrame(root)
+sf.pack()
+
+# internal config
 #sf._canvas['background'] = 'red'
 #sf.frame['background'] = 'green'
 #sf.frame['padx'] = 10
-sf.pack()
 
 # ---
+
+# add to scrolled frame
 
 data = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't']
 variables = []
