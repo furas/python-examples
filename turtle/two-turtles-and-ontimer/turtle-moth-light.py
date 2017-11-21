@@ -42,7 +42,12 @@ class Moth:
         # start flying
         if self.dest is not None:
             self.move_to_light(self.dest)
-            
+
+    def move_to_random_place(self):
+        x = random.randint(-800, 800)
+        y = random.randint(-300, 300)
+        self.move((x,y))
+        
     def move_to_light(self, dest):
         '''start flying to light'''
         
@@ -74,9 +79,7 @@ class Moth:
             #self.is_flying = False
             
             # or you move to new random place
-            x = random.randint(-400, 400)
-            y = random.randint(-200, 200)
-            self.move((x,y))
+            self.move_to_random_place()
             
         #else do nothing
         
@@ -104,9 +107,7 @@ def move_moths(x, y):
     # move all moths to random places
     for m in moths:
         # put one moth in random places
-        x = random.randint(-400, 400)
-        y = random.randint(-200, 200)
-        m.move((x, y))
+        m.move_to_random_place()
 
 # --- main ---
 
@@ -121,9 +122,14 @@ light = (0, 0)
 # create some moths in random places
 for _ in range(5):
     # put moth in random places
-    x = random.randint(-400, 400)
-    y = random.randint(-200, 200)
+    x = random.randint(-800, 800)
+    y = random.randint(-300, 300)
     m = Moth( (x, y), dest=light)
+
+    # or use `move_to_random_place()`
+    #m = Moth( (0, 0), dest=light)
+    #m.move_to_random_place()
+    
     # remember moth on list
     moths.append(m)
 
