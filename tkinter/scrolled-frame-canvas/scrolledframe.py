@@ -22,15 +22,15 @@ class ScrolledFrame(tk.Frame):
         self._canvas.configure(xscrollcommand=self._horizontal_bar.set)
 
         # inner frame for widgets
-        self.frame = tk.Frame(self._canvas)
-        self._window = self._canvas.create_window((0, 0), window=self.frame, anchor='nw')
+        self.inner = tk.Frame(self._canvas)
+        self._window = self._canvas.create_window((0, 0), window=self.inner, anchor='nw')
 
         # autoresize inner frame
         self.columnconfigure(0, weight=1) # changed
         self.rowconfigure(0, weight=1) # changed
 
         # resize when configure changed
-        self.frame.bind('<Configure>', self.resize)
+        self.inner.bind('<Configure>', self.resize)
 
     def resize(self, event=None): 
         self._canvas.configure(scrollregion=self._canvas.bbox('all'))
