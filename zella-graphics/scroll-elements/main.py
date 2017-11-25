@@ -1,7 +1,7 @@
 from graphics import *
 from random import randint
 
-screen = GraphWin("Logo", 500, 500)
+screen = GraphWin("Example", 500, 500)
 
 # --- objects ---
 
@@ -9,11 +9,11 @@ line_1 = Text(Point(250, 500), "First line")
 line_2 = Text(Point(250, 500), "Second line") 
 line_3 = Text(Point(250, 500), "Third line") 
 
-line_1.draw(screen)
-
 # --- control objects ---
 
+line_1.draw(screen)   # show first line at start 
 move_line_1 = True   # move first line at start
+
 move_line_2 = False  # don't move second line at start
 move_line_3 = False  # don't move third line at start
 
