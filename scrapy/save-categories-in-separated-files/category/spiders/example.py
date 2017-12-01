@@ -2,6 +2,7 @@
 import scrapy
 
 class ExampleSpider(scrapy.Spider):
+    
     name = 'example'
     allowed_domains = ['blog.furas.pl']
     start_urls = ['http://blog.furas.pl/category/python.html','http://blog.furas.pl/category/html.html','http://blog.furas.pl/category/linux.html']
