@@ -16,6 +16,8 @@ Collide
 
 It uses `convert()` instead of `convert_alpha()`, and  `set_colorkey()` 
 
+![#1](player.png?raw=true)   
+
 Not collide
 
 ![#1](images/image-not-collide.png?raw=true)   
