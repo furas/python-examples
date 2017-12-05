@@ -30,9 +30,11 @@ class Image(pygame.sprite.Sprite):
         self.angle = angle
         self.rotate = rotate
 
-        self.original_image = pygame.Surface((100, 25)).convert_alpha()
-        self.original_image.fill(color)
-        self.original_image = pygame.transform.scale(self.original_image, (250,10))
+        self.original_image = pygame.image.load('player.png').convert()
+        self.colorkey = self.original_image.get_at((0,0))
+        #self.colorkey = (255, 212, 55)
+        
+        self.original_image = pygame.transform.scale(self.original_image, (100, 200))
         
         self.change_angle = pygame.time.get_ticks()
             
@@ -42,7 +44,8 @@ class Image(pygame.sprite.Sprite):
         if self.change_angle <= pygame.time.get_ticks():
             self.angle = (self.angle + self.rotate) % 360
             
-            self.image = pygame.transform.rotate(self.original_image, self.angle).convert_alpha()
+            self.image = pygame.transform.rotate(self.original_image, self.angle).convert()
+            self.image.set_colorkey(self.colorkey)
 
             self.rect = self.image.get_rect(center=screen_rect.center)
             self.mask = pygame.mask.from_surface(self.image)
@@ -77,7 +80,7 @@ screen_rect = screen.get_rect()
 
 # --- objects ---
 
-img1 = Image(screen_rect, 45, (0,255,0))
+img1 = Image(screen_rect, 45, (0,255,0), 0)
 img2 = Image(screen_rect, 0, (0,255,255), 0)
 
 # --- mainloop ---
