@@ -24,17 +24,18 @@ SCREEN_HEIGHT = 400
 
 class Image(pygame.sprite.Sprite):
     
-    def __init__(self, screen_rect, angle=15, color=(255,0,0), rotate=5):
+    def __init__(self, screen_rect, image, angle=15, color=(255,0,0), rotate=5, resize=(100, 200)):
         super().__init__()
 
         self.angle = angle
         self.rotate = rotate
 
-        self.original_image = pygame.image.load('player.png').convert()
+        self.original_image = pygame.image.load(image).convert()
         self.colorkey = self.original_image.get_at((0,0))
         #self.colorkey = (255, 212, 55)
         
-        self.original_image = pygame.transform.scale(self.original_image, (100, 200))
+        if resize:
+            self.original_image = pygame.transform.scale(self.original_image, resize)
         
         self.change_angle = pygame.time.get_ticks()
             
@@ -80,8 +81,8 @@ screen_rect = screen.get_rect()
 
 # --- objects ---
 
-img1 = Image(screen_rect, 45, (0,255,0), 0)
-img2 = Image(screen_rect, 0, (0,255,255), 0)
+img1 = Image(screen_rect, 'player.png', 45, (0,255,0), 5)
+img2 = Image(screen_rect, 'ball.png', 0, (0,255,255), 0, (50,50))
 
 # --- mainloop ---
 
