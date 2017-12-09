@@ -31,6 +31,18 @@ class ScrolledFrame(tk.Frame):
 
         # resize when configure changed
         self.inner.bind('<Configure>', self.resize)
+        
+        # resize inner frame to canvas size
+        self.resize_width = False
+        self.resize_height = False
+        self._canvas.bind('<Configure>', self.inner_resize)
 
     def resize(self, event=None): 
         self._canvas.configure(scrollregion=self._canvas.bbox('all'))
+
+    def inner_resize(self, event):
+        # resize inner frame to canvas size
+        if self.resize_width:
+            self._canvas.itemconfig(self._window, width=event.width)
+        if self.resize_height:
+            self._canvas.itemconfig(self._window, height=event.height)
