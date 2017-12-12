@@ -1,9 +1,19 @@
-# Listbox
+# tkinter.Listbox()
 
-### Table of Content
+### Table of Contents
 
+- [Links](links)
 - [event-listboxselect-get-curselection.py](event-listboxselect-get-curselectionpy)
 - [listbox-populate-entry.py](listbox-populate-entrypy)
+
+---
+
+### Links
+
+- Effbot.org: [The Tkinter Listbox Widget](http://effbot.org/tkinterbook/listbox.htm)
+- New Mexico Tech: [Tkinter 8.5 reference: a GUI for Python](http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/listbox.html)
+- TkDocs.com: [More Widgets](http://www.tkdocs.com/tutorial/morewidgets.html)
+- TutorialsPoint.com: [Python - Tkinter Listbox](https://www.tutorialspoint.com/python/tk_listbox.htm)
 
 ---
 
