@@ -3,8 +3,9 @@
 ### Table of Contents
 
 - [Links](links)
-- [event-listboxselect-get-curselection.py](event-listboxselect-get-curselectionpy)
-- [listbox-populate-entry.py](listbox-populate-entrypy)
+- [event-listboxselect-get-curselection](#event-listboxselect-get-curselection)
+- [listbox-filtered-by-entry](#listbox-filtered-by-entry)
+- [listbox-populate-entry](#listbox-populate-entry)
 
 ---
 
@@ -17,23 +18,26 @@
 
 ---
 
-## event-listboxselect-get-curselection.py
+## event-listboxselect-get-curselection
 
-It shows how to use event `<<ListboxSelect>>` to execute function after selectiong row on list.
+It shows how to use event `<<ListboxSelect>>` to execute function after selecting row on list.
 
-It also shows how to use `event` to get access to `Listbox` and get setlected element.
+It also shows how to use `event` to get access to `Listbox` and get selected element from listbox.
 
 ---
+
+## listbox-filtered-by-entry
  
-## listbox-populate-entry.py
+It uses `Entry` to filter items on `Listbox`
 
-![#1](images/listbox-populate-entry.png?raw=true)   
+---
 
+## listbox-populate-entry
 
 After click on list `<<ListboxSelect>>` executes function which gets data from list (as single string) 
 splits it to three elements using `slicing` and `strip()`, and puts elements in three `Entries`
 
-Program use 
+Program use:
 
 - `"{:10s}|{:15s}|{:10s}"` to format columns in text, 
 - monospaced font `font=('monospace', 10)` to correctly display columns on list.
