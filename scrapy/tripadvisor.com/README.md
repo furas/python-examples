@@ -21,4 +21,4 @@ Other words in url are only for `SEO` - to get better position in Google search 
 
 ---
 
-In other `python-examples/__scraping__` is example for `requests/beautifulsoup` too.
+In folder [__scraping__/tripadvisor.com - requests](../../__scraping__/tripadvisor.com - requests)` is example for `requests/BeautifulSoup`.
