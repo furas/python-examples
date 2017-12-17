@@ -1,0 +1,14 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<items>
+<item><Tag books><value>“The perso ...</value><value>“Good frie ...</value><value>“I have al ...</value></Tag books></item>
+<item><Tag humor><value>“The perso ...</value><value>“A day wit ...</value><value>“Anyone wh ...</value></Tag humor></item>
+<item><Tag life><value>“There are ...</value><value>“It is bet ...</value><value>“This life ...</value></Tag life></item>
+<item><Tag inspirational><value>“There are ...</value><value>“Imperfect ...</value><value>“I have no ...</value></Tag inspirational></item>
+<item><Tag love><value>“It is bet ...</value><value>“This life ...</value><value>“You may n ...</value></Tag love></item>
+<item><Tag simile><value>“A day wit ...</value><value>“Life is l ...</value><value>“He's like ...</value></Tag simile></item>
+<item><Tag truth><value>“The reaso ...</value><value>“A lie can ...</value><value>“The truth ...</value></Tag truth></item>
+<item><Tag friends><value>“This life ...</value><value>“It takes  ...</value><value>“Good frie ...</value></Tag friends></item>
+<item><Tag friendship><value>“It is not ...</value><value>“Good frie ...</value><value>“The truth ...</value></Tag friendship></item>
+<item><Tag reading><value>“The more  ...</value><value>“We read t ...</value><value>“A reader  ...</value></Tag reading></item>
+</items>

@@ -13,8 +13,12 @@ It saves data in `output.csv`.
 
 **BTW:** to get page you need urls like
 
- https://www.tripadvisor.com/g60795-d102542
- https://www.tripadvisor.com/g60795-d102542-or0
- https://www.tripadvisor.com/g60795-d102542-or5
+    https://www.tripadvisor.com/g60795-d102542
+    https://www.tripadvisor.com/g60795-d102542-or0
+    https://www.tripadvisor.com/g60795-d102542-or5
 
 Other words in url are only for `SEO` - to get better position in Google search results.
+
+---
+
+In other `python-examples/__scraping__` is example for `requests/beautifulsoup` too.
