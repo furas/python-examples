@@ -1,6 +1,4 @@
 
-![#1](screenshots/image-1.png?raw=true)
-
 ## HTTP
 
 - [Requests](http://docs.python-requests.org/en/master/)
@@ -96,3 +94,13 @@ http://htql.net/
 http://arshaw.com/scrapemark/
 
 https://pythonhosted.org/pyquery/
+
+---
+
+See also
+
+- [beautifulsoup](../beautifulsoup)
+- [requests](../requests)
+- [scrapy](../scrapy)
+- [selenium](../selenium)
+- [`__scraping__`](../__scraping__)
