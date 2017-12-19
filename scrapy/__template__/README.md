@@ -20,5 +20,5 @@ New document in Geany
 
 New document on Desktop (Linux Mint)
 
-![#new-document-desktop](images/scrapy-desktop.png?raw=tru e)   
+![#new-document-desktop](images/scrapy-desktop.png?raw=true)   
 
