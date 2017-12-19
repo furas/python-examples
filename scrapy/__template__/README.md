@@ -11,3 +11,5 @@ Template for standalone scrapy with
 - convert `response.body` to `json`
 - save every response.boy in separated file
 
+![#new-document-desktop](images/scrapy-desktop.png?raw=true)   
+![#new-document-geany](images/scrapy-geany.png?raw=true)   
