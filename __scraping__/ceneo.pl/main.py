@@ -10,7 +10,7 @@ class MySpider(scrapy.Spider):
 
     #allowed_domains = []
     
-    start_urls = ['http://quotes.toqoute.com']
+    start_urls = ['https://www.ceneo.pl/33022301']
 
     #def start_requests(self):
     #    self.url_template = http://quotes.toscrape.com/tag/{}/page/{}/
@@ -25,6 +25,15 @@ class MySpider(scrapy.Spider):
     def parse(self, response):
         print('url:', response.url)
 
+        all_prices = response.xpath('(//td[@class="cell-price"] /a/span/span/span[@class="value"]/text())[position() <= 10]').extract()
+        all_sellers = response.xpath('(//tr/td/div/ul/li/a[@class="js_product-offer-link"]/text())[position()<=10]').extract()
+        
+        pairs = [{'price': price.strip(), 'seller': seller.strip()} for price, seller in zip(all_prices, all_sellers)]
+        yield pairs
+        
+        #for price, seller in zip(all_prices, all_sellers):
+        #    yield {'price': price.strip(), 'seller': seller.strip()}
+        
         #open_in_browser(response)
         
         # save JSON in separated file
