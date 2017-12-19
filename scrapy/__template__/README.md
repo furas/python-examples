@@ -15,10 +15,10 @@ Template for standalone scrapy with
 
 New document in Geany
 
-![#new-document-geany](images/scrapy-geany.png?raw=true)   
+![#new-document-geany](images/scrapy-new-document-geany.png?raw=true)   
 
 
 New document on Desktop (Linux Mint)
 
-![#new-document-desktop](images/scrapy-desktop.png?raw=true)   
+![#new-document-desktop](images/scrapy-new-document-desktop.png?raw=true)   
 
