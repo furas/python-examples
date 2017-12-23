@@ -1,3 +1,8 @@
+
+#
+# https://stackoverflow.com/a/47933667/1832058
+#
+
 from bs4 import BeautifulSoup
 import requests
 

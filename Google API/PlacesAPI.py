@@ -1,3 +1,8 @@
+
+# 
+# https://stackoverflow.com/a/47912816/1832058
+# 
+
 import googlemaps
 
 gmaps = googlemaps.Client(key='AIzaSyBiC8vKEEF-MLP9a2de0PLs-S_XrEL0kSQ')

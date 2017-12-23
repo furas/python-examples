@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+#
+# https://stackoverflow.com/a/47851923/1832058
+#
+
 import urllib.request
 from bs4 import BeautifulSoup
 

@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+#
+# https://stackoverflow.com/a/47849047/1832058
+#
+
 import scrapy
 
 class MySpider(scrapy.Spider):
@@ -36,3 +40,128 @@ c = CrawlerProcess({
 })
 c.crawl(MySpider)
 c.start()
+
+'''
+Results:
+
+Executed
+--- 1 ---
+2Ab1+2T
+ChSt1
+2Ab1
+2Lz+1Lo+2Lo
+2Lz
+FSSp4
+2F
+CCoSp4
+Executed
+--- 2 ---
+2Ab1
+ChSt1
+2Ab1+1Lo+2F
+CCoSp2V
+2Lz+2Lo
+2Lo
+2Lz
+LSp4
+Executed
+--- 3 ---
+CCoSp4
+ChSt1
+2Ab1+2Lo
+2Lz+1Lo+2Lo
+2Ab1
+2Lz
+2Fe
+FSSp4
+Executed
+--- 4 ---
+2Ab1+1Lo+2Lo
+2Ab1
+LSp4
+ChSt1
+2Lz
+2F
+2Lz+2T
+CCoSp4
+Executed
+--- 5 ---
+2Ab1
+LSp2
+ChSt1
+2Ab1+1Lo+1Lo
+2Lz+2Lo
+2Lz
+2F
+CCoSp3
+Executed
+--- 6 ---
+2Lz
+1A
+SSp3
+ChSt1
+2Lz+1Lo+2Lo
+CCoSp3
+2F+2Lo
+2F
+Executed
+--- 7 ---
+2F
+2Ab1
+CCoSp4
+2Lz
+2Ab1<+2T
+ChSt1
+2Lz+1Lo+2F
+LSp4
+Executed
+--- 8 ---
+1A
+LSp4
+ChSt1
+2Lz
+2Lz+2T
+2Lo+2T+1Lo
+2F
+CCoSp4
+Executed
+--- 9 ---
+2A<<
+CCoSp4
+ChSt1
+2F+1Lo+2Lo
+2Lze+2Lo
+2Lze
+2F
+SSp4
+Executed
+--- 10 ---
+2Lz
+2Ab1
+SSp3
+ChSt1
+2A<<+REP
+2Lz+2Lo
+2F
+CCoSp4
+Executed
+--- 11 ---
+FSSp4
+2Ab1<+2Lo
+ChSt1
+2A<<
+FCCoSp3
+2F+2Lo<+1Lo<<
+2Lz
+2F
+Executed
+--- 12 ---
+2A<<+1Lo+2Lo<
+2Lze
+SSp3
+ChSt1
+2A<<
+2F
+2F+2Lo<
+CCoSp3
+'''

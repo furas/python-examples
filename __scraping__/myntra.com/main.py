@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+#
+# https://stackoverflow.com/a/47848134/1832058
+#
+
 import scrapy
 import json
 

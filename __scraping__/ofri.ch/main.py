@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+#
+# https://stackoverflow.com/a/47948138/1832058
+#
+
 import scrapy
 #from scrapy.commands.view import open_in_browser
 #import json
@@ -8,7 +12,7 @@ class MySpider(scrapy.Spider):
     
     name = 'myspider'
 
-    allowed_domains = ["www.ofri.ch/firmen"]
+    allowed_domains = ['www.ofri.ch/firmen']
     start_urls = ['http://www.ofri.ch/firmen/Abbruchunternehmen/']
 
     #def start_requests(self):

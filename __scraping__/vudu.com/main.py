@@ -1,3 +1,8 @@
+
+#
+# https://stackoverflow.com/a/47898209/1832058
+# 
+
 from selenium import webdriver
 import time
 from bs4 import BeautifulSoup

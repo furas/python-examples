@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+#
+# https://stackoverflow.com/a/47720827/1832058
+# 
+
 import requests
 from bs4 import BeautifulSoup
 import csv

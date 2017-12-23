@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+#
+# https://stackoverflow.com/a/47859609/1832058
+#
+
 import requests
 import bs4
 

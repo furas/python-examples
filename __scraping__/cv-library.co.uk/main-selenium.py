@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 
+
+#
+# https://stackoverflow.com/a/47859609/1832058
+#
+
 from selenium import webdriver
 
 site_url = "https://www.cv-library.co.uk/companies/agencies/0-9"
