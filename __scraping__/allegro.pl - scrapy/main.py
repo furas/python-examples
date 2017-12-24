@@ -1,3 +1,8 @@
+
+#
+# https://stackoverflow.com/a/47744135/1832058
+# 
+
 import scrapy
 
 #from allegro.items import AllegroItem

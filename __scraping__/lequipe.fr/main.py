@@ -17,22 +17,30 @@ class MySpider(scrapy.Spider):
     def parse(self, response):
         print('url:', response.url)
 
-        for item in response.xpath('//*[@class="filtrecalendrier"]/option/@value'): 
+        for item in response.xpath('//*[@class="filtrecalendrier"]/option'): 
+            
+            date = item.xpath('./text()').extract_first()
+            url = item.xpath('./@value').extract_first()
 
-            url = response.urljoin(item.extract())
-            #print(url)
+            url = response.urljoin(url)
 
-            yield scrapy.Request(url, callback=self.parse_items)
+            yield scrapy.Request(url, callback=self.parse_items, meta={'date': date})
+            
             
     def parse_items(self, response):
-        rows = response.css('.ligne')
+        rows = response.css('.ligne.bb-color')
         
         for row in rows:
             
+            score = row.css('.score span::text').extract()
+            if len(score) < 2:
+                score = ['', '']
+                
             item = {
+                'date': response.meta['date'],
                 'equipe_dom': row.css('.equipeDom a::text').extract_first(),
-                'score_dom':  row.css('div.score span.score--chiffre::text').extract_first(),
-                'score_ext':  row.css('div.score span.score--chiffre.gange::text').extract_first(),
+                'score_dom':  score[0],
+                'score_ext':  score[1],
                 'equipe_ext': row.css('.equipeExt a::text').extract_first(),
                 'classement_dom': row.css('.equipeDom a span::text').extract_first(),
                 'classement_ext': row.css('.equipeExt a span::text').extract_first(),

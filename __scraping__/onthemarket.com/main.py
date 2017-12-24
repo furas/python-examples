@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+#
+# https://stackoverflow.com/a/47751535/1832058
+#
+
 import scrapy
 
 class QuotesSpider(scrapy.Spider):
