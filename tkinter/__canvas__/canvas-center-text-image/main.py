@@ -8,8 +8,8 @@ from PIL import Image, ImageTk
 
 # --- constants ---
 
-WIDTH = 800
-HEIGHT = 600
+WIDTH = 400
+HEIGHT = 300
 
 # --- functions ---
 
