@@ -10,7 +10,7 @@ class MySpider(scrapy.Spider):
 
     #allowed_domains = []
     
-    start_urls = ['http://quotes.toqoute.com']
+    start_urls = ['http://quotes.toscrape.com']
 
     #def start_requests(self):
     #    self.url_template = http://quotes.toscrape.com/tag/{}/page/{}/
