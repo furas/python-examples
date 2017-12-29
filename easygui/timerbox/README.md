@@ -3,9 +3,15 @@
 
 It has new argument `time=seconds` and it closes messagebox after that time.
 
+You need only `easygui_timerbox.py` without original `easygui`
+
+    from easygui_timerbox import timerbox
+    
+    timerbox('Time to the end of the World', 'Countdown', time=5)
+    
 ---
 
-In `example.py`
+In `example.py` (you can see the same if you run `python easygui_timerbox.py`)
 
 
     timerbox('Time to the end of the World', 'Countdown', time=5)
