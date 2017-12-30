@@ -1,5 +1,5 @@
 
-# `timerbox` based on `EasyGui 0.96`.
+# `timerbox` based on `EasyGui 0.96`
 
 It has new argument `time=seconds` and it closes messagebox after that time.
 
