@@ -77,3 +77,7 @@ c = CrawlerProcess({
 })
 c.crawl(MySpider)
 c.start()
+
+from scrapy import cmdline
+
+cmdline.execute('scrapy crawl myspider -o output.csv -a extra=hello'.split())

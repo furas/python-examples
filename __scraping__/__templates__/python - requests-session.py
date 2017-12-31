@@ -38,8 +38,9 @@ print(data.keys())
 
 # ---------------------------------------------------------------------
 
-soup = BeautifulSoup(response.content, 'html.parser') # 'lxml'
-divs = soup.find_all('div', {'class': 'xxx'}) 
+soup = BeautifulSoup(response.text, 'html.parser')
+#divs = soup.find_all('div', class_='xxx') 
+all_divs = soup.find_all('div', {'class': 'xxx'}) 
 
-for div in divs:
+for div in all_divs:
    print(div.text)
