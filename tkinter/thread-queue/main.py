@@ -21,7 +21,8 @@ def check_queue():
     if not queue.empty():
         text = queue.get()
         print('get:', text)
-        messagebox.showinfo(text, text)
+        #messagebox.showinfo(text, text)
+        l['text'] = text
     else:
         print('get: - empty -')
         
@@ -36,6 +37,9 @@ t = threading.Thread(target=running, args=(queue,))
 t.start()
     
 root = tk.Tk()
+
+l = tk.Label(root, text='', width=15, height=2)
+l.pack()
 
 tk.Button(root, text='Button 1', width=15, height=2).pack()
 tk.Button(root, text='Button 2', width=15, height=2).pack()
