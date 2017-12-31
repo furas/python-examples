@@ -9,42 +9,50 @@ def running(queue):
     
     for x in range(5):
         text = 'message ' + str(x)
-        print('put:', text)
+        print('PUT:', text)
         queue.put(text)
-        time.sleep(3)
+        time.sleep(4)
     queue.put('last')
 
 def check_queue():
+    global t
     
     text = ''
     
     if not queue.empty():
         text = queue.get()
         print('get:', text)
-        #messagebox.showinfo(text, text)
         l['text'] = text
     else:
         print('get: - empty -')
         
-    if text != 'last':
-        root.after(100, check_queue)
-
+    if text == 'last':
+        t = None
+    else:
+        root.after(500, check_queue)    
+    
+def on_click():
+    global t
+    
+    if not t:
+        t = threading.Thread(target=running, args=(queue,))
+        t.start()
+        check_queue()
+    else:
+        messagebox.showinfo('INFO', 'Process still running')
+        
+    
 # --- main ---
 
+t = None
 queue = queue.Queue()
-
-t = threading.Thread(target=running, args=(queue,))
-t.start()
     
 root = tk.Tk()
 
 l = tk.Label(root, text='', width=15, height=2)
 l.pack()
 
-tk.Button(root, text='Button 1', width=15, height=2).pack()
-tk.Button(root, text='Button 2', width=15, height=2).pack()
-tk.Button(root, text='Button 3', width=15, height=2).pack()
-
-check_queue()
+b = tk.Button(root, text='Start', command=on_click, width=15, height=2)
+b.pack()
 
 root.mainloop()
