@@ -5,68 +5,49 @@
 # 
 
 import scrapy
-#from scrapy.commands.view import open_in_browser
-#import json
+
+data = '''https://www.ceneo.pl/48523541, 1362
+https://www.ceneo.pl/46374217, 2457'''
+
 
 class MySpider(scrapy.Spider):
     
     name = 'myspider'
 
-    #allowed_domains = []
-    
     start_urls = ['https://www.ceneo.pl/33022301']
 
-    #def start_requests(self):
-    #    self.url_template = http://quotes.toscrape.com/tag/{}/page/{}/
-    #    self.tags = ['love', 'inspirational', 'life', 'humor', 'books']
-    #    self.pages = 10
-    # 
-    #    for tag in self.tags:
-    #        for page in range(self.pages):
-    #            url = self.url_template.format(tag, page)
-    #            yield scrapy.Request(url)
+    def start_requests(self):
+        # get data from file 
+        #f = open('urls.csv', 'r')
+        
+        # simulate file with string
+        f = data.split('\n')
+        
+        for row in f:
+            url, id_ = row.split(',')
+            url = url.strip()
+            id_ = id_.strip()
+            
+            print(url, id_)
+            
+            # send `ID` to request
+            yield scrapy.Request(url=url, meta={'id': id_})
 
     def parse(self, response):
         print('url:', response.url)
 
+        # get ID
+        id_ = response.meta['id']
+        
         all_prices = response.xpath('(//td[@class="cell-price"] /a/span/span/span[@class="value"]/text())[position() <= 10]').extract()
         all_sellers = response.xpath('(//tr/td/div/ul/li/a[@class="js_product-offer-link"]/text())[position()<=10]').extract()
         
-        pairs = [{'price': price.strip(), 'seller': seller.strip()} for price, seller in zip(all_prices, all_sellers)]
-        yield pairs
-        
-        #for price, seller in zip(all_prices, all_sellers):
-        #    yield {'price': price.strip(), 'seller': seller.strip()}
-        
-        #open_in_browser(response)
-        
-        # save JSON in separated file
-        #number = response.url.split('/')[-1]
-        #filename = 'page-{}.json'.format(number)
-        #with open(filename, 'wb') as f:
-        #   f.write(response.body)
+        all_sellers = [item.replace('Opinie o ', '') for item in all_sellers]
 
-        # convert JSON into Python's dictionary
-        #data = json.loads(response.text)
+        for price, seller in zip(all_prices, all_sellers):
+            # put ID in item
+            yield {'urlid': id_, 'price': price.strip(), 'seller': seller.strip()}
 
-        # download files
-        #for href in response.css('img::attr(href)').extract():
-        #   url = response.urljoin(src)
-        #   yield {'file_urls': [url]}
-
-        # download images and convert to JPG
-        #for src in response.css('img::attr(src)').extract():
-        #   url = response.urljoin(src)
-        #   yield {'image_urls': [url]}
-
-        #item = {'url': '...', 'title': '...'}
-        #yield self.Request(url, meta={'item': item}, callback=self.parse_details)
-        
-    #def parse_details(self, response):
-    #   item = response.meta['item']
-    #   item['more'] = 'More and more data'
-    #   yield item  
-    
 # --- it runs without project and saves in `output.csv` ---
 
 from scrapy.crawler import CrawlerProcess
@@ -77,16 +58,6 @@ c = CrawlerProcess({
     # save in file as CSV, JSON or XML
     'FEED_FORMAT': 'csv',     # csv, json, xml
     'FEED_URI': 'output.csv', # 
-
-    # download files to `FILES_STORE/full`
-    # it needs `yield {'file_urls': [url]}` in `parse()`
-    #'ITEM_PIPELINES': {'scrapy.pipelines.files.FilesPipeline': 1},
-    #'FILES_STORE': '/path/to/valid/dir',
-
-    # download images and convert to JPG
-    # it needs `yield {'image_urls': [url]}` in `parse()`
-    #'ITEM_PIPELINES': {'scrapy.pipelines.images.ImagesPipeline': 1},
-    #'IMAGES_STORE': '/path/to/valid/dir',
 })
 c.crawl(MySpider)
 c.start()
