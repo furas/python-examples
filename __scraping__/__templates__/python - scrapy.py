@@ -12,6 +12,10 @@ class MySpider(scrapy.Spider):
     
     start_urls = ['http://quotes.toscrape.com']
 
+    #def __init__(self, urls, *args, **kwargs):
+    #    super().__init__(*args, **kwargs)
+    #    self.start_urls = urls
+
     #def start_requests(self):
     #    self.url_template = http://quotes.toscrape.com/tag/{}/page/{}/
     #    self.tags = ['love', 'inspirational', 'life', 'humor', 'books']
@@ -54,7 +58,60 @@ class MySpider(scrapy.Spider):
     #   item['more'] = 'More and more data'
     #   yield item  
     
+    #def closed(self, reason):
+    #    import os
+    #    import datetime
+    #    import logging
+    #
+    #    self.log('spider closed: {}'.format(reason))
+    #    
+    #    if os.path.exists('output.csv'):
+    #        filename = datetime.datetime.now().strftime('%Y.%m.%d-%H.%M.%S-output.csv')
+    #        if os.path.exists(filename):
+    #            self.log('Problem: exists {}'.format(filename))
+    #        else:
+    #            os.rename('output.csv', filename)
+    #            self.log('Renamed: {}'.format(filename), logging.INFO)
+
+#~ class SessionImagesPipeline(FilesPipeline):
+    
+    #~ def item_completed(self, results, item, info):
+        #~ # iterate over the local file paths of all downloaded images
+        #~ for result in [x for ok, x in results if ok]:
+            #~ path = result['path']
+            #~ # here we create the session-path where the files should be in the end
+            #~ # you'll have to change this path creation depending on your needs
+            #~ target_path = os.path.join((item['session_path'], os.basename(path)))
+
+            #~ # try to move the file and raise exception if not possible
+            #~ if not os.rename(path, target_path):
+                #~ raise ImageException("Could not move image to target folder")
+
+            #~ # here we'll write out the result with the new path,
+            #~ # if there is a result field on the item (just like the original code does)
+            #~ if self.IMAGES_RESULT_FIELD in item.fields:
+                #~ result['path'] = target_path
+                #~ item[self.IMAGES_RESULT_FIELD].append(result)
+
+        #~ return item
+
+#class StoreImagePipeline(FilesPipeline):
+#
+#    def file_path(self, request, response=None, info=None):
+#        YEAR = 2017
+#        image_guid = hashlib.sha1(to_bytes(request.url)).hexdigest()
+#        filename = 
+#        print('realty-sc/%s/%s/%s/%s.jpg' % (YEAR, image_guid[:2], image_guid[2:4], image_guid))
+#        
+#        return 'realty-sc/%s/%s/%s/%s.jpg' % (YEAR, image_guid[:2], image_guid[2:4], image_guid)   
+
 # --- it runs without project and saves in `output.csv` ---
+
+#start_urls = [
+#    'http://quotes.toscrape.com/tag/love/',
+#    'http://quotes.toscrape.com/tag/inspirational/',
+#    'http://quotes.toscrape.com/tag/life/',
+#]
 
 from scrapy.crawler import CrawlerProcess
 
@@ -68,16 +125,18 @@ c = CrawlerProcess({
     # download files to `FILES_STORE/full`
     # it needs `yield {'file_urls': [url]}` in `parse()`
     #'ITEM_PIPELINES': {'scrapy.pipelines.files.FilesPipeline': 1},
+    #'ITEM_PIPELINES': {'__main__.SessionImagesPipeline': 1},
     #'FILES_STORE': '/path/to/valid/dir',
+    #'FILES_STORE': '.',
 
     # download images and convert to JPG
     # it needs `yield {'image_urls': [url]}` in `parse()`
     #'ITEM_PIPELINES': {'scrapy.pipelines.images.ImagesPipeline': 1},
+    #'ITEM_PIPELINES': {'__main__.StoreImagePipeline': 1},
     #'IMAGES_STORE': '/path/to/valid/dir',
+    #'IMAGES_STORE': '.',
+    
 })
 c.crawl(MySpider)
+#c.crawl(MySpider, urls=start_urls)
 c.start()
-
-from scrapy import cmdline
-
-cmdline.execute('scrapy crawl myspider -o output.csv -a extra=hello'.split())
