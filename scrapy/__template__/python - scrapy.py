@@ -14,7 +14,7 @@ class MySpider(scrapy.Spider):
 
     #def __init__(self, urls, *args, **kwargs):
     #    super().__init__(*args, **kwargs)
-    #    self.start_urls = urls
+    #    self.start_urls = urls.split(';')
 
     #def start_requests(self):
     #    self.url_template = http://quotes.toscrape.com/tag/{}/page/{}/
@@ -96,16 +96,32 @@ class MySpider(scrapy.Spider):
         #~ return item
 
 #class StoreImagePipeline(FilesPipeline):
-#
-#    def file_path(self, request, response=None, info=None):
-#        YEAR = 2017
-#        image_guid = hashlib.sha1(to_bytes(request.url)).hexdigest()
-#        filename = 
-#        print('realty-sc/%s/%s/%s/%s.jpg' % (YEAR, image_guid[:2], image_guid[2:4], image_guid))
-#        
-#        return 'realty-sc/%s/%s/%s/%s.jpg' % (YEAR, image_guid[:2], image_guid[2:4], image_guid)   
 
-# --- it runs without project and saves in `output.csv` ---
+    def file_path(self, request, response=None, info=None):
+        from scrapy.utils.python import to_bytes
+        import hashlib
+        import datetime
+        
+        image_guid = hashlib.sha1(to_bytes(request.url)).hexdigest()
+        filename = datetime.datetime.now().strftime('images/%Y.%m.%d-%H.%M.%S/{}.jpg'.format(image_guid))
+        
+        return filename
+        
+# --- run without project and save in `output.csv` ---
+
+# scrapy runspider script.py -s USER_AGENT="Mozilla/5.0" -o output.csv -a urls="http://quotes.toscrape.com/tag/love/;http://quotes.toscrape.com/tag/inspirational/http://quotes.toscrape.com/tag/life/"
+
+# ---
+
+#import scrapy.cmdline
+
+#start_urls = "http://quotes.toscrape.com/tag/love/;http://quotes.toscrape.com/tag/inspirational/http://quotes.toscrape.com/tag/life/"
+
+#scrapy.cmdline.execute(['scrapy', 'crawl', 'myspider', '-o', 'output.csv', '-a',  'urls=' + start_urls])
+
+# --- run without project and save in `output.csv` ---
+
+# python script.py
 
 #start_urls = [
 #    'http://quotes.toscrape.com/tag/love/',
@@ -138,5 +154,6 @@ c = CrawlerProcess({
     
 })
 c.crawl(MySpider)
+#start_urls = "http://quotes.toscrape.com/tag/love/;http://quotes.toscrape.com/tag/inspirational/http://quotes.toscrape.com/tag/life/"
 #c.crawl(MySpider, urls=start_urls)
 c.start()

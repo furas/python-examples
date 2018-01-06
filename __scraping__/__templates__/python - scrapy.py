@@ -111,6 +111,14 @@ class MySpider(scrapy.Spider):
 
 # scrapy runspider script.py -s USER_AGENT="Mozilla/5.0" -o output.csv -a urls="http://quotes.toscrape.com/tag/love/;http://quotes.toscrape.com/tag/inspirational/http://quotes.toscrape.com/tag/life/"
 
+# ---
+
+#import scrapy.cmdline
+
+#start_urls = "http://quotes.toscrape.com/tag/love/;http://quotes.toscrape.com/tag/inspirational/http://quotes.toscrape.com/tag/life/"
+
+#scrapy.cmdline.execute(['scrapy', 'crawl', 'myspider', '-o', 'output.csv', '-a',  'urls=' + start_urls])
+
 # --- run without project and save in `output.csv` ---
 
 # python script.py
