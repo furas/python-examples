@@ -1,9 +1,14 @@
+
+# 
+# https://stackoverflow.com/a/47983927/1832058
+# 
+
 import tkinter as tk
 
 root = tk.Tk()
 root.geometry('250x250')
 
-img = tk.PhotoImage(file="Obrazy/inne/hal_9000.gif")
+img = tk.PhotoImage(file="hal_9000.gif")
 img = img.subsample(1, 1)
 
 background = tk.Label(root, image=img, bd=0)

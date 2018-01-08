@@ -61,9 +61,9 @@ if not table:
     #print('count:', len(table))
     #print(response.text)
 else:   
-    for row in table.find_all('table'): # inside `table` are another `tables`
+    for row in table.find_all('table'):
         for column in row.find_all('td'):
             text = ', '.join(x.strip() for x in column.text.split('\n') if x.strip()).strip()
             print(text)
 
-        print('-----')
+        print('-----')        
