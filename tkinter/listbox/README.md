@@ -42,4 +42,6 @@ Program use:
 - `"{:10s}|{:15s}|{:10s}"` to format columns in text, 
 - monospaced font `font=('monospace', 10)` to correctly display columns on list.
 
+![#1](listbox-populate-entry/images/listbox-multicolumn.png?raw=true)   
+
 ---
