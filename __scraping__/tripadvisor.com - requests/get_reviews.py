@@ -4,12 +4,16 @@
 # https://stackoverflow.com/a/47858268/1832058
 #
 
-from bs4 import BeautifulSoup
-import requests
+import requests               # to get html from server
+from bs4 import BeautifulSoup # to search in html
 import re
-#import webbrowser
+#import webbrowser             # to open html file in web browser
 
+# global variable to keep request session with all cookies, etc.
 s = requests.Session()
+
+# NEW: get reviews in all languages - doesn't work, it gets only english reviews but code gets number of all reviews :(
+s.cookies.set('TALanguage', 'ALL', domain='.google.co.uk', path='/') # other lanugages ie. 'en', 'es'
 
 def get_soup(url):
     
@@ -17,6 +21,7 @@ def get_soup(url):
     
     r = s.get(url, headers=headers)
     
+    # write html in file and open it in web browser - to see what you get from server
     #with open('temp.html', 'wb') as f:
     #    f.write(r.content)
     #    webbrowser.open('temp.html')
@@ -25,6 +30,7 @@ def get_soup(url):
         print('status code:', r.status_code)
     else:
         return BeautifulSoup(r.text, 'html.parser')
+
     
 def parse(url, response):
     
@@ -50,6 +56,7 @@ def parse(url, response):
         parse_reviews(url_, get_soup(url_))
         #return # for test only - to stop after first page
 
+
 def parse_reviews(url, response):
     print('review:', url)
 
@@ -58,21 +65,34 @@ def parse_reviews(url, response):
         return
     
     for idx, review in enumerate(response.find_all('div', class_='review-container')):
+        
+        # NEW: works - it has to check if `badgetext` exists on page
+        badgetext = review.find('span', class_='badgetext')
+        if badgetext:
+            badgetext = badgetext.text
+        else:
+            badgetext = ''
+            
         item = {
-            'hotel_name': response.find('h1', class_='heading_title').text,
+            #'hotel_name': response.find('h1', class_='heading_title').text, # OLD: doesn't work
             'review_title': review.find('span', class_='noQuotes').text,
             'review_body': review.find('p', class_='partial_entry').text,
-            'review_date': review.find('span', class_='relativeDate')['title'],#.text,#[idx],
-            'num_reviews_reviewer': review.find('span', class_='badgetext').text,
-            'reviewer_name': review.find('span', class_='scrname').text,
-            'bubble_rating': review.select_one('div.reviewItemInline span.ui_bubble_rating')['class'][1][7:],
+            #'review_date': review.find('span', class_='relativeDate')['title'],#.text,#[idx], # OLD: doesn't work
+            'review_date': review.find('span', class_='ratingDate')['title'],#.text,#[idx],
+            
+            #'num_reviews_reviewer': review.find('span', class_='badgetext').text, # OLD: doesn't work 
+            'num_reviews_reviewer': badgetext, # NEW: works - it has to check if `badgetext` exists on page
+            
+            #'reviewer_name': review.find('span', class_='scrname').text, # OLD: doesn't work
+            #'bubble_rating': review.select_one('div.reviewItemInline span.ui_bubble_rating')['class'][1][7:], # OLD: doesn't work
         }
         #~ yield item
         for key,val in item.items():
             print(key, ':', val)
         print('----')
         #return # for test only - to stop after first review
-        
+
+# some URLs for testing code        
 start_urls = [
     'https://www.tripadvisor.com/Hotel_Review-g562819-d289642-Reviews-Hotel_Caserio-Playa_del_Ingles_Maspalomas_Gran_Canaria_Canary_Islands.html',
     #'https://www.tripadvisor.com/Hotel_Review-g60795-d102542-Reviews-Courtyard_Philadelphia_Airport-Philadelphia_Pennsylvania.html',
