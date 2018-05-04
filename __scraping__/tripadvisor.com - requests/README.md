@@ -11,5 +11,5 @@ Portal: [tripadvisor.com](http://tripadvisor.com)
 
 Other:
 
-- [tripadvisor.com - using Scrapy](../tripadvisor.com - scrapy/)
+- [tripadvisor.com - using Scrapy](../tripadvisor.com%20-%20scrapy)
 - [scraping other pages](..)
