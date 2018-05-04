@@ -59,8 +59,8 @@ def parse(url, response):
     url_template = url.replace('.html', '-or{}.html')
     print('[parse] url_template:', url_template)
     
-    # get subpages and parse reviwes.
-    # every subpage has 5 reviews so pages has urls with -or0 -or5 -or10 etc.
+    # get subpages and parse reviewes.
+    # every subpage has 5 reviews and it has url with -or0.html -or5.html -or10.html -or15.html etc.
     for offset in range(0, num_reviews, 5):
         subpage_url = url_template.format(offset)
         
