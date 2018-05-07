@@ -7,13 +7,18 @@
 import requests               # to get html from server
 from bs4 import BeautifulSoup # to search in html
 #~ import webbrowser             # to open (downloaded) html file in web browser
+import csv                    # to write in CSV 
+
 
 # global variable to keep request session with all cookies, etc.
 s = requests.Session()
 
-# NEW: get reviews in all languages - doesn't work, it gets only english reviews but page gives number of all reviews :(
-s.cookies.set('TALanguage', 'ALL', domain='.google.co.uk', path='/') # other lanugages ie. 'en', 'es'
+# NEW: to get reviews in all languages - doesn't work, 
+#      it gets only english reviews but page gives number of all reviews :(
+s.cookies.set('TALanguage', 'ALL', domain='.tripadvisor.com', path='/') # other lanugages ie. 'en', 'es'
+#s.cookies.set('TALanguage', 'es', domain='.tripadvisor.com', path='/') # other lanugages ie. 'en', 'es'
 
+#print(s.cookies)
 
 def get_soup(url):
     '''Read HTML from server and convert to Soup'''
@@ -23,6 +28,9 @@ def get_soup(url):
     
     # get response with HTML
     r = s.get(url, headers=headers)
+    #r = s.get(url + '?filterLang=ALL', headers=headers)
+
+    #print(s.cookies)
     
     # write html in file temp.html and open it in web browser.
     # it is useful to see/test what we get from server.
@@ -47,12 +55,18 @@ def parse(url, response):
         print('[parse] no response:', url)
         return
     
-    # get number of reviews
+    # get number of reviews in all languages
     num_reviews = response.find('span', class_='reviews_header_count').text # get text
     num_reviews = num_reviews[1:-1] # remove `( )`
-    num_reviews = num_reviews.replace(',', '') # remove `,`
+    num_reviews = num_reviews.replace(',', '') # remove `,` in number (ie. 1,234)
     num_reviews = int(num_reviews) # convert text into integer
-    print('[parse] num_reviews:', num_reviews, type(num_reviews))
+    print('[parse] num_reviews ALL:', num_reviews, type(num_reviews))
+    
+    num_reviews = response.select_one('div[data-value="en"] span').text # get text
+    num_reviews = num_reviews[1:-1] # remove `( )`
+    num_reviews = num_reviews.replace(',', '') # remove `,` in number (ie. 1,234)
+    num_reviews = int(num_reviews) # convert text into integer
+    print('[parse] num_reviews ENGLISH:', num_reviews, type(num_reviews))
     
     # create template url to subpages with reviews
     # ie. https://www.tripadvisor.com/Hotel_Review-g562819-d289642-or{}.html
@@ -73,6 +87,8 @@ def parse(url, response):
 
 def parse_reviews(url, response):
     '''Get all reviews from one page'''
+
+    global csv_file
     
     print('[parse_reviews] url:', url)
 
@@ -80,39 +96,65 @@ def parse_reviews(url, response):
         print('[parse_reviews] no response:', url)
         return
     
+    hotel_name = response.find('h1', id='HEADING').text
+    
     # find all reviews on page 
     for idx, review in enumerate(response.find_all('div', class_='review-container')):
         
-        # NEW: works - it has to check if `badgetext` exists on page
-        badgetext = review.find('span', class_='badgetext')
-        if badgetext:
-            badgetext = badgetext.text
+        # it has to check if `badgets` (contributions/helpful_vote) exist on page 
+        badgets = review.find_all('span', class_='badgetext')
+        if len(badgets) > 0:
+            contributions = badgets[0].text
         else:
-            badgetext = ''
+            contributions = '0'
+
+        if len(badgets) > 1:
+            helpful_vote = badgets[1].text
+        else:
+            helpful_vote = '0'
+        
+        # it has to check if `user_loc` exists on page
+        #user_loc = review.find_all('div[@class="userLoc"]/strong/text()')
+        user_loc = review.select_one('div.userLoc strong')
+        if user_loc:
+            user_loc = user_loc.text
+        else:
+            user_loc = ''
             
+        # it has to find value in class name (ie. "bubble_40" => "40", "bubble_50" => "50")
+        #bubble_rating = $xpath->query('.//span[contains(@class, "ui_bubble_rating")]', $review)[0]->getAttribute('class');
+        bubble_rating = review.select_one('span.ui_bubble_rating')['class']
+        bubble_rating = bubble_rating[1].split('_')[-1]
+        
         item = {
-            #'hotel_name': response.find('h1', class_='heading_title').text, # OLD: doesn't work
-            'review_title': review.find('span', class_='noQuotes').text,
-            'review_body': review.find('p', class_='partial_entry').text,
-            #'review_date': review.find('span', class_='relativeDate')['title'],#.text,#[idx], # OLD: doesn't work
-            'review_date': review.find('span', class_='ratingDate')['title'],#.text,#[idx], # NEW: works - 'ratingDate' instead of 'relativeDate'
+            'hotel name': hotel_name,
             
-            #'num_reviews_reviewer': review.find('span', class_='badgetext').text, # OLD: doesn't work 
-            'num_reviews_reviewer': badgetext, # NEW: works - it has to check if `badgetext` exists on page
+            'review title': review.find('span', class_='noQuotes').text,
+            'review body': review.find('p', class_='partial_entry').text,
+            'review date': review.find('span', class_='ratingDate')['title'], # 'ratingDate' instead of 'relativeDate'
             
-            #'reviewer_name': review.find('span', class_='scrname').text, # OLD: doesn't work
-            #'bubble_rating': review.select_one('div.reviewItemInline span.ui_bubble_rating')['class'][1][7:], # OLD: doesn't work
+            'contributions': contributions, # former 'num_reviews_reviewer'
+            'helpful vote': helpful_vote, # new 
+            
+            'user name': review.find('div', class_='info_text').find('div').text, # former 'reviewer_name'
+            'user location': user_loc, # new
+             
+            'rating': bubble_rating,
         }
         #~ yield item # generator which returns items 
+
+        # append to CSV file 
+        csv_file.writerow(item)
         
         # display on screen 
-        print('--- review ---')
+        print('\n--- review ---\n')
         for key,val in item.items():
             print(' ', key, ':', val)
         
         #~ return # for test only - to stop after first review
 
-
+    print() # empty line after last review
+    
 #----------------------------------------------------------------------
 
 if __name__ == '__main__':
@@ -124,5 +166,9 @@ if __name__ == '__main__':
         #'https://www.tripadvisor.com/Hotel_Review-g60795-d122332-Reviews-The_Ritz_Carlton_Philadelphia-Philadelphia_Pennsylvania.html',
     ]
 
-    for url in start_urls:
-        parse(url, get_soup(url))
+    with open('results.csv', 'w') as csvfile:
+        csv_file = csv.DictWriter(csvfile, ['hotel name', 'review title', 'review body', 'review date', 'contributions', 'helpful vote', 'user name' , 'user location', 'rating'])
+
+        csv_file.writeheader()
+        for url in start_urls:
+            parse(url, get_soup(url))
