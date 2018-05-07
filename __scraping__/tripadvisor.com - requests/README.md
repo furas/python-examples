@@ -32,7 +32,7 @@ Example to read reviews from tripadvisor.com
     - user location  (new)
     - rating (former bubble_rating, values: 0, 10, 20, 30, 40, 50)
 
-**2018.05.06:** 
+**2018.05.07:** 
 
 - Python example can 
 
@@ -45,7 +45,7 @@ Example to read reviews from tripadvisor.com
     - code first reads all reviews and next it writes in CSV (CVS file name based on HTML file name and selected language) but it can be changed to database or other file format. 
     Previous version saved in file during getting items so it could save some item even if there was error/exception but it was not easy to use database or other file format.
     
-- PHP example can't select language and can't read  "More", yet.
+- PHP example can't select language and can't read "More", yet.
 
 ---
 
