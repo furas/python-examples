@@ -4,11 +4,14 @@
 # https://stackoverflow.com/a/47858268/1832058
 #
 
-import requests               # to get html from server
-from bs4 import BeautifulSoup # to search in html
-import csv                    # to write in CSV
-import webbrowser             # to open (downloaded) html file in web browser
+import requests                # to get html from server
+from bs4 import BeautifulSoup  # to search in html
+import csv                     # to write in CSV
+import webbrowser              # to open (downloaded) html file in web browser
+import pymysql                  # to write in MySQL
 
+#----------------------------------------------------------------------
+# SCRAPER
 #----------------------------------------------------------------------
 
 def display(content, filename='output.html'):
@@ -138,7 +141,7 @@ def parse(session, url):
 
         offset += 5
 
-        #~ return results# for test only - to stop after first page
+        #~ return items# for test only - to stop after first page
 
     return items
 
@@ -150,7 +153,7 @@ def get_reviews_ids(soup):
 
     if items:
         reviews_ids = [x.attrs['data-reviewid'] for x in items][::2]
-        print('data-reviewid:', reviews_ids)
+        print('[get_reviews_ids] data-reviewid:', reviews_ids)
         return reviews_ids
 
 #----------------------------------------------------------------------
@@ -230,19 +233,19 @@ def parse_reviews(session, url):
         bubble_rating = bubble_rating[1].split('_')[-1]
 
         item = {
-            'hotel name': hotel_name,
+            #~ 'hotel name': hotel_name,
 
-            'review title': review.find('span', class_='noQuotes').text,
-            'review body': review.find('p', class_='partial_entry').text,
-            'review date': review.find('span', class_='ratingDate')['title'], # 'ratingDate' instead of 'relativeDate'
+            #~ 'review title': review.find('span', class_='noQuotes').text,
+            'review_body': review.find('p', class_='partial_entry').text,
+            #~ 'review date': review.find('span', class_='ratingDate')['title'], # 'ratingDate' instead of 'relativeDate'
 
-            'contributions': contributions, # former 'num_reviews_reviewer'
-            'helpful vote': helpful_vote, # new
+            #~ 'contributions': contributions, # former 'num_reviews_reviewer'
+            #~ 'helpful vote': helpful_vote, # new
 
-            'user name': review.find('div', class_='info_text').find('div').text, # former 'reviewer_name'
-            'user location': user_loc, # new
+            #~ 'user name': review.find('div', class_='info_text').find('div').text, # former 'reviewer_name'
+            #~ 'user location': user_loc, # new
 
-            'rating': bubble_rating,
+            #~ 'rating': bubble_rating,
         }
 
         items.append(item)
@@ -252,12 +255,13 @@ def parse_reviews(session, url):
         for key,val in item.items():
             print(' ', key, ':', val)
 
-        #~ return # for test only - to stop after first review
+        #~ return items # for test only - to stop after first review
 
     print() # empty line after last review
 
     return items
-
+#----------------------------------------------------------------------
+# CSV
 #----------------------------------------------------------------------
 
 def write_in_csv(items, filename='results.csv',
@@ -265,6 +269,8 @@ def write_in_csv(items, filename='results.csv',
                            'review date', 'contributions', 'helpful vote',
                            'user name' , 'user location', 'rating'],
                   mode='w'):
+
+    print('--- CSV ---')
 
     with open(filename, mode) as csvfile:
         csv_file = csv.DictWriter(csvfile, headers)
@@ -275,27 +281,127 @@ def write_in_csv(items, filename='results.csv',
         csv_file.writerows(items)
 
 #----------------------------------------------------------------------
+# DATABASE
+# ---------------------------------------------------------------------
 
-if __name__ == '__main__':
+def connect():
+    return pymysql.connect(
+                host=DB_HOST,
+                db=DB_DATABASE,
+                user=DB_USER,
+                password=DB_PASSWORD,
+                port=DB_PORT,
+                charset='utf8',
+            )
+    
+def drop(conn):
+    cur = conn.cursor()
+    SQL = '''DROP TABLE ''' + DB_DATABASE + '''.''' + DB_TABLE + ''';'''
+    cur.execute(SQL)
+    conn.commit()
+    cur.close()
+    
+def create(conn):
+    cur = conn.cursor()
+    query = '''CREATE TABLE {db}.{table} (
+        id INT NOT NULL AUTO_INCREMENT,
+        {column} LONG VARCHAR NOT NULL,
+        PRIMARY KEY (id)
+    )
+    ENGINE=InnoDB
+    DEFAULT CHARSET=utf8
+    COLLATE=utf8_general_ci;'''.format(db=DB_DATABASE, table=DB_TABLE, column=DB_COLUMN)
+    cur.execute(query)
+    conn.commit()
+    cur.close()
 
-    # some URLs for testing
-    start_urls = [
-        'https://www.tripadvisor.com/Hotel_Review-g294229-d481832-Reviews-Pullman_Jakarta_Indonesia-Jakarta_Java.html',
-        #'https://www.tripadvisor.com/Hotel_Review-g562819-d289642-Reviews-Hotel_Caserio-Playa_del_Ingles_Maspalomas_Gran_Canaria_Canary_Islands.html',
-        #'https://www.tripadvisor.com/Hotel_Review-g60795-d102542-Reviews-Courtyard_Philadelphia_Airport-Philadelphia_Pennsylvania.html',
-        #'https://www.tripadvisor.com/Hotel_Review-g60795-d122332-Reviews-The_Ritz_Carlton_Philadelphia-Philadelphia_Pennsylvania.html',
-    ]
+def insert(conn, item):
+    cur = conn.cursor()
+    query = 'INSERT INTO {table} ({column}) VALUE (%s);'.format(table=DB_TABLE, column=DB_COLUMN)
+    cur.execute(query, item)
+    conn.commit()
+    cur.close()
 
-    lang = 'fr'
+def insert_many(conn, items):
+    cur = conn.cursor()
+    query = 'INSERT INTO {table} ({column}) VALUE (%s);'.format(table=DB_TABLE, column=DB_COLUMN)
+    for item in items:
+        cur.execute(query, item[DB_COLUMN])
+    conn.commit()
+    cur.close()
+ 
+def display_all(conn):
+    cur = conn.cursor()
+    query = 'SELECT * FROM {table};'.format(table=DB_TABLE)
+    cur.execute(query)
+    for x in cur.fetchall():
+        print(x)    
+    cur.close()
+    
+# ---------------------------------------------------------------------
 
-    for url in start_urls:
+def write_in_mysql(items, headers):
+        
+    print('--- DATABASE ---')
 
-        filename = url.split('Reviews-')[1][:-5] + '__' + lang
-        print('filename:', filename)
+    conn = connect()
 
-        items = scrape(url, lang)
+    #drop(conn)   # drop old table 
+    #create(conn) # create new table 
 
-        if not items:
-            print('No reviews')
-        else:
-            write_in_csv(items, filename + '.csv', mode='w')
+    insert_many(conn, items)
+
+    display_all(conn)
+
+    conn.close()
+
+# ---------------------------------------------------------------------
+# MAIN
+# ---------------------------------------------------------------------
+
+DB_HOST     = 'localhost'
+DB_DATABASE = 'tripadvisor'
+DB_PORT     = 3306
+DB_TABLE    = 'reviews'
+DB_COLUMN   = 'review_body'
+
+DB_USER     = input('database login: ')
+DB_PASSWORD = input('database password: ')
+
+# some URLs for testing
+start_urls = [
+    'https://www.tripadvisor.com/Hotel_Review-g294229-d481832-Reviews-Pullman_Jakarta_Indonesia-Jakarta_Java.html',
+    #'https://www.tripadvisor.com/Hotel_Review-g562819-d289642-Reviews-Hotel_Caserio-Playa_del_Ingles_Maspalomas_Gran_Canaria_Canary_Islands.html',
+    #'https://www.tripadvisor.com/Hotel_Review-g60795-d102542-Reviews-Courtyard_Philadelphia_Airport-Philadelphia_Pennsylvania.html',
+    #'https://www.tripadvisor.com/Hotel_Review-g60795-d122332-Reviews-The_Ritz_Carlton_Philadelphia-Philadelphia_Pennsylvania.html',
+]
+
+lang = 'in'
+
+headers = [
+    #'hotel name', 
+    #'review title', 
+    DB_COLUMN, #'review_body',
+    #'review date', 
+    #'contributions', 
+    #'helpful vote',
+    #'user name' , 
+    #'user location', 
+    #'rating',
+]
+           
+for url in start_urls:
+
+    # get all reviews for 'url' and 'lang'
+    items = scrape(url, lang)
+
+    if not items:
+        print('No reviews')
+    else:
+        # write in CSV
+        #filename = url.split('Reviews-')[1][:-5] + '__' + lang
+        #print('filename:', filename)
+        #write_in_csv(items, filename + '.csv', headers, mode='w')
+        
+        # write in MySQL
+        write_in_mysql(items, headers)
