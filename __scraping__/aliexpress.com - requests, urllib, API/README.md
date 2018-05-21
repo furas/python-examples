@@ -7,15 +7,30 @@ API doc: [https://portals.aliexpress.com/help.htm?page=help_center_api](https://
 urllib 
 ============
 
+Uusing standard modules: urllib, json
 
 requests
 ============
 
+Uusing external module: requests
+
+    $ pip install requests
 
 
 AliExpress API Client
 ============
 
+Using external module: aliexpress_api_client
+
+    $ pip install aliexpress_api_client
+    
+or
+
+    $ git clone https://github.com/kronas/python-aliexpress-api-client
+ 
+There are some mistakes in example on [https://github.com/kronas/python-aliexpress-api-client](https://github.com/kronas/python-aliexpress-api-client). 
+
+---
 
 Python client library for AliExpress API
 
@@ -33,7 +48,9 @@ aliexpress = AliExpress('api_key', 'affiliate_id')
 
 There was mistake in example on [https://github.com/kronas/python-aliexpress-api-client](https://github.com/kronas/python-aliexpress-api-client). 
 
-`get_product_list()` expects second argument `keywords`. And it doesn't return directly `products` - they are in `result['products']`
+- `get_product_list()` expects second argument `keywords`
+
+- it doesn't return directly `products` - they are in `result['products']`
 
 ``` python
 
@@ -44,14 +61,20 @@ result = aliexpress.get_product_list(fields, keywords)
 products = result['products']
 
 for product in products:
-    print '#%s %s: %s' % (product['productId'], product['productTitle'], product['salePrice'])
+    print('#%s %s: %s' % (product['productId'], product['productTitle'], product['salePrice']))
 ```
 
 **Get product details:**
 ``` python
-product = aliexpress.get_product_details(['productId', 'productTitle', 'salePrice'], product_id)
+#from aliexpress_api_client.config import ALIBABA_API_FIELDS
+#fields = ALIBABA_API_FIELDS['details']
 
-print '#%s %s: %s' % (product['productId'], product['productTitle'], product['salePrice'])
+fields = ['productId', 'productTitle', 'salePrice']
+product_id = 32701355449
+
+product = aliexpress.get_product_details(fields, product_id)
+
+print('#%s %s: %s' % (product['productId'], product['productTitle'], product['salePrice']))
 ```
 
 **Get promotion links (require `affiliate_id`):**
