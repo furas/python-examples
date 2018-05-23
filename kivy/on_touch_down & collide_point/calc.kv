@@ -1,0 +1,37 @@
+#:kivy 1.10.0
+
+<Calculate>:
+    display: entry
+    rows: 5
+    padding: 10
+    spacing: 10
+
+    BoxLayout:
+        TextInput:
+            id: entry
+            multiline: False
+            font_size: 32
+            text: "Kivy Touch: "
+
+    BoxLayout:
+        spacing: 10
+
+        Button:
+            font_size: 20
+            text: '7'
+            on_press: entry.text += self.text
+
+        Button:
+            font_size: 20
+            text: '8'
+            on_release: entry.text += self.text
+
+        Button:
+            font_size: 20
+            text: '9'
+            on_touch_down: root.touch_button(*args)
+
+        Button:
+            font_size: 20
+            text: '+'
+            on_touch_down: root.touch_button(*args)
