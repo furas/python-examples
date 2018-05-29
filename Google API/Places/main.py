@@ -5,7 +5,9 @@
 
 import googlemaps
 
-gmaps = googlemaps.Client(key='AIzaSyBiC8vKEEF-MLP9a2de0PLs-S_XrEL0kSQ')
+API_KEY = '<YOUR-API-KEY>'
+
+gmaps = googlemaps.Client(key=API_KEY)
 
 results = gmaps.places('Rugby Club, London')
 
