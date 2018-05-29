@@ -7,10 +7,15 @@ Three versions:
 - using popular module requests (main-requests.py),
 - using official Google's module (main-module.py).
 
-[Google API for "commentThreads"](https://developers.google.com/youtube/v3/docs/commentThreads/list)
 
-[Example video on YouTube to get comments](https://www.youtube.com/watch?v=oVp1vrfL_w4&list=PLQVvvaa0QuDe8XSftW-RAxdo6OmaeL85M)
+### Links:
 
-[Python module for Google API (not used in example)](https://github.com/google/google-api-python-client)
+- [Google Console for Developers (to register application and get API_KEY)](https://console.developers.google.com/)
 
-[Google Console for Developers (to register application and get API_KEY)](https://console.developers.google.com/)
+- [Python module for Google API](https://github.com/google/google-api-python-client)
+
+- [Google API for "commentThreads"](https://developers.google.com/youtube/v3/docs/commentThreads/list) used in code
+
+- [Example video on YouTube](https://www.youtube.com/watch?v=oVp1vrfL_w4&list=PLQVvvaa0QuDe8XSftW-RAxdo6OmaeL85M)  which I use in code to get comments
+
+
