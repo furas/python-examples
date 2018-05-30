@@ -7,7 +7,7 @@
 
 ## 1. GridLayout as main widget. 
 
-- it uses all windows 
+- it uses all window 
 - it resizes when window change size
 - it can't change `width`, `height` and `position`
 
@@ -17,7 +17,7 @@ At start:
 
 ## 2. Widget as main widget and Gridlayout inside Widget.
 
-- it doesn't use all windows 
+- it doesn't use all window
 - it doesn't resize when window change size
 - it **can** change `width`, `height` and `position`
 
@@ -31,7 +31,7 @@ After changing window's size:
 
 ## 3. Gridlayout as main widget and second Gridlayout inside first Gridlayout.
 
-- it use all windows 
+- it use all window
 - it resize when window change size
 - it **can** change `width`, `height` and `position`
 
