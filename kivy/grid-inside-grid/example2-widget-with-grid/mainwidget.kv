@@ -1,25 +1,32 @@
 #:kivy 1.10.0
 
 <MainWidget>:
+    canvas.before:
+        Color: 
+            rgba: (1, 0, 0,1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+            
     GridLayout:
-        width: 800
-        height: 100
+        width: 800  # works
+        height: 100 # works
         cols:2
-        #pos: 0, 10
-        position: 0, 100
         Button:
             text: "Hello"
         Button:
             text: "World"
 
     GridLayout:
-        width: 800
-        height: 100
+        width: 800  # works
+        height: 100 # works
         cols:3
-        pos: 0, 500
-        position: 0, 100
+        pos: 0, 500 # works
+        pos_hint: 0.5, 0.5 # doesn't work in Widget
         Button:
             text: "See"
+            height: 50 # doesn't work in GridLayout
+            size_hint: 0.5, 0.5 # works in GridLayout
         Button:
             text: "You"
         Button:

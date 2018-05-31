@@ -1,11 +1,16 @@
 #:kivy 1.10.0
 
 <MainWidget>:
-    width: 800
-    height: 100
+    width: 400  # doesn't work
+    height: 100 # doesn't work
     cols:2
-    position: 0, 500
+    #pos: 0, 500 # work
+
     Button:
         text: "Hello"
+        #size_hint: 1, 0.5 # doesn't work in Widget
+        #width: 400  # doesn't work
+        #height: 100 # doesn't work
     Button:
         text: "World"
+        size_hint: 1, 1 # doesn't work in Widget
