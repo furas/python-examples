@@ -8,13 +8,15 @@
 
 Created by [Mark Geyzer](https://www.facebook.com/Mark.Geyzer)
 
+Date: 2018.05.31
+
+
 The goal of the exercise - create a function that receives an integer number and builds a spiral of numbers - up to the provided number, like in the uppermost picture below
 
 The function output may be:
 
 - list of lists
-
-    ````
+    
     [[17, 16, 15, 14, 13],
     [18, 5, 4, 3, 12],
     [19, 6, 1, 2, 11, 28],
@@ -37,6 +39,8 @@ The link to collected solutions will be posted in the near future on [this post 
 
 Good luck! I hope you'll enjoy the challenge
 
+---
+
 ## Info
 
 I add few examples more to testing code and put in `test.py`.
@@ -48,18 +52,18 @@ It imports function(s) from `main.py`
 
 You can run directly `main.py` to see some results without tests.
 
-## `spiral(numbers, remove_empty=True, DEBUG=False)`
+### `spiral(numbers, remove_empty=True, DEBUG=False)`
 
 It genearate square matrix (list of list) like this
 
-    ````
+    
     [[5, 4, 3],
      ['', 1, 2]] 
 
 
 or with empty rows to keep square size 3x3
 
-    ````
+    
     [[5, 4, 3],
      ['', 1, 2],
      ['', '', '']]
