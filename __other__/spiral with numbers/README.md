@@ -14,31 +14,28 @@ The function output may be:
 
 - list of lists
 
-[[17, 16, 15, 14, 13],
-[18, 5, 4, 3, 12],
-[19, 6, 1, 2, 11, 28],
-[20, 7, 8, 9, 10, 27],
-[21, 22, 23, 24, 25, 26]]
+    ````
+    [[17, 16, 15, 14, 13],
+    [18, 5, 4, 3, 12],
+    [19, 6, 1, 2, 11, 28],
+    [20, 7, 8, 9, 10, 27],
+    [21, 22, 23, 24, 25, 26]]
 
-- "flattened" spiral - (5, 4, 3, 6, 1, 2, 7, 8)
+- "flattened" spiral - `(5, 4, 3, 6, 1, 2, 7, 8)`
 
-- simple string output (small picture on the right)
+- simple string output
 
-- fancy string output (small picture on the left)
+    ![#1](images/right_image.jpg?raw=true)   
+
+- fancy string output
+
+    ![#1](images/left_image.jpg?raw=true)   
 
 The test harness for function testing is available at [https://repl.it/@volvano63/NumericSpiralTestHarness](https://repl.it/@volvano63/NumericSpiralTestHarness)
 
-The link to collected solutions will be posted in the near future
+The link to collected solutions will be posted in the near future on [this post on Facebook](https://www.facebook.com/groups/python.programmers/permalink/2260989837252153/) in group "Python Programming Language" 
 
 Good luck! I hope you'll enjoy the challenge
-
-Left image: 
-
-![#1](images/left_image.jpg?raw=true)   
-
-Right image: 
-
-![#1](images/right_image.jpg?raw=true)   
 
 ## Info
 
