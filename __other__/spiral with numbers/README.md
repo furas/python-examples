@@ -41,9 +41,9 @@ Good luck! I hope you'll enjoy the challenge
 
 ---
 
-## Info
+## Tests
 
-I add few examples more to testing code and put in `test.py`.
+I added few examples more to original testing code and put in `test.py`.
 
 It imports function(s) from `main.py` 
 
@@ -52,18 +52,23 @@ It imports function(s) from `main.py`
 
 You can run directly `main.py` to see some results without tests.
 
-### `spiral(numbers, remove_empty=True, DEBUG=False)`
+## Solution
 
-It genearate square matrix (list of list) like this
+Solution is in `spiral()` in `main.py`
 
+    spiral(numbers, empty_rows=False, DEBUG=False)
+
+It genearate square matrix (list of list) like this (3x3)
+
+    [[5, 4, 3],
+     ['', 1, 2],
+     ['', '', '']]
+
+or without empty rows
     
     [[5, 4, 3],
      ['', 1, 2]] 
 
-
-or with empty rows to keep square size 3x3
+Maybe I will describe how it works after challange :)
 
     
-    [[5, 4, 3],
-     ['', 1, 2],
-     ['', '', '']]

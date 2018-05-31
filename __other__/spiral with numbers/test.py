@@ -2,7 +2,7 @@
 
 from main import * 
 
-__author__ = 'Mark Geyzer (https://www.facebook.com/Mark.Geyzer)
+__author__ = 'Mark Geyzer (https://www.facebook.com/Mark.Geyzer)'
 
 '''
 This is a test harness for a numeric spiral builder

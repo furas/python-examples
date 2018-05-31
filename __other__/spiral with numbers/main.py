@@ -1,30 +1,12 @@
 import math
 
+
 __author__ = 'Bartłomiej "furas" Burek'
 
 __all__ = ['spiral', 'fake']
 
 
-def test_sizes(numbers=26):
-    '''Show matrix size and start position for 1..numbers'''
-
-    for value in range(1, numbers+1):
-        size = math.ceil(math.sqrt(value))
-        print('[TEST] numbers:', value, 'size:', size)
-
-
-def test_starts(value=6):
-    '''Show start position for sizes 1..value'''
-    
-
-    for size in range(1, value):
-        center = math.floor((size-1) / 2)
-        x = center
-        y = (size - 1) - center # flip up-down
-        print('[TEST] size:', size, 'start:', x, y, '(x,y)')
-
-
-def spiral(numbers, remove_empty_rows=True, DEBUG=False):
+def spiral(numbers, empty_rows=False, DEBUG=False):
 
     if DEBUG:
         print('[DEBUG] numbers:', numbers)
@@ -84,7 +66,7 @@ def spiral(numbers, remove_empty_rows=True, DEBUG=False):
     # added later: it removes empty rows. 
     # Code passes test without filter too.
     # Test needs `list()` to get correct data from `filter()`
-    if remove_empty_rows:
+    if not empty_rows:
         data = list(filter(any, data))
     
     return data
@@ -97,14 +79,14 @@ def fake(numbers):
 
 if __name__ == '__main__':
 
-    test_sizes(26)
-    print('---')
-    test_starts(6)
-    print('---')
-
-    for value in [5, 8, 10]:
+    for value in [5, 8, 10, ]:
+        
+        print('numbers:', value, '\n')
+        
         matrix = spiral(value, True)
     
+        
         for row in matrix:
             print(row)
-    
+            
+        print()
