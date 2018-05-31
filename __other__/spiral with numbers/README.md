@@ -4,7 +4,7 @@
 
 ![#1](images/big_spiral.jpg?raw=true)   
 
-## Challange 
+## Challenge 
 
 Created by [Mark Geyzer](https://www.facebook.com/Mark.Geyzer)
 
@@ -69,6 +69,6 @@ or without empty rows
     [[5, 4, 3],
      ['', 1, 2]] 
 
-Maybe I will describe how it works after challange :)
+Maybe I will describe how it works after challenge :)
 
     
