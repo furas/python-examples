@@ -1,4 +1,4 @@
 
 # main-1.py
 
-![#1](imgs/main-1.png?raw=true)   
+![#1](images/main-1.png?raw=true)   
