@@ -58,4 +58,7 @@ print(text)
  
 print('[DEBUG] close socket')
 
+import time 
+
+input("[ENTER]: ")
 s.close()

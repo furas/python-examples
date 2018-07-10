@@ -104,5 +104,6 @@ except Exception as e:
 
 print('[DEBUG] close socket(s)')
 
+input("[ENTER]")
 conn.close()
 s.close()
