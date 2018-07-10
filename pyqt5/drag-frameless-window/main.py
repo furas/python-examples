@@ -48,16 +48,19 @@ class MyWindow(QtWidgets.QWidget):
         if event.button() == 1: # left
             self.drag = False
 
+#----------------------------------------------------------------------
 
 # Linux Mint 18.3 problem with style (GTK2/GTK3) 
-# "QApplication: invalid style override passed, ignoring it."
-#sys.argv += ['--style', 'Fusion'] 
+# error: "QApplication: invalid style override passed, ignoring it."
+# solution: sys.argv += ['--style', 'Fusion'] 
         
 app = QtWidgets.QApplication(sys.argv) #QApplication([]) #
 
 win = MyWindow()
+
 # transparent window but with frame/border
 #win.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+
 # remove frame/border 
 win.setWindowFlags(QtCore.Qt.FramelessWindowHint)
 
