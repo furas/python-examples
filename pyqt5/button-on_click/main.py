@@ -3,6 +3,7 @@
 from PyQt5 import QtWidgets
 import sys
 
+
 class MyWindow(QtWidgets.QWidget):
 
     def __init__(self, parent=None):
@@ -26,6 +27,7 @@ class MyWindow(QtWidgets.QWidget):
     def on_click(self):
         self.clicks += 1
         self.label.setText('Clicks: {}'.format(self.clicks))
+
 
 if __name__ == '__main__':            
     app = QtWidgets.QApplication(sys.argv)
