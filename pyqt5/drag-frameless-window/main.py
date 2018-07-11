@@ -1,6 +1,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
 
+
 class MyWindow(QtWidgets.QWidget):
     
     relative_x = None
@@ -9,7 +10,7 @@ class MyWindow(QtWidgets.QWidget):
     
     def mousePressEvent(self, event):
         # left - start dragging
-        if event.button() == 1: # left
+        if event.button() == QtCore.Qt.LeftButton: # value 1
             self.drag = True
             
             # mouse start position on screeen
@@ -18,16 +19,16 @@ class MyWindow(QtWidgets.QWidget):
             # window start position on screen
             rect = self.geometry()
         
-            # distance between mouse and left, top corner of window
+            # distance between mouse and left,top corner of window
             self.relative_x = point.x() - rect.x()
             self.relative_y = point.y() - rect.y()
 
         # right - close application
-        if event.button() == 2: # right
+        if event.button() == QtCore.Qt.RightButton: # value 2
             self.close()
 
         # middle - something different
-        if event.button() == 4: # middle
+        if event.button() == QtCore.Qt.MiddleButton: # value 4
             print('middle')
 
     def mouseMoveEvent(self, event):
@@ -44,9 +45,10 @@ class MyWindow(QtWidgets.QWidget):
             self.move(new_x, new_y)
 
     def mouseReleaseEvent(self, event):
-        # stop dragging
-        if event.button() == 1: # left
+        # left - stop dragging
+        if event.button() == QtCore.Qt.LeftButton: # value 1
             self.drag = False
+
 
 #----------------------------------------------------------------------
 
