@@ -1,6 +1,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
 
+
 class MyWindow(QtWidgets.QWidget):
     
     def paintEvent(self, event):
@@ -22,6 +23,7 @@ class MyWindow(QtWidgets.QWidget):
             qp.drawRect(rect)
 
         qp.end()        
+
 
 if __name__ == '__main__':
     # Linux Mint 18.3 problem with style (GTK2/GTK3) 

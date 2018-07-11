@@ -47,6 +47,7 @@ class MyWindow(QtWidgets.QWidget):
     def on_click(self, event):
         print('clicked')
 
+
 if __name__ == '__main__':
     # Linux Mint 18.3 problem with style (GTK2/GTK3) 
     # "QApplication: invalid style override passed, ignoring it."
