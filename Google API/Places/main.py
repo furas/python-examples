@@ -4,7 +4,7 @@
 
 import googlemaps
 
-API_KEY = '<YOUR-API-KEY-FOR-PLACES-API>'
+API_KEY = '<YOUR-API-KEY>'
 
 gmaps = googlemaps.Client(key=API_KEY)
 
