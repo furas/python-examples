@@ -10,14 +10,17 @@ import cv2
 #stream = 'video.avi'
 
 # --- http stream ---
+# doesn't work any more
 #stream = 'http://media.dumpert.nl/tablet/9f7c6290_Verstappen_vs._Rosberg_with_Horner_Smile___Streamable.mp4.mp4.mp4'
 
 # --- rtsp stream ---
+# doesn't work any more
 #stream = 'rtsp://granton.ucs.ed.ac.uk/domsdemo/v2003-1.wmv'
-#stream = 'rtsp://streaming1.osu.edu/media2/ufsap/ufsap.mov'
+
+stream = 'rtsp://streaming1.osu.edu/media2/ufsap/ufsap.mov'
 
 # --- local (build-in) camera ---
-stream = 0
+#stream = 0
 
 
 # --- main ---
@@ -26,7 +29,7 @@ stream = 0
 cap = cv2.VideoCapture(stream)
 
 if not cap.isOpened():
-    print "Can't open stream/file"
+    print("Can't open stream/file")
 else:    
     while True:
         # read one frame (and "return" status)
