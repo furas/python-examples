@@ -1,4 +1,9 @@
+# Google Places API
+
 This code uses [Python Client for Google Maps Services](https://github.com/googlemaps/google-maps-services-python) to get names and locations (and more) for query `'Rugby Club, London'`
+
+    pip install --upgrade googlemaps
+
 
 It needs private API key (`key=`) to work. 
 
@@ -25,9 +30,10 @@ Result: (available keys and some names and locations)
     key: opening_hours
     key: photos
     key: place_id
+    key: plus_code
     key: rating
     key: reference
-    key: types
+    key: types    
 
     -----
     name: East London Rugby Football Club
