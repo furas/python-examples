@@ -1,10 +1,8 @@
-this code uses [Python Client for Google Maps Services](https://github.com/googlemaps/google-maps-services-python) to get names and locations (and more) for query `'Rugby Club, London'`
+This code uses [Python Client for Google Maps Services](https://github.com/googlemaps/google-maps-services-python) to get names and locations (and more) for query `'Rugby Club, London'`
 
-It needs private `key=` (API key) to work. 
+It needs private API key (`key=`) to work. 
 
-Current `key=` is active (on 2017.12.20) so you can test code, but I can deactivate it later.
-
-To get `key=` you have to 
+To get API key you have to 
 
 - create account on Google (ie. Gmail) if you don't have it.
 
@@ -13,8 +11,9 @@ To get `key=` you have to
 - in `Library` on [developers.google.com/console](https://developers.google.com/console) (in menu on left side) activate `Places API Web Service` 
   (there is no version for `Desktop Application`) 
 
-- create credencial for `PlacesAPI` - it will give you `key=` (API key).
+- create credencial for `PlacesAPI` - it will give you API key.
 
+---
 
 Result: (available keys and some names and locations)
 
