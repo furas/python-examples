@@ -1,16 +1,20 @@
-Using [Python Client for Google Maps Services](https://github.com/googlemaps/google-maps-services-python) and this code I got names and locations (and more) for query `'Rugby Club, London'`
+this code uses [Python Client for Google Maps Services](https://github.com/googlemaps/google-maps-services-python) to get names and locations (and more) for query `'Rugby Club, London'`
 
-It needs private `key=` to work 
+It needs private `key=` (API key) to work. 
 
-Current `key=` is active (on 2017.12.20) so you can test code, but I will deactivate it later.
+Current `key=` is active (on 2017.12.20) so you can test code, but I can deactivate it later.
 
 To get `key=` you have to 
 
-    - create account on Google (ie. Gmail) if you don't have it.
-    - create new project on [developers.google.com/console](https://developers.google.com/console), 
-    - in `Library` (in menu on left side) activate `Places API Web Service` 
-      (there is no version for `Desktop Application`) 
-    - create credencial for `PlacesAPI` - it gives you key= (API key).
+- create account on Google (ie. Gmail) if you don't have it.
+
+- create new project on [developers.google.com/console](https://developers.google.com/console), 
+
+- in `Library` on [developers.google.com/console](https://developers.google.com/console) (in menu on left side) activate `Places API Web Service` 
+  (there is no version for `Desktop Application`) 
+
+- create credencial for `PlacesAPI` - it will give you `key=` (API key).
+
 
 Result: (available keys and some names and locations)
 
@@ -25,6 +29,7 @@ Result: (available keys and some names and locations)
     key: rating
     key: reference
     key: types
+
     -----
     name: East London Rugby Football Club
     lat: 51.5291765
