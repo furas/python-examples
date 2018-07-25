@@ -33,18 +33,27 @@ class MyWindow(QtWidgets.QWidget):
         for item in writer.supportedDocumentFormats():
             print('format:', bytes(item).decode())
 
+        doc = self.editor.document()
+
         writer.setFormat(b'ODF') # has to be bytes, not string
         writer.setFileName('output.odf')
-        writer.write(self.editor.document())
+        writer.write(doc)
 
         writer.setFormat(b'HTML') # has to be bytes, not string
         writer.setFileName('output.html')
-        writer.write(self.editor.document())
+        writer.write(doc)
         
         writer.setFormat(b'plaintext') # has to be bytes, not string
         writer.setFileName('output.txt')
-        writer.write(self.editor.document())
+        writer.write(doc)
 
+        printer = QPrinter()
+        printer.setOutputFormat(QPrinter.PdfFormat)
+        printer.setPaperSize(QPrinter.A4);
+        printer.setOutputFileName('output.pdf')
+        #doc.setPageSize(printer.pageRect().size()) # need QSizeF instead of QSize
+        doc.print(printer)
+        
 
 if __name__ == '__main__':
     # Linux Mint 18.3 problem with style (GTK2/GTK3) 
