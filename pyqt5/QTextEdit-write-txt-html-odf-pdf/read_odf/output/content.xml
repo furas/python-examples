@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<office:document-content xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" office:version="1.2">
+  <office:automatic-styles>
+      
+    <style:style style:name="c4" style:family="text">
+      <style:text-properties fo:font-style="italic" fo:font-family="Sans"/>
+    </style:style>
+    
+    <text:list-style style:name="L5">
+      <text:list-level-style-bullet text:bullet-char="●" text:level="1">
+        <style:list-level-properties fo:text-align="start" text:space-before="8mm"/>
+      </text:list-level-style-bullet>
+    </text:list-style>
+    
+    <style:style style:name="p6" style:family="paragraph">
+      <style:paragraph-properties fo:margin-top="9pt" fo:margin-bottom="9pt"/>
+    </style:style>
+    
+    <style:style style:name="p7" style:family="paragraph">
+      <style:paragraph-properties/>
+    </style:style>
+    
+    <style:style style:name="c0" style:family="text">
+      <style:text-properties fo:font-family="Sans"/>
+    </style:style>
+    
+    <style:style style:name="p1" style:family="paragraph">
+      <style:paragraph-properties/>
+    </style:style>
+    
+    <style:style style:name="c3" style:family="text">
+      <style:text-properties fo:font-weight="bold" fo:font-family="Sans"/>
+    </style:style>
+    
+  </office:automatic-styles>
+  <office:body>
+    <office:text>
+      <text:p text:style-name="p1"><text:span text:style-name="c3">bold text</text:span><text:span text:style-name="c0"><text:line-break/></text:span><text:span text:style-name="c4">italic text</text:span><text:span text:style-name="c0"><text:line-break/></text:span></text:p>
+      <text:list text:style-name="L5">
+        <text:list-item>
+          <text:p text:style-name="p6"><text:span text:style-name="c0">One</text:span></text:p>
+        </text:list-item>
+        <text:list-item>
+          <text:p text:style-name="p7"><text:span text:style-name="c0">One</text:span></text:p>
+        </text:list-item>
+      </text:list>
+    </office:text>
+  </office:body>
+</office:document-content>
