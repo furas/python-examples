@@ -72,9 +72,9 @@ else:
     print("OK INITIALIZING VIDEO CAPTURE")
  
     # get vcap property 
-    width = int(vcap.get(cv2.CAP_PROP_FRAME_WIDTH))
-    height = int(vcap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-    #fps = float(vcap.get(cv2.CAP_PROP_FPS))
+    width = int(vcap.get(cv2.cv.CV_CAP_PROP_FRAME_WIDTH))
+    height = int(vcap.get(cv2.cv.CV_CAP_PROP_FRAME_HEIGHT))
+    #fps = float(vcap.get(cv2.cv.CV_CAP_PROP_FPS))
     fps = 15.0 # use different value to get slowmotion or fastmotion effect
     
     print('VCAP width :', width)
