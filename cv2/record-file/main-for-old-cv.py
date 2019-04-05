@@ -48,9 +48,9 @@ else:
     print("OK INITIALIZING VIDEO CAPTURE")
  
     # get vcap property 
-    width = int(vcap.get(cv2.CAP_PROP_FRAME_WIDTH))
-    height = int(vcap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-    #fps = float(vcap.get(cv2.CAP_PROP_FPS))
+    width = int(vcap.get(cv2.cv.CV_CAP_PROP_FRAME_WIDTH))
+    height = int(vcap.get(cv2.cv.CV_CAP_PROP_FRAME_HEIGHT))
+    #fps = float(vcap.get(cv2.cv.CV_CAP_PROP_FPS))
     fps = 15.0 # use different value to get slowmotion or fastmotion effect
     fps = 30.0 # use different value to get slowmotion or fastmotion effect
     
@@ -69,16 +69,16 @@ while running:
             #.mp4 = codec id 2
             filename = time.strftime("%Y.%m.%d  %H.%M.%S", time.localtime()) + ".avi"
 
-            #fourcc = cv2.VideoWriter_fourcc(*'I420') # .avi
-            #fourcc = cv2.VideoWriter_fourcc(*'MP4V') # .avi
-            fourcc = cv2.VideoWriter_fourcc(*'MP42') # .avi
-            #fourcc = cv2.VideoWriter_fourcc(*'AVC1') # error libx264
-            #fourcc = cv2.VideoWriter_fourcc(*'H264') # error libx264
-            #fourcc = cv2.VideoWriter_fourcc(*'WRAW') # error --- no information ---
-            #fourcc = cv2.VideoWriter_fourcc(*'MPEG') # .avi 30fps
-            #fourcc = cv2.VideoWriter_fourcc(*'MJPG') # .avi
-            #fourcc = cv2.VideoWriter_fourcc(*'XVID') # .avi
-            #fourcc = cv2.VideoWriter_fourcc(*'H265') # error 
+            #fourcc = cv2.cv.CV_FOURCC(*'I420') # .avi
+            #fourcc = cv2.cv.CV_FOURCC(*'MP4V') # .avi
+            fourcc = cv2.cv.CV_FOURCC(*'MP42') # .avi
+            #fourcc = cv2.cv.CV_FOURCC(*'AVC1') # error libx264
+            #fourcc = cv2.cv.CV_FOURCC(*'H264') # error libx264
+            #fourcc = cv2.cv.CV_FOURCC(*'WRAW') # error --- no information ---
+            #fourcc = cv2.cv.CV_FOURCC(*'MPEG') # .avi 30fps
+            #fourcc = cv2.cv.CV_FOURCC(*'MJPG') # .avi
+            #fourcc = cv2.cv.CV_FOURCC(*'XVID') # .avi
+            #fourcc = cv2.cv.CV_FOURCC(*'H265') # error 
             
             fout = cv2.VideoWriter(filename, fourcc, fps, (width, height))
             create_new_file = False

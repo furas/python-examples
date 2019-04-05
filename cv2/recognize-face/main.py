@@ -30,9 +30,9 @@ while (True):
     #Displaying the captured frame in a window
     cv2.imshow('gray', frame)
  
-    #Applied 0.5 seconds delay such that a new frame will only be read every 0.5 seconds
+    #Applied 0.1 seconds delay such that a new frame will only be read every 0.1 seconds (10 frames per second)
     #This decreases load on machine, because in general webcam captures 15 to 25 frames per second
-    time.sleep(0.5)
+    time.sleep(0.1)
     
     if cv2.waitKey(20) & 0xFF == ord('q'):
         break

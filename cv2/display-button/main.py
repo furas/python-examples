@@ -2,7 +2,7 @@
 
 from __future__ import print_function
 import cv2
-
+print(cv2.__version__)
 
 class Button(object):
 
