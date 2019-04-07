@@ -31,8 +31,8 @@ if not ret:
     print("Can't read stream")
     #exit()
 
-#img = cv2.rotate(img, cv2.ROTATE_90_COUNTERCLOCKWISE)
-img = cv2.transpose(img)
+img = cv2.rotate(img, cv2.ROTATE_90_COUNTERCLOCKWISE)
+#img = cv2.transpose(img)
 print('shape:', img.shape)
 
 pygame.init()
@@ -50,9 +50,9 @@ while running:
         running = False
         break
     else:
-        #img = cv2.rotate(img, cv2.ROTATE_90_CLOCKWISE)
+        img = cv2.rotate(img, cv2.ROTATE_90_CLOCKWISE)
         #img = cv2.rotate(img, cv2.ROTATE_90_COUNTERCLOCKWISE)
-        img = cv2.transpose(img)
+        #img = cv2.transpose(img)
     
         pygame.surfarray.blit_array(screen, img)
 
