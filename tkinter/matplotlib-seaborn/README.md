@@ -1,11 +1,12 @@
 
-Matplotlib with Seaborn
+Tkinter with Matplotlib and Seaborn
 
 ![#1](images/tkinter-matplotlib-seaborn.png?raw=true)
 
-Based on http://seaborn.pydata.org/examples/many_pairwise_correlations.html
 
----
+Tkinter with Matplotlib, Seaborn and NavigationToolbar
+
+![#2](images/tkinter-matplotlib-seaborn-navigationtoolbar.png?raw=true)
 
 See
 
