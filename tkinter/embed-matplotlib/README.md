@@ -1,4 +1,4 @@
-See
+See also:
 
 - [tkinter/embed-matplotlib](../../tkinter/embed-matplotlib)
 

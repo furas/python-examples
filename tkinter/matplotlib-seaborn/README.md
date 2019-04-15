@@ -8,7 +8,9 @@ Tkinter with Matplotlib, Seaborn and NavigationToolbar
 
 ![#2](images/tkinter-matplotlib-seaborn-navigationtoolbar.png?raw=true)
 
-See
+---
+
+See also:
 
 - [tkinter/embed-matplotlib](../../tkinter/embed-matplotlib)
 

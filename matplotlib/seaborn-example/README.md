@@ -1,13 +1,13 @@
 
 Matplotlib with Seaborn
 
-![#1](images/tkinter-matplotlib-seaborn.png?raw=true)
+![#1](images/matplotlib-seaborn.png?raw=true)
 
 Based on http://seaborn.pydata.org/examples/many_pairwise_correlations.html
 
 ---
 
-See
+See also:
 
 - [tkinter/embed-matplotlib](../../tkinter/embed-matplotlib)
 
