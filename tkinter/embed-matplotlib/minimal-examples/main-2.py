@@ -8,7 +8,6 @@ root = tkinter.Tk()
 
 # create plot(s)
 fig = plt.Figure()
-#fig.add_subplot('111').plot(data) # add plot (as first plot) to figure (with one row, one column)
 
 fig.add_subplot('321').plot(data) # add plot (as first plot) to figure (with one row, one column)
 fig.add_subplot('324').plot(data) # add plot (as first plot) to figure (with one row, one column)
