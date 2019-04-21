@@ -2,7 +2,7 @@ import tkinter
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
 
-data = [1, 3, 2, 4, ]
+data = [1, 3, 2, 4]
 
 root = tkinter.Tk()
 
