@@ -7,10 +7,10 @@ import random
 def move():
     move_x = random.randint(-5, 5)
     move_y = random.randint(-5, 5)
-    
+
     canvas.move(bird, move_x, move_y)
     x1,y1,x2,y2 = canvas.coords(bird)
-    
+
     if x1 < 0:
         canvas.move(bird, -x1, 0)
     elif x2 >= WIDTH:
@@ -20,9 +20,9 @@ def move():
         canvas.move(bird, 0, -y1)
     elif y2 >= HEIGHT:
         canvas.move(bird, 0, -y2 + HEIGHT)
-        
+
     root.after(100, move)
-    
+
 def clicked(event):
     print("Hit!")
 
