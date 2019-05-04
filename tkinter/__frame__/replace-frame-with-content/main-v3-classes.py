@@ -1,3 +1,7 @@
+
+# date: 2019.05.04
+# author: Bartłomiej 'furas' Burek
+
 import tkinter as tk
 
 # --- classes ---
