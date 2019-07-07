@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+# date: 2019.05.07
+# author: Bartłomiej 'furas' Burek
+# https://stackoverflow.com/questions/56012860/first-scrapy-spider/56014596#56014596
+
 import scrapy
 from scrapy.http import Request
 import json
