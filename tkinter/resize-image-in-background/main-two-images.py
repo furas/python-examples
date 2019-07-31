@@ -9,24 +9,30 @@ def on_resize(event):
 
     # resize only when root change size
     if str(event.widget) == '.':
-        # generate new image
+        # calculate new size of image
         width  = event.width//2# - 2 # 2*border
         height = event.height  # - 2 # 2*border
+        
+        # generate new image
         rescaled_img = original_img.resize((width, height), Image.ANTIALIAS)
         photo = ImageTk.PhotoImage(rescaled_img)
 
         # replace images in labels
-        #label_left['image'] = photo
-        #label_right['image'] = photo
-        event.widget['image'] = photo
+        label_left['image'] = photo
+        label_right['image'] = photo
+        #event.widget['image'] = photo
 
 # ---- main ---
 
-original_img = Image.open('image.jpg')
-rescale = 0.4
-width = int(rescale * original_img.width)
-height = int(rescale * original_img.height)
-rescaled_img = original_img.resize((width, height), Image.ANTIALIAS)
+# load image and rescale it at start
+original_img = Image.open('image.png')
+#rescale = 0.4
+#width = int(rescale * original_img.width)
+#height = int(rescale * original_img.height)
+#rescaled_img = original_img.resize((width, height), Image.ANTIALIAS)
+rescaled_img = original_img
+
+# ---
 
 root = tk.Tk()
 

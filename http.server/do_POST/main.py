@@ -16,7 +16,7 @@ class MyHandler(http.server.BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write("Hello World".encode('utf-8'))
 
-
+# --- main ---
         
 PORT = 8080
 Handler = MyHandler #http.server.SimpleHTTPRequestHandler

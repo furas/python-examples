@@ -8,7 +8,7 @@ import tkinter as tk
 
 class Keypad(tk.Frame):
 
-    cells = [
+    buttons = [
         ['1', '2', '3'],
         ['4', '5', '6'],
         ['7', '8', '9'],
@@ -21,8 +21,11 @@ class Keypad(tk.Frame):
         self.target = None
         self.memory = ''
         
-        for y, row in enumerate(self.cells):
-            for x, item in enumerate(row):
+        self.create_ui()
+        
+    def create_ui(self):
+        for y, row in enumerate(self.buttons):
+            for x, item in enumerate(row):            
                 b = tk.Button(self, text=item, command=lambda text=item:self.append(text))
                 b.grid(row=y, column=x, sticky='news')
 
@@ -43,7 +46,6 @@ class Keypad(tk.Frame):
 
         x = tk.Button(self, text='Hide', command=self.hide)
         x.grid(row=10, column=0, columnspan=11, sticky='news')
-
 
     def get(self):
         if self.target:
@@ -91,7 +93,7 @@ class Keypad(tk.Frame):
 root = tk.Tk()
 root.geometry('600x400')
 
-keypad = Keypad(root)
+keypad = Keypad(root, borderwidth=1, relief='sunken') # sunken, raised, groove, ridge
 
 f = tk.Frame(root)
 f.pack()
