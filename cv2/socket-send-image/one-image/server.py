@@ -24,9 +24,11 @@ while ret:
     try:
         server_socket.listen()
 
+        print('waiting ...')
         client_socket,client_address =  server_socket.accept()
         print(client_address)
 
+        print('sending ...')
         client_socket.sendall(serialized_img)
         client_socket.close()
         print('closed')
