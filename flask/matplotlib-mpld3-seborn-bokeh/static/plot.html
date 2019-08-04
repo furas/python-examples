@@ -1,0 +1,85 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    
+      <meta charset="utf-8">
+      <title>Bokeh Plot</title>
+      
+      
+        
+          
+        <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.0.1.min.css" type="text/css" />
+        
+        
+          
+        <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.0.1.min.js"></script>
+        <script type="text/javascript">
+            Bokeh.set_log_level("info");
+        </script>
+        
+      
+      
+    
+  </head>
+  
+  
+  <body>
+    
+      
+        
+          
+          
+            
+              <div class="bk-root" id="7563c185-afcc-46d3-983a-fadaa884b854"></div>
+            
+          
+        
+      
+      
+        <script type="application/json" id="1187">
+          {"94559f30-b0ce-4897-b583-5ad8d748a9c8":{"roots":{"references":[{"attributes":{"callback":null},"id":"1085","type":"DataRange1d"},{"attributes":{},"id":"1106","type":"SaveTool"},{"attributes":{"callback":null,"data":{"x":[1,2,3,4],"y":[1,4,2,3]},"selected":{"id":"1130","type":"Selection"},"selection_policy":{"id":"1129","type":"UnionRenderers"}},"id":"1118","type":"ColumnDataSource"},{"attributes":{"overlay":{"id":"1111","type":"BoxAnnotation"}},"id":"1105","type":"BoxZoomTool"},{"attributes":{},"id":"1127","type":"BasicTickFormatter"},{"attributes":{},"id":"1107","type":"ResetTool"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1103","type":"PanTool"},{"id":"1104","type":"WheelZoomTool"},{"id":"1105","type":"BoxZoomTool"},{"id":"1106","type":"SaveTool"},{"id":"1107","type":"ResetTool"},{"id":"1108","type":"HelpTool"}]},"id":"1109","type":"Toolbar"},{"attributes":{},"id":"1104","type":"WheelZoomTool"},{"attributes":{"bottom_units":"screen","fill_alpha":{"value":0.5},"fill_color":{"value":"lightgrey"},"left_units":"screen","level":"overlay","line_alpha":{"value":1.0},"line_color":{"value":"black"},"line_dash":[4,4],"line_width":{"value":2},"plot":null,"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"1111","type":"BoxAnnotation"},{"attributes":{"line_color":"#1f77b4","x":{"field":"x"},"y":{"field":"y"}},"id":"1119","type":"Line"},{"attributes":{},"id":"1103","type":"PanTool"},{"attributes":{"plot":null,"text":"Bar Chart showing Side Effects of Breast #Cancer Medication(s) With Their Corrresponding Percentages Of #Occurence"},"id":"1082","type":"Title"},{"attributes":{},"id":"1089","type":"LinearScale"},{"attributes":{"data_source":{"id":"1118","type":"ColumnDataSource"},"glyph":{"id":"1119","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1120","type":"Line"},"selection_glyph":null,"view":{"id":"1122","type":"CDSView"}},"id":"1121","type":"GlyphRenderer"},{"attributes":{},"id":"1130","type":"Selection"},{"attributes":{"source":{"id":"1118","type":"ColumnDataSource"}},"id":"1122","type":"CDSView"},{"attributes":{"axis_label":"Percentages of Occurence of Side Effects","formatter":{"id":"1125","type":"BasicTickFormatter"},"plot":{"id":"1083","subtype":"Figure","type":"Plot"},"ticker":{"id":"1099","type":"BasicTicker"}},"id":"1098","type":"LinearAxis"},{"attributes":{"plot":{"id":"1083","subtype":"Figure","type":"Plot"},"ticker":{"id":"1094","type":"BasicTicker"}},"id":"1097","type":"Grid"},{"attributes":{},"id":"1108","type":"HelpTool"},{"attributes":{},"id":"1129","type":"UnionRenderers"},{"attributes":{},"id":"1091","type":"LinearScale"},{"attributes":{},"id":"1099","type":"BasicTicker"},{"attributes":{"axis_label":"Side Effects","formatter":{"id":"1127","type":"BasicTickFormatter"},"plot":{"id":"1083","subtype":"Figure","type":"Plot"},"ticker":{"id":"1094","type":"BasicTicker"}},"id":"1093","type":"LinearAxis"},{"attributes":{},"id":"1125","type":"BasicTickFormatter"},{"attributes":{"dimension":1,"plot":{"id":"1083","subtype":"Figure","type":"Plot"},"ticker":{"id":"1099","type":"BasicTicker"}},"id":"1102","type":"Grid"},{"attributes":{},"id":"1094","type":"BasicTicker"},{"attributes":{"below":[{"id":"1093","type":"LinearAxis"}],"left":[{"id":"1098","type":"LinearAxis"}],"renderers":[{"id":"1093","type":"LinearAxis"},{"id":"1097","type":"Grid"},{"id":"1098","type":"LinearAxis"},{"id":"1102","type":"Grid"},{"id":"1111","type":"BoxAnnotation"},{"id":"1121","type":"GlyphRenderer"}],"title":{"id":"1082","type":"Title"},"toolbar":{"id":"1109","type":"Toolbar"},"x_range":{"id":"1085","type":"DataRange1d"},"x_scale":{"id":"1089","type":"LinearScale"},"y_range":{"id":"1087","type":"DataRange1d"},"y_scale":{"id":"1091","type":"LinearScale"}},"id":"1083","subtype":"Figure","type":"Plot"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","x":{"field":"x"},"y":{"field":"y"}},"id":"1120","type":"Line"},{"attributes":{"callback":null},"id":"1087","type":"DataRange1d"}],"root_ids":["1083"]},"title":"Bokeh Application","version":"1.0.1"}}
+        </script>
+        <script type="text/javascript">
+          (function() {
+            var fn = function() {
+              Bokeh.safely(function() {
+                (function(root) {
+                  function embed_document(root) {
+                    
+                  var docs_json = document.getElementById('1187').textContent;
+                  var render_items = [{"docid":"94559f30-b0ce-4897-b583-5ad8d748a9c8","roots":{"1083":"7563c185-afcc-46d3-983a-fadaa884b854"}}];
+                  root.Bokeh.embed.embed_items(docs_json, render_items);
+                
+                  }
+                  if (root.Bokeh !== undefined) {
+                    embed_document(root);
+                  } else {
+                    var attempts = 0;
+                    var timer = setInterval(function(root) {
+                      if (root.Bokeh !== undefined) {
+                        embed_document(root);
+                        clearInterval(timer);
+                      }
+                      attempts++;
+                      if (attempts > 100) {
+                        console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                        clearInterval(timer);
+                      }
+                    }, 10, root)
+                  }
+                })(window);
+              });
+            };
+            if (document.readyState != "loading") fn();
+            else document.addEventListener("DOMContentLoaded", fn);
+          })();
+        </script>
+    
+  </body>
+  
+</html>

@@ -3,12 +3,25 @@
 #
 # http://matplotlib.org/examples/user_interfaces/embedding_in_tk.html
 #
+# update: 2019.08.03
+# 
+# NavigationToolbar2TkAgg is deprecate since 2.2 and doesn't work in 3.1.1
+# so now it uses NavigationToolbar2Tk
+# 
+# FigureCanvasTk doesn't display plot but it still shows coordinates in navigation bar
+# so it still uses FigureCanvasTkAgg
+#
 
 # --- matplotlib ---
 import matplotlib 
-matplotlib.use('TkAgg') # choose backend
+#matplotlib.use('TkAgg') # choose backend # I'm not sure if it is needed. Code works without it too
 
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
+from matplotlib.backends.backend_tkagg import (
+    FigureCanvasTkAgg,
+    #FigureCanvasTk, # doesn't display plot but it still shows coordinates in navigation bar
+    #NavigationToolbar2TkAgg, deprcated in 2.2 and doesn't work in 3.1.1
+    NavigationToolbar2Tk
+)
 from matplotlib.pyplot import Figure
 
 # --- other ---
@@ -48,9 +61,8 @@ canvas = FigureCanvasTkAgg(fig, top)
 canvas.get_tk_widget().pack()
                
 # create toolbar               
-toolbar = NavigationToolbar2TkAgg(canvas, top)
-toolbar.update()
-canvas._tkcanvas.pack()
+toolbar = NavigationToolbar2Tk(canvas, top)
+#toolbar.update() # I'm not sure if it is needed. Code works without it too 
 
 # --- first plot ---
 
@@ -76,3 +88,4 @@ b.pack()
 # --- start ----
 
 root.mainloop()
+
