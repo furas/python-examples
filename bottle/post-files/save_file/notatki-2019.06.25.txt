@@ -1,0 +1,9 @@
+Bit,99buket,+123
+
+import itertools
+import pandas as pd
+
+it = itertools.product(('A', 'B'), ('X', 'Y'))
+
+df = pd.DataFrame(it)
+df
