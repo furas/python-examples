@@ -12,12 +12,18 @@ def open_second_window():
     
     # open second main window 
     root = tk.Tk()
-    tk.Button(root, text='Close', command=root.destroy).pack()
+
+    btn = tk.Button(root, text='Close', command=root.destroy)
+    btn.pack()
+
     root.mainloop()
 
 # --- main ---
     
 # open first main window     
 root = tk.Tk()
-tk.Button(root, text='Submit', command=open_second_window).pack()
+
+btn = tk.Button(root, text='Submit', command=open_second_window)
+btn.pack()
+
 root.mainloop()
