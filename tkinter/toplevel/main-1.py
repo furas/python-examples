@@ -6,7 +6,6 @@ import tkinter as tk
 
 def open_subwindow():
     subwindow = tk.Toplevel()
-    subwindow.geometry("300x300")
 
     btn = tk.Button(subwindow, text="Close subwindow", command=subwindow.destroy)
     btn.pack()
@@ -14,6 +13,7 @@ def open_subwindow():
 # --- main ---    
 
 root = tk.Tk()
+root.geometry("300x300")
 
 btn = tk.Button(root, text="Open subwindow", command=open_subwindow)
 btn.pack()
