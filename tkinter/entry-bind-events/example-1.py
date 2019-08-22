@@ -27,11 +27,11 @@ def on_ctrl_a_release(event):
 def on_combo_1(event):
     print('on Combo 1:', event.widget.get())
 
-def on_press(event, text)
+def on_press(event, text):
     print('press :', text) #, event.widget.get())
 
-def on_release(event, text)
-    print('releas:', text) #, event.widget.get())
+def on_release(event, text):
+    print('release:', text) #, event.widget.get())
 
 # --- main ---
 
