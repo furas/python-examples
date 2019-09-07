@@ -14,7 +14,7 @@ data_base64 = data_base64[:-2]         # remove text after encoded data
 
 data_base64 = data_base64.encode()   # convert string to bytes
 data = base64.b64decode(data_base64) # decode from base64 (bytes)
-open('image.tiff', 'wb').write(data) # write bytes to file
+open('output-image.tiff', 'wb').write(data) # write bytes to file
 
 
 

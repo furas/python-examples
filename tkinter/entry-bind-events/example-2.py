@@ -9,14 +9,14 @@ def on_press(event, text):
     #print('  event:', event)
     #print(' widget:', event.widget)
     print('   char:', event.char)
-    print('   char:', event.code)
+    #print('   char:', event.code)
 
 def on_release(event, text):
     print('release:', text)
     #print('  event:', event)
     #print(' widget:', event.widget)
     print('   char:', event.char)
-    print('   char:', event.code)
+    #print('   char:', event.code)
 
 def on_return(event):
     on_press(event, 'return')
