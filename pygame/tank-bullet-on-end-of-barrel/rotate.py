@@ -31,9 +31,10 @@ class Tank():
         self.move_forward = False
         self.move_backward = False
         
-        self.distance = self.rect.height//2
-        #self.distance_vector = (0, self.rect.height//2)
-        self.speed = 5
+        #self.distance = self.rect.height//2
+        self.distance_vector = pygame.math.Vector2(0, -self.rect.height//2)
+        #self.speed = 5
+        self.speed_vector = pygame.math.Vector2(0, 5)
         
         self.x = x
         self.y = y
@@ -49,15 +50,28 @@ class Tank():
             self.angle = (self.angle - 5) % 360
             self.dirty = True
         if self.move_forward:
-            rad = math.radians(self.angle)
-            self.x -= math.sin(rad) * self.speed
-            self.y -= math.cos(rad) * self.speed
+            #rad = math.radians(self.angle)
+            #self.x -= math.sin(rad) * self.speed
+            #self.y -= math.cos(rad) * self.speed
+            #self.rect.centerx = int(self.x)
+            #self.rect.centery = int(self.y)
+            move = self.speed_vector.rotate(-self.angle)
+            #self.rect.move_ip(move)
+            self.x -= move.x  # keep as float for smoother move 
+            self.y -= move.y  # keep as float for smoother move 
             self.rect.centerx = int(self.x)
             self.rect.centery = int(self.y)
+            
         if self.move_backward:
-            rad = math.radians(self.angle)
-            self.x += math.sin(rad) * self.speed
-            self.y += math.cos(rad) * self.speed
+            #rad = math.radians(self.angle)
+            #self.x += math.sin(rad) * self.speed  # keep as float for smoother move 
+            #self.y += math.cos(rad) * self.speed  # keep as float for smoother move 
+            #self.rect.centerx = int(self.x)
+            #self.rect.centery = int(self.y)
+            move = self.speed_vector.rotate(-self.angle)
+            #self.rect.move_ip(-move)
+            self.x += move.x  # keep as float for smoother move 
+            self.y += move.y  # keep as float for smoother move 
             self.rect.centerx = int(self.x)
             self.rect.centery = int(self.y)
         
@@ -65,6 +79,7 @@ class Tank():
             self.dirty = False
             self.image = pygame.transform.rotate(self.image_original, self.angle)
             self.rect = self.image.get_rect(center=self.rect.center)
+
           
     def handle_event(self, event):
         if event.type == pygame.KEYDOWN:
@@ -87,11 +102,16 @@ class Tank():
             elif event.key == pygame.K_DOWN:
                 self.move_backward = False
 
+    #def get_barrel_end(self):
+    #    rad = math.radians(self.angle)
+    #    dx = math.sin(rad) * self.distance
+    #    dy = math.cos(rad) * self.distance
+    #    x = self.rect.centerx - dx
+    #    y = self.rect.centery - dy
+    #    return x, y
+
     def get_barrel_end(self):
-        rad = math.radians(self.angle)
-        x = self.rect.centerx - math.sin(rad) * self.distance
-        y = self.rect.centery - math.cos(rad) * self.distance
-        return x, y
+        return self.rect.center + self.distance_vector.rotate(-self.angle)
         
         
 class Bullet():
