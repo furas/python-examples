@@ -5,21 +5,21 @@
 from PyQt5 import QtWidgets
 
 
-class MainWindow(QtWidgets.QWidget):
+class FirstWidget(QtWidgets.QWidget):
 
     def __init__(self):
         super().__init__()
 
         layout = QtWidgets.QVBoxLayout(self)
 
-        self.button = QtWidgets.QPushButton("Show Second Window", self)
-        self.button.clicked.connect(self.show_second_window)
+        self.button = QtWidgets.QPushButton("Show Second", self)
+        self.button.clicked.connect(self.show_other_window)
 
         layout.addWidget(self.button)
 
         self.show()
 
-    def show_second_window(self):
+    def show_other_window(self):
         self.hide() # hide main window
 
         self.second = SecondWindow()
@@ -36,13 +36,13 @@ class SecondWindow(QtWidgets.QDialog): # it has to be dialog
         layout = QtWidgets.QVBoxLayout(self)
 
         self.button = QtWidgets.QPushButton("Close It", self)
-        self.button.clicked.connect(self.show_second_window)
+        self.button.clicked.connect(self.show_other_window)
 
         layout.addWidget(self.button)
 
         self.show()
 
-    def show_second_window(self):
+    def show_other_window(self):
         self.close() # go back to main window
 
 
