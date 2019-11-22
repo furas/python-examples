@@ -47,6 +47,6 @@ def on_draw():
 def update(dt):
     island.render()
     
-pyglet.clock.schedule_interval(update, 0.25)
+pyglet.clock.schedule_interval(update, 0.1)
 
 pyglet.app.run()    
