@@ -100,7 +100,7 @@ class App():
         pygame.init()
 
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-        self.screen_rect = screen.get_rect()
+        self.screen_rect = self.screen.get_rect()
 
         self.clock = pygame.time.Clock()
         self.is_running = False
@@ -128,7 +128,7 @@ class App():
 
     # --- functions ---
 
-    def handle_event(self, event)
+    def handle_event(self, event):
 
         '''
         self.player.handle_event(event)
@@ -139,7 +139,7 @@ class App():
             widget.handle_event(event)
         '''
 
-    def update(self, )
+    def update(self):
 
         '''
         self.player.update()
@@ -150,7 +150,7 @@ class App():
             widget.update()
         '''
 
-    def draw(self, surface)
+    def draw(self, surface):
 
         #surface.fill(BLACK)
 
