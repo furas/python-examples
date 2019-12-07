@@ -36,7 +36,8 @@ class Board:
 # --- main ---
             
 window = pyglet.window.Window(width=800, height=600)
-print(window.get_size())
+#print(window.get_size())
+
 island = Board()
 
 @window.event()
