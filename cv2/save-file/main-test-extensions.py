@@ -1,29 +1,28 @@
 import cv2
 
 codecs = (  # MP4, AVI,
-    'I420', #  - ,  + ,
+#    'I420', #  - ,  + ,
     'MP4V', #  - ,  - ,
     'mp4v', #  + ,  - ,
     'MP42', #  - ,  + ,
-    'AVC1', #  - ,  - , 
-    'H264', #  - ,  ? ,
-    'WRAW', #  - ,  - ,
-    'MPEG', #  - ,  + , 
-    'MJPG', #  - ,  + ,
-    'XVID', #  - ,  + ,
-    'H265', #  ? ,  ? ,
-    'X264', #  - ,  ? ,
+#    'AVC1', #  - ,  - , 
+#    'H264', #  - ,  ? ,
+#    'WRAW', #  - ,  - ,
+#    'MPEG', #  - ,  + , 
+#    'MJPG', #  - ,  + ,
+#    'XVID', #  - ,  + ,
+#    'H265', #  ? ,  ? ,
+#    'X264', #  - ,  ? ,
 #    0x7634706d,  # https://stackoverflow.com/a/52839553/1832058
 )
 
 extensions = [ # container
-    'mkv', 
-    'mpeg', 
+#    'mkv', 
+#    'mpeg', 
     'mp4', 
-    'avi', 
+#    'avi', 
     'mp4v',
 ]
-
 
 # http://www.fourcc.org/codecs.php
 cam = cv2.VideoCapture(0)
