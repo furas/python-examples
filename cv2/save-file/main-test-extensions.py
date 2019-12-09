@@ -1,6 +1,10 @@
 #!/usr/bin/env python3 
 
 # date: 2019.12.09 (update)
+#
+# $ ffmpeg -codecs
+# $ ffmpeg -formats
+#
 
 import cv2
 
