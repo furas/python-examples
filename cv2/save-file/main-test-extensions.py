@@ -8,20 +8,21 @@
 
 import cv2
 
-codecs = (  # MP4, AVI,
-#    'I420', #  - ,  + ,
-    'MP4V', #  - ,  - ,
-    'mp4v', #  + ,  - ,
-    'MP42', #  - ,  + ,
-#    'AVC1', #  - ,  - , 
-#    'H264', #  - ,  ? ,
-#    'WRAW', #  - ,  - ,
-#    'MPEG', #  - ,  + , 
-#    'MJPG', #  - ,  + ,
-#    'XVID', #  - ,  + ,
-#    'H265', #  ? ,  ? ,
-#    'X264', #  - ,  ? ,
-#    0x7634706d,  # https://stackoverflow.com/a/52839553/1832058
+codecs = (       # MP4, AVI,
+#    'I420',      #  - ,  + ,
+    'MP4V',      #  - ,  - ,
+    'mp4v',      #  + ,  - ,
+    'MP42',      #  - ,  + ,
+#    'AVC1',      #  - ,  - , 
+#    'H264',      #  - ,  ? ,
+#    'WRAW',      #  - ,  - ,
+    'MPEG',      #  - ,  + , 
+    'mpeg',      #  - ,  + , 
+#    'MJPG',      #  - ,  + ,
+#    'XVID',      #  - ,  + ,
+#    'H265',      #  ? ,  ? ,
+#    'X264',      #  - ,  ? ,
+    0x7634706d,  #  + ,  ? , # mp4v - https://stackoverflow.com/a/52839553/1832058
 )
 
 extensions = [ # container
@@ -29,8 +30,8 @@ extensions = [ # container
 #    'mpeg', 
     'mp4', 
 #    'avi', 
-    'mp4v',
-    'm4v',    
+#    'mp4v',
+#    'm4v',    
 ]
 
 
