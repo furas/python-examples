@@ -1,3 +1,7 @@
+#!/usr/bin/env python3 
+
+# date: 2019.12.09 (update)
+
 import cv2
 
 codecs = (  # MP4, AVI,
@@ -22,17 +26,20 @@ extensions = [ # container
     'mp4', 
 #    'avi', 
     'mp4v',
+    'm4v',    
 ]
 
-# http://www.fourcc.org/codecs.php
-cam = cv2.VideoCapture(0)
 
-width = int(cam.get(cv2.CAP_PROP_FRAME_WIDTH))
-height = int(cam.get(cv2.CAP_PROP_FRAME_HEIGHT))
+# http://www.fourcc.org/codecs.php
+cap = cv2.VideoCapture(0) # built-in camera
+#cap = cv2.VideoCapture('video.avi') 
+
+width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 print(' width:', width)
 print('height:', height)
 
-# it has to use original size of image. It will not save if SIZE will be different.
+# it has to use original size of image. It will not save if SIZE is different.
 SIZE = (width, height)
 
 for cc in codecs:
@@ -44,7 +51,7 @@ for cc in codecs:
         else:
             fourcc = cc
         out = cv2.VideoWriter('output-{}.{}'.format(cc, ext), fourcc, 15, SIZE)
-        ret, frame = cam.read()
+        ret, frame = cap.read()
         out.write(frame)
         out.release()
 
