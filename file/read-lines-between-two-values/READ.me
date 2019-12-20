@@ -1,0 +1,71 @@
+
+https://stackoverflow.com/questions/59291151/how-can-i-take-the-data-between-two-line-in-a-text-file/59292242#59292242
+
+With regex you can use 'values(.*)total' or with '\n' - 'values\n(.*)\ntotal
+
+text = '''DATA_out file
+      values
+    DATA_LINE 1
+    DATA_LINE 2
+    DATA_LINE 3
+    DATA_LINE 4
+total
+'''
+
+import re
+
+result = re.search('values(.*)total', text, re.DOTALL)
+
+if result:
+    print(result[1])
+    #print(result.group(1))    
+
+Without regex you can use find() to search values and total separatelly, ad then slice it text[star:end]
+
+text = '''DATA_out file
+      values
+    DATA_LINE 1
+    DATA_LINE 2
+    DATA_LINE 3
+    DATA_LINE 4
+total
+'''
+
+start = text.find('values')
+end = text.find('total', start)
+
+if start > -1 and end > -1:
+    start += len("values")  
+    print(text[start:end])
+
+If you want to read from file line by line.
+
+I use io.StringIO() to simulate file
+
+text = '''DATA_out file
+      values
+    DATA_LINE 1
+    DATA_LINE 2
+    DATA_LINE 3
+    DATA_LINE 4
+total
+'''
+
+import io
+
+#f = open("input.txt")
+f = io.StringIO(text)
+
+lines = []
+
+for line in f:
+    if 'values' in line:
+        break
+
+for line in f:
+    if 'total' in line:
+        break
+    lines.append(line)
+
+if lines:
+    print("".join(lines))    
