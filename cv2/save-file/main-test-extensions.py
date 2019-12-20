@@ -21,17 +21,20 @@ codecs = (       # MP4, AVI,
 #    'MJPG',      #  - ,  + ,
 #    'XVID',      #  - ,  + ,
 #    'H265',      #  ? ,  ? ,
-#    'X264',      #  - ,  ? ,
+    'X264',      #  - ,  ? ,
+    'x264',      #  - ,  ? ,
+    'X265',      #  - ,  ? ,
+    'x265',      #  - ,  ? ,
     0x7634706d,  #  + ,  ? , # mp4v - https://stackoverflow.com/a/52839553/1832058
 )
 
 extensions = [ # container
 #    'mkv', 
 #    'mpeg', 
-    'mp4', 
+#    'mp4', 
 #    'avi', 
 #    'mp4v',
-#    'm4v',    
+    'm4v',    
 ]
 
 
