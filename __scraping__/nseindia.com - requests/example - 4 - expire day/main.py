@@ -1,7 +1,7 @@
 #!/usr/bin/env python3 
 
 # date: 2020.01.03
-# https://stackoverflow.com/questions/59577693/collect-the-dropdown-list-from-link-using-request/59578086#59578086
+# https://stackoverflow.com/questions/59577693/collect-the-dropdown-list-from-link-using-request/
 
 import requests
 import lxml.html

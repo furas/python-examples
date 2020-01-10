@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+
+# date: ???
+# ???
+
 import requests
 import pandas as pd
 

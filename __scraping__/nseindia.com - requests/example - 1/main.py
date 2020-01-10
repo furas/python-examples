@@ -1,6 +1,7 @@
+#!/usr/bin/env python3
 
 # date: 2019.04.22
-# https://stackoverflow.com/questions/55788117/how-scrape-a-website-in-which-i-post-information/55788260#55788260
+# https://stackoverflow.com/questions/55788117/how-scrape-a-website-in-which-i-post-information/
 
 import requests
 #import json
