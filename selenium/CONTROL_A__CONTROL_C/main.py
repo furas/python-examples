@@ -4,8 +4,8 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 #import pyperclip
 
-driver = webdriver.Chrome()
-driver.get("http://www.iplsuperfanatic.com/")
+driver = webdriver.Firefox()
+driver.get("http://quotes.toscrape.com")
 
 element = driver.find_element_by_tag_name("body")
 
