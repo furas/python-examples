@@ -31,6 +31,26 @@ with open('gyms2.csv', 'w') as gf:
                 print(gymrow)
                 gymwriter.writerow(gymrow)
                 time.sleep(3)
+                continue # go back to `for`            
             except Exception as ex:
-                print(ex)
+                print('ex:', ex)
                 
+            try:
+                address_line = sub_soup.find('div', {'class': 'btn-resp-md'}).find('p')
+                gymrow = [gymurl, address_line.text.strip()]
+                print('type 2:', gymrow)
+                gymwriter.writerow(gymrow)
+                time.sleep(3)
+                continue # go back to `for`            
+            except Exception as ex:
+                print('ex:', ex)
+
+            try:
+                address_line = sub_soup.find('p', {'class': 'm-b-grid'})
+                gymrow = [gymurl, address_line.text.strip()]
+                print('type 3:', gymrow)
+                gymwriter.writerow(gymrow)
+                time.sleep(3)
+                continue # go back to `for`            
+            except Exception as ex:
+                print('ex:', ex)                
