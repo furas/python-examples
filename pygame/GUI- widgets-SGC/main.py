@@ -7,6 +7,8 @@ import glob
 import pygame
 import time
 
+import sys
+
 import sgc 
 from sgc.locals import *
 
