@@ -14,6 +14,7 @@ url = 'https://wordpress.org/support/plugin/advanced-gutenberg/page/{}/'
 for page in range(1, 3):
     print('\n--- PAGE:', page, '---\n')
     
+    # read page with list of posts
     r = session.get(url.format(page))
 
     soup = BS(r.text, 'html.parser')
@@ -33,7 +34,8 @@ for page in range(1, 3):
             print('href:', post_title)
             print('---------')
             
-            r = session.get(url.format(post_url))
+            # read page with post content
+            r = session.get(post_url)
             
             sub_soup = BS(r.text, 'html.parser')
             
