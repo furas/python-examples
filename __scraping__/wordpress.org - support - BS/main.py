@@ -6,20 +6,37 @@
 import requests
 from bs4 import BeautifulSoup as BS
 
+session = requests.Session()
+session.headers.update({'User-Agent': 'Mozilla/5.0'}) # this page needs header 'User-Agent` 
+
 url = 'https://wordpress.org/support/plugin/advanced-gutenberg/page/{}/'
-headers = {'user-agent': 'Mozilla/5.0'}
 
-for page in range(1, 6):
-    print('---', page, '---')
-
-    # this page need header `user-agent`
-    r = requests.get(url.format(page), headers=headers)
+for page in range(1, 3):
+    print('\n--- PAGE:', page, '---\n')
+    
+    r = session.get(url.format(page))
 
     soup = BS(r.text, 'html.parser')
     
-    for ul in soup.find('li', class_="bbp-body").find_all('ul'):
+    all_uls = soup.find('li', class_="bbp-body").find_all('ul')
+    
+    for number, ul in enumerate(all_uls, 1):
+        
+        print('\n--- post:', number, '---\n')
+        
         a = ul.find('a')
         if a:
-            print('text:', a.text)
-            print('href:', a['href'])
-        print('-')
+            post_url = a['href']
+            post_title = a.text
+            
+            print('text:', post_url)
+            print('href:', post_title)
+            print('---------')
+            
+            r = session.get(url.format(post_url))
+            
+            sub_soup = BS(r.text, 'html.parser')
+            
+            post_content = sub_soup.find(class_='bbp-topic-content').get_text(strip=True, separator='\n')
+            print(post_content)
+
