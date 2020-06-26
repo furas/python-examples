@@ -4,13 +4,16 @@
 
 import paho.mqtt.client as mqtt
 
+
 def on_subscribe(client, userdata, mid, granted_qos):
     print("on_subscribe:", client, userdata, mid, granted_qos)
+
 
 def on_message(client, userdata, message):
     #print('on_message:', client, userdata, message)
     #print(dir(message))
     print('on_message:', message.payload.decode())
+
    
 host = "mqtt.eclipse.org"
 
