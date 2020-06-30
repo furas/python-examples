@@ -22,3 +22,5 @@ Other words in url are only for `SEO` - to get better position in Google search 
 ---
 
 In folder `python-examples/__scraping__/tripadvisor.com - requests` is example for `requests/BeautifulSoup`.
+# https://stackoverflow.com/a/47721321/1832058
+# https://stackoverflow.com/a/47721321/1832058

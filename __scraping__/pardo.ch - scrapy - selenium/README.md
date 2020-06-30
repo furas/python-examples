@@ -62,3 +62,7 @@ because there are no other `article`s so there is no need to use `class`.
 BTW: similar problem is with Google Search results. 
 
 For client which doesn't use JavaScript Google uses not only different classes but also different tags. It can use `<table><tr><td>` instead of `<div>`.
+# https://stackoverflow.com/a/48017424/1832058
+# https://stackoverflow.com/a/48017424/1832058
+# https://stackoverflow.com/a/48017424/1832058
+# https://stackoverflow.com/a/48017424/1832058

@@ -18,3 +18,5 @@ Result in CSV file:
     SMÅGLI,plate/bowl,Dhs 19.00
     STJÄRNBILD,bib,Dhs 19.00
 
+# https://stackoverflow.com/a/47741611/1832058
+# https://stackoverflow.com/a/47741611/1832058

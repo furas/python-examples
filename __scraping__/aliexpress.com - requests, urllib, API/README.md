@@ -1,13 +1,10 @@
 Folder `aliexpress_api_client` from [https://github.com/kronas/python-aliexpress-api-client](https://github.com/kronas/python-aliexpress-api-client)
-
 API doc: [https://portals.aliexpress.com/help.htm?page=help_center_api](https://portals.aliexpress.com/help.htm?page=help_center_api)
-
-
 
 urllib 
 ============
 
-Uusing standard modules: urllib, json
+Using standard modules: urllib, json
 
 requests
 ============

@@ -15,3 +15,5 @@ Result:
     title: Data Scientist (Machine Learning)
     title: Data Scientist / Ml Scientist
     title: Young Professional - Spanish LatAm
+# https://stackoverflow.com/a/48031565/1832058
+# https://stackoverflow.com/a/48031565/1832058

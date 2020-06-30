@@ -13,3 +13,5 @@ It will put text in " " if there is , in text.
 
 Portal gives first page even if you use `s=0` so I don't have to check `offset == 0` to use url without `s=0`
 
+# https://stackoverflow.com/a/47720827/1832058
+# https://stackoverflow.com/a/47720827/1832058

@@ -1,7 +1,6 @@
 
-#
+# date: 2017.12.10
 # https://stackoverflow.com/a/47744135/1832058
-# 
 
 import scrapy
 

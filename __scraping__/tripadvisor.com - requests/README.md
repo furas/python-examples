@@ -53,3 +53,7 @@ Other:
 
 - [tripadvisor.com - using Scrapy](../tripadvisor.com%20-%20scrapy)
 - [examples for other pages](..)
+# https://stackoverflow.com/a/47858268/1832058
+# https://stackoverflow.com/a/47858268/1832058
+# https://stackoverflow.com/a/47858268/1832058
+# https://stackoverflow.com/a/47858268/1832058

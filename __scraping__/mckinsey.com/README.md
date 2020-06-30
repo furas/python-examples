@@ -84,3 +84,5 @@ Result:
     Video meets the Internet of Things
     https://www.mckinsey.com/industries/high-tech/our-insights/video-meets-the-internet-of-things
     ---
+# https://stackoverflow.com/a/47753174/1832058
+# https://stackoverflow.com/a/47753174/1832058

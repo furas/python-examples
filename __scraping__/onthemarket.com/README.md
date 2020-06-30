@@ -19,3 +19,5 @@ or
     next_page_url = response.xpath('(//li/a[@class="arrow"])[last()]/@href').extract_first()
 
 
+# https://stackoverflow.com/a/47751535/1832058
+# https://stackoverflow.com/a/47751535/1832058

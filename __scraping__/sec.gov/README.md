@@ -31,3 +31,9 @@ In Python 2 (after encoding) you have to replace two chars - 194 and 160
     text = text.replace(char(194)+chr(160), " ") # Python 2
 
 
+# https://stackoverflow.com/a/47742578/1832058
+# https://stackoverflow.com/a/47614478/1832058
+# https://stackoverflow.com/a/47614478/1832058
+# https://stackoverflow.com/a/47742578/1832058
+# https://stackoverflow.com/a/47614478/1832058
+# https://stackoverflow.com/a/47614478/1832058

@@ -22,3 +22,7 @@ with open('output.pdf', 'wb') as fp:
     fp.write(bytes)
 
 And now you have all in output.pdf
+# date: 2019.07.18
+# https://stackoverflow.com/questions/57088227/save-the-pdf-using-the-selenium-webdriver-in-python/57089444#57089444
+# date: 2019.07.18
+# https://stackoverflow.com/questions/57088227/save-the-pdf-using-the-selenium-webdriver-in-python/57089444#57089444
