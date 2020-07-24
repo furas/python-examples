@@ -1,4 +1,7 @@
-# https://stackoverflow.com/questions/62521126/table-web-scraping-issues-with-python/
+
+# author: https://blog.furas.pl
+# date: 2020.06.22
+# link: https://stackoverflow.com/questions/62521126/table-web-scraping-issues-with-python/
 
 from urllib.request import urlopen
 import json
