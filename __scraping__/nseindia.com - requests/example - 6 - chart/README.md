@@ -1,5 +1,5 @@
 
-### author: Bartomiej "furas" Burek (https://blog.furas.pl)
+### author: Bartłomiej "furas" Burek (https://blog.furas.pl)
 
 ### date: 2020.08.12
 
