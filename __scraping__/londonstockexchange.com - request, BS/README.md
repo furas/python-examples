@@ -1,9 +1,9 @@
 
-# author: Bartłomiej "furas" Burek (https://blog.furas.pl)
+### author: Bartłomiej "furas" Burek (https://blog.furas.pl)
 
-# date: 2020.09.08
+### date: 2020.09.08
 
-# https://stackoverflow.com/questions/63785398/web-scraping-using-python-scrapy-or-beautiful-soup-fails-to-extract-data-from-ls
+### link: https://stackoverflow.com/questions/63785398/web-scraping-using-python-scrapy-or-beautiful-soup-fails-to-extract-data-from-ls
 
 
 This page uses JavaScript to display data but it doesn't use AJAX to read them.
