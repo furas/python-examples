@@ -5,7 +5,7 @@ import random
 import pygame 
 import pygame.mixer
 
-library = ['Muzyka/snow2.mp3', "Muzyka/snow.wav"]
+library = ['/home/furas/Muzyka/snow2.mp3', "/home/furas/Muzyka/snow.wav"]
 filename = random.choice(library)
 print(filename)
 
@@ -13,3 +13,7 @@ pygame.mixer.init()
 pygame.mixer.music.set_volume(0.50)
 pygame.mixer.music.load(filename)
 pygame.mixer.music.play()
+
+import time
+time.sleep(3)
+
