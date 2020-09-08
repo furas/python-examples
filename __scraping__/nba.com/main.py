@@ -1,7 +1,8 @@
 #!/usr/bin/env python3 
 
-# date: 2019.11.19
+# date: 2019.11.19, 
 # https://stackoverflow.com/questions/58938589/python-scrape-nba-tracking-drives-data
+# date: 2020.08.15
 
 import requests
 
@@ -10,6 +11,9 @@ headers = {
     #'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0',
     'Referer': 'https://stats.nba.com/players/drives/',
     #'Accept': 'application/json, text/plain, */*',
+
+    'x-nba-stats-origin': 'stats',
+    'x-nba-stats-token': 'true',
 }
 
 url = 'https://stats.nba.com/stats/leaguedashptstats'
