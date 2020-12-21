@@ -5,6 +5,7 @@
 
 ### link: https://stackoverflow.com/questions/63785398/web-scraping-using-python-scrapy-or-beautiful-soup-fails-to-extract-data-from-ls
 
+---
 
 This page uses JavaScript to display data but it doesn't use AJAX to read them.
 It has all data in `HTML` as `JSON` in `<script type="application/json">` 
