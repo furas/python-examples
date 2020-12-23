@@ -1,4 +1,4 @@
-
+#
 # date: 2019.04.18
 # Bartlomiej 'furas' Burek
 #
@@ -32,7 +32,7 @@ def test(data):
     print(' unicodedata.normalize("NFC", text2):', text4, '  | len:', len(text4), '| expected:', text4 == expected)
     print('                      unicode(text4):', text5, '  | len:', len(text5), '| expected:', text5 == expected)
     print('-------------------------------------')
-    #print('                 ftfy.fix_text(text):', ftfy.fix_text(text))
+    print('                 ftfy.fix_text(text):', ftfy.fix_text(text))
     print('-------------------------------------')
 
 
