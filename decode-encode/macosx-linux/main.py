@@ -6,12 +6,11 @@
 # https://www.pythonsheets.com/notes/python-unicode.html
 #
 
-import os
-import zipfile
 import unicodedata
 from unidecode import unidecode
 import ftfy
 
+# --- functions ---
 
 def test(data):
     text, expected = data
@@ -33,8 +32,11 @@ def test(data):
     print(' unicodedata.normalize("NFC", text2):', text4, '  | len:', len(text4), '| expected:', text4 == expected)
     print('                      unicode(text4):', text5, '  | len:', len(text5), '| expected:', text5 == expected)
     print('-------------------------------------')
-    print('                 ftfy.fix_text(text):', ftfy.fix_text(text))
+    #print('                 ftfy.fix_text(text):', ftfy.fix_text(text))
     print('-------------------------------------')
+
+
+# --- main ---
 
 a1 = 'a╠¿'
 
@@ -44,7 +46,6 @@ a3 = unicodedata.normalize('NFC', a2)
 
 a5 = unidecode(a3)
 print(a1, a2, len(a2), a3, len(a3), a4, a5)
-
 
 examples = [
     ('a╠¿', 'ą'),
