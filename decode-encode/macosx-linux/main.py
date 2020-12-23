@@ -1,6 +1,6 @@
 #
 # date: 2019.04.18
-# Bartlomiej 'furas' Burek
+# author: Bartlomiej 'furas' Burek (https://blog.furas.pl)
 #
 # https://stackoverflow.com/questions/16467479/normalizing-unicode
 # https://www.pythonsheets.com/notes/python-unicode.html
