@@ -30,7 +30,7 @@ var video = document.getElementById('video');
 
 // Element to display snapshot
 
-    // you need canvas to get image - canvas can be hiden using `createElement("canvas")`
+    // you need canvas to get image - canvas can be hidden using `createElement("canvas")`
     // var canvas = document.createElement("canvas");
    
 var canvas = document.getElementById('canvas');

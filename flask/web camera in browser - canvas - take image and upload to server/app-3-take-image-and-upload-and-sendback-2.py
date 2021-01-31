@@ -17,10 +17,23 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template_string('''
-<video id="video" width="320" height="240" autoplay style="background-color: grey"></video>
-<button id="send">Take & Send Photo</button>
-<canvas id="canvas" width="320" height="240" style="background-color: grey"></canvas>
-<img id="image" src="" width="320" height="240" style="background-color: grey"></img>
+<table>
+<tr>
+    <td>VIDEO<br>play stream from camera (media device)</td>
+    <td>CANVAS<br>draw video on context 2d,<br>convert to Blob, upload to server</td>
+    <td>SERVER<br>(get result, convert to BASE64 url)</td>
+    <td>SCREENSHOT<br>(copy from canvas as BASE64 url)</td>
+</tr>
+<tr>
+    <td><video id="video" width="320" height="240" autoplay style="background-color: grey"></video></td>
+    <td><canvas id="canvas" width="320" height="240" style="background-color: grey"></canvas></td>
+    <td><img id="image" src="" width="320" height="240" style="background-color: grey"></img></td>
+    <td><img id="image64" src="" width="320" height="240" style="background-color: grey"></img></td>
+</tr>
+<tr>
+    <td><button id="send">Take & Send Photo</button></td>
+</tr>
+</table>
 
 <script>
 
@@ -29,7 +42,7 @@ var video = document.getElementById('video');
 
 // Element to display snapshot
 
-    // you need canvas to get image - canvas can be hiden using `createElement("canvas")`
+    // you need canvas to get image - canvas can be hidden using `createElement("canvas")`
     // var canvas = document.createElement("canvas");
    
 var canvas = document.getElementById('canvas');
@@ -51,7 +64,7 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
             //context.drawImage(video, 0, 0);
             context.drawImage(video, 0, 0, 320, 240); // better use size because camera may gives data in different size then <video> is displaying
             
-            image64.src = canvas.toDataURL();  
+            //image64.src = canvas.toDataURL();  
             canvas.toBlob(upload, "image/jpeg");
         }, 100);    
     });
@@ -59,11 +72,16 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 
 // Trigger photo take
 document.getElementById("send").addEventListener("click", function() {
+    // copy frame from video to canvas as context 2d
     //context.drawImage(video, 0, 0);
     context.drawImage(video, 0, 0, 320, 240); // better use size because camera may gives data in different size then <video> is displaying
+    
+    // convert to BASE64 url and assign to <img> to display it
     image64.src = canvas.toDataURL();  
+    console.log(image64.src)
 
-    canvas.toBlob(upload, "image/jpeg");
+    // convert to Blob (file) and upload to server 
+    //canvas.toBlob(upload, "image/jpeg");
 });
 
 function upload(file) {

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 # https://developers.google.com/web/fundamentals/media/capturing-images
+# https://developers.google.com/web/updates/2016/12/imagecapture
 # https://github.com/jhuckaby/webcamjs
 # https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toBlob
 
