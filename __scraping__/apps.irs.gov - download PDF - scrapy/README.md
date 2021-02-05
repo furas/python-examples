@@ -2,7 +2,7 @@ It needs `Scrapy 2.4+` because `file_path` uses `item=`.
 
 ---
 
-# Run without project
+# Run without project (standalone)
 
 ```
 $ cd standalone
@@ -11,7 +11,7 @@ $ python main.py 2018 2020
 
 ---
 
-# Run with project (if you put `spider` and `pipeline` in correct files)
+# Run with project
 
 ```
 $ cd project
@@ -34,4 +34,4 @@ run(2018, 2020)
 
 ---
 
-It seems the same code in project works faster then without project - maybe project uses threads.
+It seems `project` runs faster then `standalone`. Maybe `standalone` doesn't use `threads`.
