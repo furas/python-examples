@@ -26,7 +26,6 @@
 
 import scrapy
 from scrapy.pipelines.files import FilesPipeline
-import datetime
 
 
 class MySpider(scrapy.Spider):
@@ -34,12 +33,17 @@ class MySpider(scrapy.Spider):
     name = 'myspider'
 
     def __init__(self, start=2020, end=2020, *args, **kwargs):  # <--- receive parameters
+        """Get parameters `start` and `end`."""
+        
         super().__init__(*args, **kwargs)
         self.start = int(start)  # <--- receive parameter
         self.end   = int(end)    # <--- receive parameter
 
     def start_requests(self):
+        """Generate start requests using parameters `start` and `end`."""
+        
         url_pattern = 'https://apps.irs.gov/app/picklist/list/priorFormPublication.html?criteria=currentYearRevDateString&submitSearch=Find&value={}'
+        
         for year in range(self.start, self.end+1):
             # generate `url` with `year`
             url = url_pattern.format(year)
@@ -79,7 +83,8 @@ class RenameFilesPipeline(FilesPipeline):
 
     # `item` needs `Scrapy 2.4+`
     def file_path(self, request, response=None, info=None, *, item=None):
-        # use `path` from `parse` to rename downloaded file
+        """Use `path` from `item` (created in `parse`) to rename downloaded file."""
+        
         return item['path']
 
 
