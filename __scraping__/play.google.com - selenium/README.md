@@ -1,8 +1,9 @@
 
-# author: Bartlomiej "furas" Burek (https://blog.furas.pl)
-# date: 2021.02.08
+### author: Bartlomiej "furas" Burek (https://blog.furas.pl)
 
-# Stackoverflow: https://stackoverflow.com/questions/66095101/python-3-6-web-crawler-using-selenium-cannot-grab-the-dates-and-ratings-of-use
+### date: 2021.02.08
+
+### Stackoverflow: https://stackoverflow.com/questions/66095101/python-3-6-web-crawler-using-selenium-cannot-grab-the-dates-and-ratings-of-use
 
 Result:
 
