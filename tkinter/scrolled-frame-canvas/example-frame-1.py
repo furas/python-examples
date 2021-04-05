@@ -4,6 +4,8 @@ from scrolledframe import ScrolledFrame
 # --- functions ---
 
 def test_checkbuttons():
+    print('--- test_checkbuttons ---')
+
     for index, var in enumerate(variables):
         if var.get() > 0:
             print('index:', index, 'data:', data[index])

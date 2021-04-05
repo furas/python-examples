@@ -7,9 +7,9 @@ import string
 
 # random data
 data = []
-for row in range(30):
+for row in range(15):
     row_data = []
-    for col in range(20):
+    for col in range(10):
         row_data.append(random.choice(string.ascii_letters))
     data.append(row_data)
 
@@ -26,8 +26,8 @@ sf.pack(fill='both', expand=True) # resize with window
 # add widgets to scrolled frame - as parent you have to use `sf.inner` instead of `sf`
 for row, row_data in enumerate(data):
     for col, txt in enumerate(row_data):
-        l = tk.Label(sf.inner, text=txt)
-        l.grid(row=row, column=col, padx=20)
+        l = tk.Button(sf.inner, text=txt)
+        l.grid(row=row, column=col, ipadx=10, sticky='news')
 
 # ---
 
