@@ -23,7 +23,7 @@ s.pack(fill='both', expand=True)
 data = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't']
 variables = []
 
-f = tk.Frame(s)
+f = tk.Frame(s._canvas)
 
 # add widgets to frame - as parent you uses `f`
 for txt in data:
