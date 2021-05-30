@@ -1,5 +1,5 @@
 
-Author: Bartlomiej "furas" Burek (https://blog.furas.pl)
+Author: Bartlomiej "furas" Burek [https://blog.furas.pl](https://blog.furas.pl)
 
 Date: 2021.05.30
 
@@ -17,12 +17,12 @@ Stackoverflow: [How to add text in a “textbox” to an image?](https://stackov
 
 Result with `(200-w//2, 150-h//2)` and `getbbox()`
 
-![#1]()
+![#1](https://raw.githubusercontent.com/furas/python-examples/master/pillow/resize-font-to-fit-region-getbbox/center-older-getbbox.png)
 
 Result with `(200-w//2, 150-h//2)` and `getsize()`
 
-![#2]()
+![#2](https://raw.githubusercontent.com/furas/python-examples/master/pillow/resize-font-to-fit-region-getbbox/center-older-getsize.png)
 
 Result with `anchor='mm'` (with `getbbox()` or `getsize()`)
 
-![#4]()
+![#3](https://raw.githubusercontent.com/furas/python-examples/master/pillow/resize-font-to-fit-region-getbbox/center-newer.png)
