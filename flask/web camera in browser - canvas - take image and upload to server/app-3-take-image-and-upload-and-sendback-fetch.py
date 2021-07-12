@@ -30,8 +30,8 @@ def index():
 <tr>
     <td>- assign camera (media device)<br>- play stream</td>
     <td>- draw video on context 2d,<br>- convert to jpg file (Blob)<br>- upload to server as POST</td>
-    <td>- get jpg file (BLob) from server<br>- convert to BASE64 url<br>- assing to img</td>
-    <td>- get canvas as BASE64 url<br>- assing to img</td>
+    <td>- get jpg file (Blob) from server<br>- convert to BASE64 url<br>- assign to img</td>
+    <td>- get canvas as BASE64 url<br>- assign to img</td>
 </tr>
 <tr>
     <td><video id="video" width="{{ width }}" height="{{ height }}" autoplay style="background-color: grey"></video></td>
