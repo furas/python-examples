@@ -2,6 +2,8 @@
 # date: 2020.09.07
 # author: Bartłomiej "furas" Burek (https://blog.furas.pl)
 # https://stackoverflow.com/questions/63767927/cant-scrape-some-static-image-links-from-a-webpage-using-requests
+#
+# update: 2021.07.15
 
 import requests
 from bs4 import BeautifulSoup
@@ -42,14 +44,15 @@ results = []
 
 soup = BeautifulSoup(r.text, "lxml")
 
-for item in soup.select(".search_results a > img[src]"):
+#for item in soup.select("[data-hid='photo_list_results'] a > img[src]"):
+for item in soup.select(".results--efirA a > img[src]"):
     src = item.get("src")
     if src is not None and 'blank.gif' not in src:
         print('src:', src)
         results.append(src)
     else:
-        src = item.get("data-lazy")
-        print('data-lazy:', src)
+        src = item.get("data-lazy-src")
+        print('data-lazy-src:', src)
         results.append(src)
 
 print('len:', len(results))
