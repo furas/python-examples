@@ -36,15 +36,47 @@ for row in all_rows:
     #print(classes)
     
     if 'event__round' in classes:
-        current_round = row.text
+        #round = row.find_elements(By.CSS_SELECTOR, "[class^='event__round event__round--static']")
+        #current_round = row.text  # full text `Round 20`
+        current_round = row.text.split(" ")[-1]  # only `20` without `Round`
     else:
-        date = row.find_element(By.CSS_SELECTOR, "[class^='event__time']")
+        datetime = row.find_element(By.CSS_SELECTOR, "[class^='event__time']")
+        
+        date, time = datetime.text.split(" ")
+        date = date.rstrip('.')  # right-strip to remove `.` at the end of date
+        
         team_home = row.find_element(By.CSS_SELECTOR, "[class^='event__participant event__participant--home']")            
         team_away = row.find_element(By.CSS_SELECTOR, "[class^='event__participant event__participant--away']")
         score_home = row.find_element(By.CSS_SELECTOR, "[class^='event__score event__score--home']")
         score_away = row.find_element(By.CSS_SELECTOR, "[class^='event__score event__score--away']")   
+
+        # old version
+        #row = [current_round, datetime.text, team_home.text, team_away.text, score_home.text, score_away.text]
     
-        row = [current_round, date.text, team_home.text, team_away.text, score_home.text, score_away.text]
+        row = [current_round, date, time, team_home.text, team_away.text, score_home.text, score_away.text]
         results.append(row)
         print(row)
-    
+
+# --- database ---
+
+import sqlite3
+
+con = sqlite3.connect('database.db')
+cursor = con.cursor()
+
+query = 'DROP TABLE IF EXISTS All_Score;'
+cursor.execute(query)
+
+# old version - with only `date`
+#query = 'CREATE TABLE IF NOT EXISTS All_Score(current_round, date, team_home, team_away, score_home, score_away);'
+# new version - with `date` and `time`
+query = 'CREATE TABLE IF NOT EXISTS All_Score(current_round, date, time, team_home, team_away, score_home, score_away);'
+cursor.execute(query)
+
+# old version - with only `date`
+#query = 'INSERT INTO All_Score(current_round, date, team_home, team_away, score_home, score_away) VALUES (?, ?, ?, ?, ?, ?);'
+# new version - with `date` and `time`
+query = 'INSERT INTO All_Score(current_round, date, time, team_home, team_away, score_home, score_away) VALUES (?, ?, ?, ?, ?, ?, ?);'
+cursor.executemany(query, results)
+
+con.commit()  
