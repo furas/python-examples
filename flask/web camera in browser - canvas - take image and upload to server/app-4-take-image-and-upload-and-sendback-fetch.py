@@ -25,43 +25,47 @@ def index():
     <td>VIDEO</td>
     <td>CANVAS</td>
     <td>SERVER</td>
-    <td>SCREENSHOT</td>
+    <td>SCREENSHOT (CANVAS)</td>
+    <td>SCREENSHOT (SERVER)</td>
 </tr>
 <tr>
     <td>- assign camera (media device)<br>- play stream</td>
     <td>- draw video on context 2d,<br>- convert to jpg file (Blob)<br>- upload to server as POST</td>
     <td>- get jpg file (Blob) from server<br>- convert to BASE64 url<br>- assign to img</td>
     <td>- get canvas as BASE64 url<br>- assign to img</td>
+    <td>- copy BASE64 url<br>- assign to img</td>
 </tr>
 <tr>
-    <td><video id="video" width="{{ width }}" height="{{ height }}" autoplay style="background-color: grey"></video></td>
+    <td><video  id="video"  swidth="{{ width }}" height="{{ height }}" autoplay style="background-color: grey"></video></td>
     <td><canvas id="canvas" width="{{ width }}" height="{{ height }}" style="background-color: grey"></canvas></td>
-    <td><img id="image" src="" width="{{ width }}" height="{{ height }}" style="background-color: grey" /></td>
-    <td><img id="image64" src="" width="{{ width }}" height="{{ height }}" style="background-color: grey" /></td>
+    <td><img id="server"     src="" width="{{ width }}" height="{{ height }}" style="background-color: grey" /></td>
+    <td><img id="screenshot_canvas" src="" width="{{ width }}" height="{{ height }}" style="background-color: grey" /></td>
+    <td><img id="screenshot_server" src="" width="{{ width }}" height="{{ height }}" style="background-color: grey" /></td>
 </tr>
 <tr>
     <td></td>
     <td></td>
     <td></td>
-    <td><button id="send">Take Photo</button></td>
+    <td><button id="send_canvas">Take Photo (from Canvas)</button></td>
+    <td><button id="send_server">Take Photo (from Server)</button></td>
 </tr>
 </table>
 
 <script>
 
-// Elements for taking the snapshot
+// Element to take the snapshot
 var video = document.getElementById('video');
 
 // Element to display snapshot
-
     // you need canvas to get image - canvas can be hidden using `createElement("canvas")`
-    // var canvas = document.createElement("canvas");
 
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 
-var image = document.getElementById('image');
-var image64 = document.getElementById('image64');
+var server     = document.getElementById('server');
+
+var screenshot_canvas = document.getElementById('screenshot_canvas');
+var screenshot_server = document.getElementById('screenshot_server');
 
 console.log("before get camera");
 console.log(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
@@ -82,15 +86,24 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     });
 }
 
-// Trigger photo take
+// Trigger to take photo from canvas
 
-document.getElementById("send").addEventListener("click", function() {
+document.getElementById("send_canvas").addEventListener("click", function() {
     // copy frame from video to canvas as context 2d
     context.drawImage(video, 0, 0, {{ width }}, {{ height }}); // better use size because camera may gives data in different size then <video> is displaying
+    
     // convert to BASE64 url and assign to <img> to display it
-    image64.src = canvas.toDataURL();  
+    screenshot_canvas.src = canvas.toDataURL();  
 });
 
+// Trigger to take photo from canvas
+
+document.getElementById("send_server").addEventListener("click", function() {
+    // convert to BASE64 url and assign to <img> to display it
+    screenshot_server.src = server.src;  
+});
+
+// get image from canvas, send to server as POST, get result image, display image as IMG
 function upload(file) {
 
     // create form and add file
@@ -106,11 +119,11 @@ function upload(file) {
         return response.blob();
     }).then(function(blob) {
         //console.log(blob);  // it slow down video from server
-        image.src = URL.createObjectURL(blob);
+        server.src = URL.createObjectURL(blob);
     }).catch(function(err) {
         console.log('Fetch problem: ' + err.message);
     });
-
+    
 }
 
 </script>
