@@ -3,9 +3,12 @@
 # date: 2021.11.19
 #
 # title: How to Extract All Crypto Symbols from Coinmarketcap
-# url: https://stackoverflow.com/questions/70027278/how-to-extract-all-crypto-symbols-from-coinmarketcap/70028568#70028568
+# url: https://stackoverflow.com/questions/70027278/how-to-extract-all-crypto-symbols-from-coinmarketcap/
+# [How to Extract All Crypto Symbols from Coinmarketcap](https://stackoverflow.com/questions/70027278/how-to-extract-all-crypto-symbols-from-coinmarketcap/)
 
-# [How to Extract All Crypto Symbols from Coinmarketcap](https://stackoverflow.com/questions/70027278/how-to-extract-all-crypto-symbols-from-coinmarketcap/70028568#70028568)
+# title: can't retrieve data after 10 row in a 100 row table
+# url: https://stackoverflow.com/questions/71286789/cant-retrieve-data-after-10-row-in-a-100-row-table/
+# [can't retrieve data after 10 row in a 100 row table](https://stackoverflow.com/questions/71286789/cant-retrieve-data-after-10-row-in-a-100-row-table/)
 
 # https://coinmarketcap.com/all/views/all/
 
@@ -14,6 +17,7 @@
 import requests
 
 url = 'https://web-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
+
 
 for start in range(1, 20000, 5000):
 
@@ -26,7 +30,9 @@ for start in range(1, 20000, 5000):
     data = r.json()
     
     for number, item in enumerate(data['data']):
-        print(f"{start+number:4} | {item['symbol']:5} | {item['date_added'][:10]}")
+         #print(f"{start+number:4} | {item['symbol']:5} | {item['date_added'][:10]} | {item['quote']['USD']['price']}")
+         usd = item['quote']['USD']
+         print(f"{start+number:4} | {item['name']:20} | {item['symbol']:20} | {usd['price']:25} | {usd['market_cap']:20} | {usd['volume_24h']:12}")
 
 '''
    1 | BTC   | 2013-04-28
