@@ -36,10 +36,11 @@ class PwspiderSpider(Spider):
         
         for item in products:
             #print(item)
-            print(item['description'])
-            yield response.follow(item['link'], callback=self.parse_product)
+            colors = [color['name'] for color in item['swatches']]
+            print(item['description'], colors)
+            yield response.follow(item['link'], callback=self.parse_product, cb_kwargs={'colors': colors})
         
-    def parse_product(self, response):
+    def parse_product(self, response, colors):
         print('url:', response.url)
         
         script = response.xpath('//script[contains(text(), "window.icvData")]/text()').get()
@@ -50,6 +51,7 @@ class PwspiderSpider(Spider):
         
         try:
             data = json.loads(text)
+            data['colors'] = colors
         except Exception as ex:
             print('Exception:', ex)
             print(text)
