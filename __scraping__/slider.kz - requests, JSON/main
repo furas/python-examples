@@ -1,0 +1,32 @@
+import fake_useragent
+
+import requests
+
+UA = fake_useragent.UserAgent().random
+print(UA)
+
+
+#response = requests.get('http://slider.kz/vk_auth.php?q=unravel')
+
+#print('text:', response.text[:100])
+
+#data = response.json()
+
+#for item in data['audios']:
+#    print(item)
+
+response = requests.get('https://slider.kz/similar/artist/unravel')
+
+print('text:', response.text[:1000])
+
+data = response.json()
+
+print('key1:', data.keys())
+print('key2:', data['similarartists'].keys())
+print('key2:', data['similarartists']['artist'][0].keys())
+
+for item in data['similarartists']['artist']:
+    print('name:', item['name'])
+    print('url:', item['url']) 
+    print('image:', item['image'][0]['#text']) 
+    print('---')
