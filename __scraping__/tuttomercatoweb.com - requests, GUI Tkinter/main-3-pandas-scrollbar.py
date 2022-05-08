@@ -4,7 +4,7 @@
 
 import tkinter as tk   # PEP8: `import *` is not preferred
 from tkinter import ttk
-from tkinter.scrolledtext import ScrolledText
+from tkinter.scrolledtext import ScrolledText  # https://docs.python.org/3/library/tkinter.scrolledtext.html
 import requests
 import requests_cache  # https://github.com/reclosedev/requests-cache
 from bs4 import BeautifulSoup
@@ -34,7 +34,7 @@ def get_data_for(place):
         for div in each.find_all("div"):
             time  = div.find('span', attrs={'class': 'hh serif'}).text
             title = " ".join(span.text for span in div.select("a > span"))
-            news = f" {time} {place.upper()}, {title} (TMW)"
+            news = f"{number:02} | {time} | {place.upper()} | {title} (TMW)"
             link  = div.find('a')['href']
             results.append( [number, time, place, title, news, link] )
 
@@ -61,7 +61,6 @@ def all_titles():
     for index, row in df.iterrows():
         listbox_title.insert('end', row['news'])
 
-#Download Content of News
 def content(event=None):   # `command=` executes without `event`, but `bind` executes with `event` - so it needs default value
     # tuple
     selection = listbox_title.curselection()
@@ -79,6 +78,9 @@ def content(event=None):   # `command=` executes without `event`, but `bind` exe
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'
         }
 
+        # keep page in database `SQLite` 
+        # https://github.com/reclosedev/requests-cache
+        # https://sqlite.org/index.html
         session = requests_cache.CachedSession('titles')
         response = session.get(url, headers=headers)
         #response = requests.get(url, headers=headers)
@@ -102,7 +104,7 @@ window.geometry("800x800")
 frame_title = tk.Frame(window)
 frame_title.pack(fill='both', expand=True, pady=5, padx=5)
 
-listbox_title = tk.Listbox(frame_title, selectbackground="#960000", selectforeground="white", bg="white")
+listbox_title = tk.Listbox(frame_title, selectbackground="#960000", selectforeground="white", bg="white", font=('monospace'))
 listbox_title.pack(side='left', fill='both', expand=True)
 
 scrollbar_title = tk.Scrollbar(frame_title)
@@ -111,7 +113,8 @@ scrollbar_title.pack(side='left', fill='y')
 scrollbar_title['command'] = listbox_title.yview
 listbox_title.config(yscrollcommand=scrollbar_title.set)
 
-listbox_title.bind('<Double-Button-1>', content)  # it executes `content(event)
+listbox_title.bind('<Double-Button-1>', content)  # it executes `content(event)`
+
 # ----
 
 text_download = ScrolledText(window, bg="white")
