@@ -5,21 +5,22 @@
 #
 
 import tkinter as tk
-from PIL import ImageTk, Image
+from PIL import ImageTk, Image, ImageOps
 
 # --- functions ---
 
 def on_resize(event):
-    # it respects anchor
-    x = event.width/2  
-    y = event.height/2
-    stage.coords(img_id, x, y)  
+    #global photo
     
-    # it DOESN'T respects anchor so you have to add offset
-    #x = (event.width - photo.width())/2  
-    #y = (event.height - photo.height())/2
-    #stage.moveto(img_id, x, y)  # doesn't respect anchor
+    size = (event.width, event.height)
+
+    new_image = ImageOps.fit(image, size)  # it keeps aspect ratio, but it crops
     
+    photo = ImageTk.PhotoImage(new_image)
+
+    stage.itemconfig(img_id, image=photo)
+    stage.photo = photo
+
 # --- main ---
 
 root = tk.Tk()
@@ -30,12 +31,10 @@ stage.pack(fill='both', expand=True)
 #root.update()  # force `mainloop()` to calculate current `width`, `height` for canvas
                 # and later `stage.winfo_width()` `stage.winfo_height()` will get correct values instead `0`
     
-image = Image.open('/home/furas/test/lenna.png')    
+image = Image.open('frame_vertical.jpg')  # keep original image
 photo = ImageTk.PhotoImage(image)
-#photo = ImageTk.PhotoImage(file='lenna.png')
 
-size = (stage.winfo_width()/2, stage.winfo_height()/2)
-img_id = stage.create_image(size, image=photo, anchor='center')
+img_id = stage.create_image(0, 0, image=photo, anchor='nw')
 stage.photo = photo
 
 stage.bind('<Configure>', on_resize)  # it runs function when Canvas change size,
