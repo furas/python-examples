@@ -38,10 +38,14 @@ canvas = tk.Canvas(root, width=512, height=512)
 canvas.pack()
 canvas.bind('<Button-1>', on_click)
 
-background = tk.PhotoImage(file='lenna.png')
+background = tk.PhotoImage(file='images/lenna.png')
 background_id = canvas.create_image((0, 0), image=background, anchor='nw')
 
-button_img = tk.PhotoImage(file='hal9000.png')
+# ---
+
+button_img = tk.PhotoImage(file='images/hal9000.png')
 button_id = canvas.create_image((256, 125), image=button_img, anchor='center')
+
+# ---
 
 root.mainloop()   

@@ -32,12 +32,13 @@ def on_click(event):
         if temp_x**2 + temp_y**2 <= r**2:
             print(f'button {number} : clicked circle [cx, cy, r]:', [center_x, center_y, r])
             img = canvas.itemcget(button_id, 'image')  # get config
-            print(img, button_img_gray, button_img_rgb)
+            #print(img, button_img_gray, button_img_rgb)
+            
             if str(img) == str(button_img_rgb):  # need to compare names/strings instead of objects
-                print('set gray')
+                #print('set gray')
                 canvas.itemconfig(button_id, image=button_img_gray)
             else:
-                print('set color')
+                #print('set color')
                 canvas.itemconfig(button_id, image=button_img_rgb)
                                 
 # --- main ---
@@ -50,13 +51,13 @@ canvas = tk.Canvas(root, width=512, height=512)
 canvas.pack()
 canvas.bind('<Button-1>', on_click)
 
-background = tk.PhotoImage(file='lenna.png')
+background = tk.PhotoImage(file='images/lenna.png')
 background_id = canvas.create_image((0, 0), image=background, anchor='nw')
 
 # ---
 
-button_img_gray = tk.PhotoImage(file='hal9000-gray.png')
-button_img_rgb  = tk.PhotoImage(file='hal9000.png')
+button_img_gray = tk.PhotoImage(file='images/hal9000-gray.png')
+button_img_rgb  = tk.PhotoImage(file='images/hal9000.png')
 
 button1_id = canvas.create_image((256-100, 125), image=button_img_gray, anchor='center')
 all_buttons.append(button1_id)
