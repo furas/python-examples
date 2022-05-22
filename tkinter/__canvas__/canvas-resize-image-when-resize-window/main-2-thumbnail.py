@@ -3,6 +3,7 @@
 #
 # https://web.archive.org/web/20190909161413/http://effbot.org/tkinterbook/canvas.html
 #
+# [python - How to center an image in tkinter with PIL - Stack Overflow](https://stackoverflow.com/questions/72160551/how-to-center-an-image-in-tkinter-with-pil/)
 
 import tkinter as tk
 from PIL import ImageTk, Image
