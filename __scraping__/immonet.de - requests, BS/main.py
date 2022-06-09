@@ -1,0 +1,86 @@
+# author: Bartlomiej "furas" Burek (https://blog.furas.pl)
+# date: 2022.06.08
+#
+
+import requests
+from bs4 import BeautifulSoup
+import pandas as pd
+
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36'
+}
+
+url = 'https://www.immonet.de/immobiliensuche/sel.do'
+
+payload = {
+    'suchart': '2',
+    'city': '109447',
+    'marketingtype': '1',
+    'pageoffset': '1',
+    'radius': '0',
+    'parentcat': '2',
+    'sortby': '0',
+    'listsize': '26',
+    'objecttype': '1',
+    'page': '1',
+}
+
+def extract(page):
+    payload['page'] = page
+
+    response = requests.get(url, params=payload, headers=headers)
+    soup = BeautifulSoup(response.content, 'html.parser')
+
+    return soup
+
+def transform(soup):
+    divs = soup.find_all('div', {'class': 'col-xs-12 place-over-understitial sel-bg-gray-lighter'})
+
+    for number, item in enumerate(divs, 1):
+
+        title = item.find('div', {'class': 'text-225'}).text.strip()
+        title = title.replace('\n', '').replace('\t', '')
+
+        hausart = item.find('span', {'class': 'text-100'}).text.strip()
+        hausart = hausart.replace('\n', '').replace('\t', '')
+
+        price = item.find('div', {"id": lambda value:value and value.startswith('selPrice')}).find('span')
+        if price:
+            price = price.text
+        else:
+            price = 'Auf Anfrage'
+
+        #try:
+        #    price = item.find('span', {'class': 'text-250 text-strong text-nowrap'}).text.strip()
+        #except:
+        #    price = 'Auf Anfrage'
+
+        wohnflaeche = item.find('p', {'class': 'text-250 text-strong text-nowrap'}).text.strip()
+        wohnflaeche = wohnflaeche.replace('m²', '').replace('\n', '').replace('\t', '')
+        wohnflaeche = float(wohnflaeche)
+
+        print(f'{number:3}  | {price:>12} | {wohnflaeche:>10.2f} |{title}')
+
+        angebot = {
+            'title':   title,
+            'hausart': hausart,
+            'price':   price,
+            'wohnflaeche': wohnflaeche,
+        }
+
+        hauslist.append(angebot)
+
+# --- main ---
+
+hauslist = []
+
+for number in range(1, 3):
+    print(f'--- page {number} ---')
+    soup = extract(number)
+    transform(soup)
+
+df = pd.DataFrame(hauslist)
+
+print(df.head())
+
+df.to_csv('immonetHamburg.csv')
