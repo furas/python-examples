@@ -47,7 +47,7 @@ def professor_filter(item):
     return (re.search(r'\w\.', item) or "Staff" in item)
 
 class ClassesSpider(scrapy.Spider):
-    
+
     name = "classes"
 
     def start_requests(self):
@@ -72,23 +72,25 @@ class ClassesSpider(scrapy.Spider):
         all_rows = response.xpath('//div[contains(@id, "rowpanel_")]')
 
         classDict = {}
-        
+
         for row in all_rows:
             classname = row.xpath('.//h2//a/text()').re(r'(?i)(\w+\s\w+)+\s-\s\w+\xa0+([\w\s]+\b)')
             professor = row.xpath('(.//div[@class="panel-body"]//div)[3]/text()').get().strip()
             print(classname, professor)
             if professor and professor_filter(professor):
                 classDict[tuple(classname)] = [professor]
+                yield {'class': tuple(classname), 'professor': professor}  # it will write to file csv
+
             else:
                 print('skip:', professor)
-            
+
         print(classDict)
-        
+
         #filename = f'class-{page}.html'
         #with open(filename, 'wb') as f:
         #    f.write(response.body)
         #self.log(f'Saved file {filename}')
-        
+
 
 # --- run without project and save in `output.csv` ---
 
@@ -99,4 +101,4 @@ c = CrawlerProcess({
     'FEEDS': {'output.csv': {'format': 'csv'}},  # new in 2.1
 })
 c.crawl(ClassesSpider)
-c.start() 
+c.start()
