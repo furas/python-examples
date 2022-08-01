@@ -22,7 +22,14 @@ class TestSpider(scrapy.Spider):
     }
 
     def parse(self, response):
-        wev = {}
+        wev = {
+            'Status:': '',
+            'Data wpisu w aktualnej izbie na listę adwokatów:': '',
+            'Stary nr wpisu:': '',
+            'Adres do korespondencji:': '',
+            'Fax:': '',
+            'Email:': '',
+        }
 
         tic = response.xpath("//div[@class='line_list_K']//div//span//text()").getall()
         det = response.xpath("//div[@class='line_list_K']//div//div//text()").getall()
