@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="300"
+   height="300"
+   viewBox="0 0 79.375001 79.375"
+   version="1.1"
+   id="svg5"
+   inkscape:export-filename="/home/furas/rect-300x300.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="300x300-equal.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#999999"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="px"
+     showgrid="false"
+     units="px"
+     width="300px"
+     inkscape:zoom="1.0040916"
+     inkscape:cx="-82.661781"
+     inkscape:cy="150.38469"
+     inkscape:window-width="1366"
+     inkscape:window-height="679"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Warstwa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="opacity:1;fill:#000000;stroke-width:0.114568"
+       id="rect846"
+       width="79.375"
+       height="79.375"
+       x="2.5e-07"
+       y="2.5e-07" />
+    <g
+       id="g827"
+       transform="matrix(1,0,0,1.4866976,-7.0367432e-7,-7.4659123)">
+      <rect
+         style="opacity:1;fill:#ffffff;stroke-width:0.0284747"
+         id="rect5566"
+         width="49.392445"
+         height="7.8794713"
+         x="14.991279"
+         y="35.747765" />
+      <rect
+         style="opacity:1;fill:#ffffff;stroke-width:0.0284747"
+         id="rect823"
+         width="49.392445"
+         height="7.8794713"
+         x="14.991279"
+         y="19.80653" />
+    </g>
+  </g>
+</svg>
