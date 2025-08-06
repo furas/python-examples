@@ -16,9 +16,11 @@ from mycalendar import DateEntry
 dates = [
     "2024-04-08", "2024-04-10", "2024-04-11", "2024-04-12",
     "2024-04-15", "2024-04-16", "2024-04-17", "2024-04-18", "2024-04-19",
-    "2024-04-22",
+    "2024-04-22", 
+
     "2024-05-21", "2024-05-22", "2024-05-23", "2024-05-24",
     "2024-05-27", "2024-05-28", "2024-05-29", "2024-05-30", "2024-05-31",
+
     "2024-06-03", "2024-06-04", "2024-06-05", "2024-06-07",
     "2024-06-10", "2024-06-11", "2024-06-12", "2024-06-13", "2024-06-14",
 ]
@@ -52,5 +54,61 @@ date_entry = DateEntry(
     allowed_dates=dt_dates,
 )
 date_entry.pack()
+
+def show_allowed_dates():
+    for date in cal['allowed_dates']:  # not `cal.allowed_dates`
+        print('allowed:', date)
+
+button_show = tk.Button(root, text="Show Allowed Dates", command=show_allowed_dates)
+button_show.pack(fill='x')
+
+def add_allowed_date(date):
+    dt_date = dt.date.fromisoformat(date)
+
+    if dt_date not in cal['allowed_dates']:
+        print('add allowed:', date)
+
+        cal['allowed_dates'].append(dt_date)
+        # other methods
+        #cal['allowed_dates'] += [append(dt.date.fromisoformat(date)]
+        #cal['allowed_dates'].extend( [append(dt.date.fromisoformat(date)] )
+
+        cal['allowed_dates'] = sorted(cal['allowed_dates'])
+
+        # what if new date is not in `mindate`, `maxdate` ???
+        if cal['allowed_dates'][0] < cal['mindate']:
+            cal['mindate'] = cal['allowed_dates'][0]
+
+        if cal['allowed_dates'][-1] > cal['maxdate']:
+            cal['maxdate'] = cal['allowed_dates'][-1]
+
+        # redraw it
+        cal._display_calendar() 
+
+for date in ('2024-06-06', '2024-06-26', '2024-07-10'):
+    button_add = tk.Button(root, text=f"Add Allowed Date: {date}", command=lambda x=date:add_allowed_date(x))
+    button_add.pack(fill='x')
+
+def remove_allowed_date(date):
+    dt_date = dt.date.fromisoformat(date)
+
+    if dt_date in cal['allowed_dates']:
+        print('remove allowed:', date)
+
+        cal['allowed_dates'].remove(dt_date)
+
+        # what if removed date is `mindate` or  `maxdate` ???
+        if cal['mindate'] < cal['allowed_dates'][0]:
+            cal['mindate'] = cal['allowed_dates'][0]
+
+        if  cal['maxdate'] > cal['allowed_dates'][-1]:
+            cal['maxdate'] = cal['allowed_dates'][-1]
+
+        # redraw it
+        cal._display_calendar() 
+
+for date in ('2024-06-06', '2024-06-26', '2024-07-10'):
+    button_remove = tk.Button(root, text=f"Remove Allowed Date: {date}", command=lambda x=date:remove_allowed_date(x))
+    button_remove.pack(fill='x')
 
 root.mainloop()
