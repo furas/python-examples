@@ -1,0 +1,80 @@
+# author: Bartlomiej "furas" Burek (https://blog.furas.pl)
+# date: 2021.02.07
+# https://stackoverflow.com/questions/66082627/trackingnumber-soup-findinput-name-tracknums-getvalue
+
+#how can i make it work with my script "final.py"?
+#the goal is to generate random reference 
+#use selenium to automate the whole request
+#the way it works now is only with 1 reference.
+#how to define and import the script so instead of putting 1 reference it will generate and retry
+#8 digit # starting with W in my example 
+#the random generated ref starts with W74 and W82 
+#if i change the first 2 numbers than its gonna change those first 2
+
+#Also can this be multi threaded so script sends multiple requests at the same time if so how can this be done?
+
+#Would this script be able to run in the background with out opening browser tabs (using chromedriver im assuming instead of gecko driver)and save each result to individual text files.
+
+
+https://gyazo.com/5ecf51489f71902d8477abeaf5c7168a
+
+
+from selenium import webdriver
+import time
+
+#driver = webdriver.Chrome()
+driver = webdriver.Firefox()
+
+# load page with form
+
+driver.get('https://wwwapps.ups.com/WebTracking/OnlineTool')
+
+# close cookies at start
+
+cookies_option = driver.find_element_by_xpath('/html/body/div[4]/div/button/span[1]')
+cookies_option.click()
+
+# change tab `Track by Reference`
+
+tab = driver.find_element_by_id('ui-id-3')
+tab.click()
+
+# fill form
+
+number = driver.find_element_by_name('ReferenceNumber')
+number.send_keys("w8273575")
+
+date_1 = driver.find_element_by_name('FromDatepicker')
+date_1.clear()
+date_1.send_keys("01.11.2020")  # Polish format
+#date_1.send_keys("11/01/2020")  # US format
+
+date_2 = driver.find_element_by_name('ToDatepicker')
+date_2.clear()
+date_2.send_keys("07.02.2021")  # Polish format
+#date_1.send_keys("02/07/2021")  # US format
+
+# press button 
+
+track_button = driver.find_element_by_name('trackref.x')
+track_button.click()
+
+# get results
+
+track_number = driver.find_element_by_id('trkNum').text
+print('track_number:', track_number)
+
+elements = driver.find_elements_by_xpath('//div[@class="secBody clearfix"]//p')
+for item in elements:
+    text = item.text
+    print('item:', text)
+
+address = driver.find_element_by_xpath('//address/p')
+print('address:', address.text)
+
+hidden = driver.find_elements_by_xpath('//form[@name="podForm1"]//input')
+for item in hidden:
+    name = item.get_attribute('name')
+    value = item.get_attribute('value')
+    print('hidden:', name, '=', value)
+
